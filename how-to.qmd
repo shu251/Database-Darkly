@@ -1,0 +1,91 @@
+---
+title: "How to use"
+format: html
+editor: visual
+---
+
+Database Darkly provides insight into a deep-sea survey of microbial eukaryote sequences. Because these sequences belong to protistan species that we do not necessarily have microscopic images of or representatives in culture... we worked to compile what we know about each reference here.
+
+As a community, we hope that this information can be used to link across other studies so we can expand what we know about these environmental strains.
+
+# Compare with your data
+
+## ASV table
+
+[Data are all available on Zenodo](https://zenodo.org/records/59596940) and code to reproduce microeuk deep-sea survey are [available on Github](https://github.com/shu251/microeuk-amplicon-survey).
+
+### Download qiime2 data from microeuk survey
+
+First, download `qiime2-output-files_Hu-et-al.tar` from Zenodo link, extract files.
+
+```         
+mkdir qiime2-output
+mv qiime2-output-files_Hu-et-al.tar qiime2-output
+cd qiime2-output 
+tar -xf qiime2-output-files_Hu-et-al.tar
+```
+
+Since DADA2 determination of ASVs is most appropriate by sequence library run, there are three separate ASV datasets. These were merged to create the `microeuk-merged` data.
+
+### Extract fasta files for reference database
+
+You do not need QIIME2 installed to obtain the reference sequences. This can be extracted like a normal zip file. Move the reference sequences to the qiime2 output directory.
+
+```         
+unzip microeuk-merged-ref-seqs.qza
+mv a7d9b643-92c2-4be8-ac4b-c62b142474e4/data/dna-sequences.fasta microeuks-ref-seqs.fasta
+```
+
+Next steps involve merging the above sequence files with the count files from the original DADA2 count output.
+
+```{r}
+
+```
+
+### Use R to merge with taxonomic IDs
+
+Load libraries
+
+```{r}
+library(tidyverse)
+```
+
+Import ASV table
+
+```{r}
+asv_table <- read_delim("input-data/microeuk-merged-asv-table.tsv", skip = 1)
+# head(asv_table)
+```
+
+Import taxonomy information
+
+```{r}
+tax_table <- read_delim("input-data/taxonomy.tsv")
+glimpse(tax_table)
+```
+
+Import metadata
+
+```{r}
+metadata <- read_delim("input-data/samplelist-metadata.csv")
+head(metadata)
+unique(metadata$SITE) # Remove "substrate", "control", and "Laboratory" samples
+unique(metadata$Sample_or_Control) # Remove "Control" samples
+unique(metadata$SAMPLETYPE) # only have Background, Plume, or vent samples
+```
+
+Combine the above three table types. This is our base reference database.
+
+# Review the taxonomic assignments
+
+```{r}
+taxonomic_lineages <- tax_table %>% 
+  select(-Consensus, -`Feature ID`) %>% 
+  separate(Taxon, into = c("Domain", "Division", "Phylum", "Class", "Order", "Family", "Genus", "Species"), sep = ";", remove = FALSE) %>% 
+  filter(Domain == "Eukaryota") %>%
+  distinct()
+```
+
+```{r}
+# save(taxonomic_lineages, file = "input-data/taxonomic-lineages.RData")
+```

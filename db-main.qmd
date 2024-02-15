@@ -1,0 +1,148 @@
+---
+title: "Database curation page"
+format: html
+editor: visual
+---
+
+# Major taxonomic groups
+
+*Visual summaries of what groups are present*
+
+## Taxonomic levels in database
+
+*Visual summaries of taxonomic groups*
+
+## Compare with PR2
+
+*Explore alongside PR2 database* See R package for this
+
+Set up your R environment.
+
+```{r}
+# install.packages("devtools")
+# devtools::install_github("pr2database/pr2database")
+library(pr2database)
+library(tidyverse)
+```
+
+### Searching the PR2 database
+
+Take a look at the whole pr2 database. Import and set as `pr2`.
+
+```{r}
+pr2 <- pr2_database()
+glimpse(pr2)
+# View(pr2)
+```
+
+Use `View()` to search the database, or `filter()`.
+
+```{r}
+pr2 %>% 
+  filter(family == "Pseudocolliniidae")
+```
+
+Isolate metadata that we want about the taxonomic group and alternate taxonomic names.
+
+```{r}
+load(file = "input-data/taxonomic-lineages.RData")
+colnames(taxonomic_lineages)
+```
+
+```{r}
+pr2_metadata <- pr2 %>% 
+  select(Domain = domain, Supergroup = supergroup, Division = division, Phylum = subdivision, Class = class, Order = order, Family = family, Genus = genus, Species = species, gb_taxonomy, metadata_remark, eukribo_UniEuk_taxonomy_string, silva_taxonomy, species_url)
+```
+
+```{r}
+taxonomic_lineages_pr2 <- taxonomic_lineages %>% 
+  left_join(pr2_metadata)
+```
+
+```{r}
+glimpse(taxonomic_lineages_pr2)
+dim(taxonomic_lineages)
+```
+
+```{r}
+# write.csv(taxonomic_lineages_pr2, file = "taxonomic-assignments-p2.csv")
+```
+
+# Compare with Functional Trait Database
+
+Import the data
+
+```{r}
+fxn_trait <- read.delim("input-data/functional-traits-ramond.csv", sep = ";")
+glimpse(fxn_trait)
+```
+
+```{r}
+colnames(fxn_trait)
+fxn_trait %>% 
+  filter(grepl("Pseudocolliniidae", Lineage))
+```
+
+The above returns no findings, so the species does not exist in this database or is under a different name.
+
+We can try again with `View()`
+
+```{r}
+# View(fxn_trait)
+```
+
+Using a partial text match, I see that `Eukaryota|Harosa|Alveolata|Ciliophora|Intramacronucleata|Oligohymenophorea|Apostomatida|Colliniidae|Pseudocollinia` is an entry. But now we need to cross check with other rows in our database and see if `Colliniidae` was a different name at some point. In fact it was!
+
+```{r}
+fxn_trait %>% 
+  filter(grepl("Colliniidae", Lineage))
+```
+
+Now we can take the above information and full in the other descriptive features.
+
+# Compare with PIDA database
+
+Datbase explores microbe-microbe interactions.
+
+Bjorbækmo MFM, Evenstad A, Røsæg LL, Krabberød AK, Logares R. The planktonic protist interactome: where do we stand after a century of research? ISME J 2020; 14: 544--559.
+
+Reference: https://github.com/ramalok/PIDA/actions
+
+Import PIDA database.
+
+```{r}
+pida <- read.csv("input-data/PIDA_v_1.11_FORMATTED.csv")
+head(pida)
+# View(pida)
+```
+
+In the PIDA database, org 1 corresponds to the host, and org 2 corresponds to the symbiont. See the github page readme for a [complete description of the database here](https://github.com/ramalok/PIDA?tab=readme-ov-file#columns-).
+
+The below query doesn't reveal anything.
+
+```{r}
+pida %>% 
+  filter(grepl("Pseudocolli", Taxonomic.level.3..org2)) #this doesn't reveal anything.
+
+pida %>% 
+  filter(grepl("Pseudocolli", Taxonomic.level.2..org2))
+```
+
+The below query doesn't reveal anything, again.
+
+```{r}
+pida %>% 
+  filter(grepl("Pseudocolli", Genus.org2)) #this doesn't reveal anything.
+```
+
+When searching the database by text, only a close text match to `Pseudocohnilembus` in PIDA came up. This is a different organism. So we can determine that this is not related to the species in our database.
+
+# Phylogenetic relatedness by 18S rRNA gene
+
+## Open tree of life
+
+Explore the [Open tree of life](https://tree.opentreeoflife.org/opentree/argus/opentree14.9@ott93302) website. As specific branches we want to explore will be covered on this website and we plan to submit projects as well. Therefore, we need to be aware of the requirements for submission.
+
+Detailed information on how to submit can be found [here](https://github.com/OpenTreeOfLife/opentree/wiki/Submitting-phylogenies-to-Open-Tree-of-Life). You'll need a GitHub account to access.
+
+We need to figure out how to explore the Open Tree of Life R package. https://cran.r-project.org/web/packages/rotl/index.html

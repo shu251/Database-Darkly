@@ -1,0 +1,43 @@
+---
+title: "Database Darkly"
+format: html
+editor: visual
+---
+
+::: {style="float:right"}
+```{r, echo=FALSE, out.width= "250px", out.extra='style="float:left; padding:30px"'}
+knitr::include_graphics("visuals/logo.jpg")
+```
+:::
+
+# Microeukaryote deep-sea database curation project
+
+Curate and annotate what we know about deep-sea marine microbial eukaryotes. Much of what we know about deep-sea microorganisms comes from the biogeography and inferred ecology of environmental species or strains. This database originates from deep-sea marine habitats, specifically hydrothermal vents. Species and strains capture are assumed to be present in these environments; however what we know about their ecological roles remains understudied. This database project involves extensive literature searches, comparative analyses, and inventories of these species, so we can get closer to having a more complete understanding of the roles protists play in the deep ocean.
+
+There are three primary goals of this project: (1) Complement our comprehensive sequence database of deep-sea microbial eukaryotic diversity with metadata on taxonomic nomenclature (Costello et al. 2013; Horton et al. 2017), tree of life placement (e.g., iTOL and Open Tree of Life Letunic and Bork 2021; Michonneau et al. 2016; OpenTreeOfLife et al. 2019), a functional trait database (e.g., cell morphology, motility, ploidy, etc.; Ramond et al. 2019), and accounts of planktonic protist interactions (Bjorbækmo et al. 2020), (2) to highlight the number of taxonomic lineages that are severely lacking representation in the sequence reference database (Guillou et al. 2012), and (3) to look for patterns in the assignment of the phylogenetically elusive protists that may be related to fluid geochemistry or biogeography.
+
+### Origin of data
+
+An expansive 18S rRNA gene tag-sequencing survey of protists across four deep-sea hydrothermal vent fields (Piccard, Von Damm, Axial Seamount, and Gorda Ridge) demonstrated that the interface of deep seawater mixing with diffuse vent fluid contained a highly diverse and species rich protistan assemblage compared to deep background seawater.
+
+[Find the paper here](https://onlinelibrary.wiley.com/doi/full/10.1111/mec.16745)
+
+### 18S rRNA gene (V4 region)
+
+*Explanation of amplicon sequencing*
+
+1.  Molecular ecology paper ASV tables
+2.  Get reference sequences from ASV determination, collect this information. Once this table is completed, upload to Zenodo. Decide on what a "complete" package for this is. (a) fasta sequences, (b) taxonomic IDs, (c) ASV document that can be joined with future iterations of 18S, (d) QIIME2 file
+3.  Organize by families or classes. 4 *Pick how to triage these families or classes*
+4.  For the taxonomic assignment from PR2, what other information does PR2 give?
+5.  Literature search, what else do we know about the ASV?
+
+## Contributors
+
+-   Sarah Hu (PI, TAMU)
+-   Abby Day (Undergrad, TAMU)
+-   Madeleine Lerma (Undergrad, TAMU)
+-   Meagan Sonsel (Undergrad, TAMU)
+-   Siddarth Seshampally (Undergrad, TAMU)
+-   Alexis Adams (PhD student, TAMU)
+-   Kayla Nedd (PhD student, TAMU)

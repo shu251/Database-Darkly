@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Database Darkly - Database curation page</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="solar.scss">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Database Darkly</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Main</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./how-to.html" rel="" target="">
+ <span class="menu-text">How to use</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./db-main.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Database curation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./db-taxa.html" rel="" target="">
+ <span class="menu-text">Summary of database</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#major-taxonomic-groups" id="toc-major-taxonomic-groups" class="nav-link active" data-scroll-target="#major-taxonomic-groups"><span class="header-section-number">1</span> Major taxonomic groups</a>
+  <ul class="collapse">
+  <li><a href="#taxonomic-levels-in-database" id="toc-taxonomic-levels-in-database" class="nav-link" data-scroll-target="#taxonomic-levels-in-database"><span class="header-section-number">1.1</span> Taxonomic levels in database</a></li>
+  <li><a href="#compare-with-pr2" id="toc-compare-with-pr2" class="nav-link" data-scroll-target="#compare-with-pr2"><span class="header-section-number">1.2</span> Compare with PR2</a>
+  <ul class="collapse">
+  <li><a href="#searching-the-pr2-database" id="toc-searching-the-pr2-database" class="nav-link" data-scroll-target="#searching-the-pr2-database"><span class="header-section-number">1.2.1</span> Searching the PR2 database</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#compare-with-functional-trait-database" id="toc-compare-with-functional-trait-database" class="nav-link" data-scroll-target="#compare-with-functional-trait-database"><span class="header-section-number">2</span> Compare with Functional Trait Database</a></li>
+  <li><a href="#compare-with-pida-database" id="toc-compare-with-pida-database" class="nav-link" data-scroll-target="#compare-with-pida-database"><span class="header-section-number">3</span> Compare with PIDA database</a></li>
+  <li><a href="#phylogenetic-relatedness-by-18s-rrna-gene" id="toc-phylogenetic-relatedness-by-18s-rrna-gene" class="nav-link" data-scroll-target="#phylogenetic-relatedness-by-18s-rrna-gene"><span class="header-section-number">4</span> Phylogenetic relatedness by 18S rRNA gene</a>
+  <ul class="collapse">
+  <li><a href="#open-tree-of-life" id="toc-open-tree-of-life" class="nav-link" data-scroll-target="#open-tree-of-life"><span class="header-section-number">4.1</span> Open tree of life</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Database curation page</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="major-taxonomic-groups" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Major taxonomic groups</h1>
+<p><em>Visual summaries of what groups are present</em></p>
+<section id="taxonomic-levels-in-database" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="taxonomic-levels-in-database"><span class="header-section-number">1.1</span> Taxonomic levels in database</h2>
+<p><em>Visual summaries of taxonomic groups</em></p>
+</section>
+<section id="compare-with-pr2" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="compare-with-pr2"><span class="header-section-number">1.2</span> Compare with PR2</h2>
+<p><em>Explore alongside PR2 database</em> See R package for this</p>
+<p>Set up your R environment.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("devtools")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github("pr2database/pr2database")</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pr2database)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<section id="searching-the-pr2-database" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="searching-the-pr2-database"><span class="header-section-number">1.2.1</span> Searching the PR2 database</h3>
+<p>Take a look at the whole pr2 database. Import and set as <code>pr2</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pr2 <span class="ot">&lt;-</span> <span class="fu">pr2_database</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(pr2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 221,085
+Columns: 95
+$ pr2_accession                  &lt;chr&gt; "AB353770.1.1740_U", "AB284159.1.1765_U…
+$ domain                         &lt;chr&gt; "Eukaryota", "Eukaryota", "Eukaryota", …
+$ supergroup                     &lt;chr&gt; "TSAR", "TSAR", "Obazoa", "Obazoa", "Ob…
+$ division                       &lt;chr&gt; "Alveolata", "Alveolata", "Opisthokonta…
+$ subdivision                    &lt;chr&gt; "Dinoflagellata", "Dinoflagellata", "Fu…
+$ class                          &lt;chr&gt; "Dinophyceae", "Dinophyceae", "Ascomyco…
+$ order                          &lt;chr&gt; "Peridiniales", "Peridiniales", "Pezizo…
+$ family                         &lt;chr&gt; "Kryptoperidiniaceae", "Protoperidiniac…
+$ genus                          &lt;chr&gt; "Unruhdinium", "Protoperidinium", "Sord…
+$ species                        &lt;chr&gt; "Unruhdinium_kevei", "Protoperidinium_b…
+$ genbank_accession              &lt;chr&gt; "AB353770", "AB284159", "AY123745", "FJ…
+$ start                          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
+$ end                            &lt;dbl&gt; 1740, 1765, 924, 1907, 853, 1731, 1627,…
+$ label                          &lt;chr&gt; "U", "U", "UC", "U", "U", "U", "U", "U"…
+$ gene                           &lt;chr&gt; "18S_rRNA", "18S_rRNA", "18S_rRNA", "18…
+$ organelle                      &lt;chr&gt; "nucleus", "nucleus", "nucleus", "nucle…
+$ reference_sequence             &lt;int&gt; 1, 1, NA, NA, NA, NA, NA, NA, NA, 1, NA…
+$ added_version                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ edited_version                 &lt;chr&gt; "4.9.0", "4.10.0", NA, NA, NA, NA, NA, …
+$ edited_by                      &lt;chr&gt; "Mordret S.", "Vaulot D.", NA, NA, NA, …
+$ edited_remark                  &lt;chr&gt; NA, "length of sequence fixed (before t…
+$ remark                         &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, "re…
+$ taxo_id                        &lt;int&gt; 49091, 2087, 13926, 12048, 13926, 41939…
+$ taxo_edited_version            &lt;chr&gt; "4.9.0", "4.9.0", "4.5", NA, "4.5", NA,…
+$ taxo_edited_by                 &lt;chr&gt; "Mordret S.", "Mordret S.", NA, NA, NA,…
+$ taxo_remark                    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ reference                      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ mixoplankton                   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ worms_id                       &lt;int&gt; 1380090, NA, NA, NA, NA, NA, NA, NA, NA…
+$ worms_marine                   &lt;chr&gt; "0", NA, NA, NA, NA, NA, NA, NA, NA, "0…
+$ worms_brackish                 &lt;int&gt; 0, NA, NA, NA, NA, NA, NA, NA, NA, 0, N…
+$ worms_freshwater               &lt;int&gt; 1, NA, NA, NA, NA, NA, NA, NA, NA, 1, N…
+$ worms_terrestrial              &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ seq_id                         &lt;int&gt; 5, 8, 10, 11, 14, 15, 16, 17, 18, 19, 2…
+$ sequence                       &lt;chr&gt; "ATGCTTGTCTCAAAGATTAAGCCATGCATGTCTCAGTA…
+$ sequence_length                &lt;int&gt; 1740, 1765, 924, 1907, 853, 1731, 1627,…
+$ ambiguities                    &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ sequence_hash                  &lt;chr&gt; "26c3890d597f9d39e45e91eaa4f01ba6c603b6…
+$ gb_date                        &lt;chr&gt; "04-SEP-2007", "22-MAY-2007", "07-AUG-2…
+$ gb_division                    &lt;chr&gt; "PLN", "PLN", "ENV", "PLN", "ENV", "ENV…
+$ gb_definition                  &lt;chr&gt; "Peridiniopsis cf. kevei gene for 18S r…
+$ gb_organism                    &lt;chr&gt; "Peridiniopsis cf. kevei", NA, "uncultu…
+$ gb_organelle                   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ gb_taxonomy                    &lt;chr&gt; "Eukaryota; Sar; Alveolata; Dinophyceae…
+$ gb_strain                      &lt;chr&gt; NA, NA, NA, "CBS 120353", NA, NA, NA, N…
+$ gb_culture_collection          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ gb_clone                       &lt;chr&gt; NA, NA, NA, NA, "G913P33FB4.T0", "SType…
+$ gb_isolate                     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, "145Br"…
+$ gb_isolation_source            &lt;chr&gt; NA, "seawater sample", "soil", NA, "air…
+$ gb_specimen_voucher            &lt;chr&gt; NA, NA, NA, NA, NA, NA, "Ed Biffin 9102…
+$ gb_host                        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, "yellow cat…
+$ gb_collection_date             &lt;chr&gt; "26-juil.-03", NA, NA, NA, "17-May-2006…
+$ gb_environmental_sample        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ gb_country                     &lt;chr&gt; "Japan: Toyama, Tomi-iwa Canal Park", "…
+$ gb_lat_lon                     &lt;chr&gt; NA, NA, NA, NA, "40.01 N 105.27 W", NA,…
+$ gb_collected_by                &lt;chr&gt; NA, NA, NA, NA, "Noah Fierer", NA, NA, …
+$ gb_note                        &lt;chr&gt; NA, "acquired from 2 individual cells c…
+$ gb_publication                 &lt;chr&gt; "Serial replacement of diatom endosymbi…
+$ gb_authors                     &lt;chr&gt; "Takano,Y.", "Yamaguchi,A., Kawamura,H.…
+$ gb_journal                     &lt;chr&gt; "Unpublished", "Unpublished", "Phytopat…
+$ eukref_name                    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, "YCRPS2", N…
+$ eukref_source                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, "Environmen…
+$ eukref_env_material            &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, "ruminal fl…
+$ eukref_env_biome               &lt;chr&gt; "freshwater biome", "marine pelagic bio…
+$ eukref_biotic_relationship     &lt;chr&gt; "host of diatom symbiont", NA, NA, NA, …
+$ eukref_specific_host           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, "yellow cat…
+$ eukref_geo_loc_name            &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ eukref_notes                   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ pr2_sample_type                &lt;chr&gt; NA, NA, "environmental", "culture", "en…
+$ pr2_sample_method              &lt;chr&gt; "single cell isolation", "single cell i…
+$ pr2_latitude                   &lt;dbl&gt; NA, NA, NA, NA, 40.010, NA, NA, NA, NA,…
+$ pr2_longitude                  &lt;dbl&gt; NA, NA, NA, NA, -105.270, NA, NA, NA, N…
+$ pr2_depth                      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ pr2_ocean                      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ pr2_sea                        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ pr2_sea_lat                    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ pr2_sea_lon                    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ pr2_country                    &lt;chr&gt; "Japan", "Japan", NA, NA, "United State…
+$ pr2_location                   &lt;chr&gt; "Toyama, Tomi-iwa Canal Park", "Hokkaid…
+$ pr2_location_geoname           &lt;chr&gt; NA, NA, NA, NA, "Boulder", "Glasgow", N…
+$ pr2_location_geotype           &lt;chr&gt; NA, NA, NA, NA, "seat of a second-order…
+$ pr2_location_lat               &lt;dbl&gt; NA, NA, NA, NA, 40, 56, NA, NA, NA, NA,…
+$ pr2_location_lon               &lt;dbl&gt; NA, NA, NA, NA, -105, -4, NA, NA, NA, N…
+$ pr2_sequence_origin            &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ metadata_remark                &lt;chr&gt; "Metadata from DinoRef (Mordret S.)", "…
+$ pr2_continent                  &lt;chr&gt; "Asia", "Asia", NA, NA, NA, NA, NA, NA,…
+$ pr2_country_geocode            &lt;chr&gt; "JP", "JP", NA, NA, NA, NA, NA, NA, "PT…
+$ pr2_country_lat                &lt;dbl&gt; 36, 36, NA, NA, NA, NA, NA, NA, 40, NA,…
+$ pr2_country_lon                &lt;dbl&gt; 140, 140, NA, NA, NA, NA, NA, NA, -8, N…
+$ eukribo_UniEuk_taxonomy_string &lt;chr&gt; "Eukaryota|Diaphoretickes|Sar|Alveolata…
+$ eukribo_V4                     &lt;chr&gt; "yes - complete", "yes - complete", NA,…
+$ eukribo_V9                     &lt;chr&gt; "yes - partial", "yes - complete", NA, …
+$ silva_taxonomy                 &lt;chr&gt; "Eukaryota;SAR;Alveolata;Dinoflagellata…
+$ organelle_code                 &lt;chr&gt; "", "", "", "", "", "", "", "", "", "",…
+$ species_url                    &lt;glue&gt; "&lt;a href='https://www.marinespecies.or…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View(pr2)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Use <code>View()</code> to search the database, or <code>filter()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pr2 <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(family <span class="sc">==</span> <span class="st">"Pseudocolliniidae"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 25 × 95
+   pr2_accession domain supergroup division subdivision class order family genus
+   &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;
+ 1 HQ591486.1.1… Eukar… TSAR       Alveola… Ciliophora  Olig… Apos… Pseud… Pseu…
+ 2 HQ591477.1.1… Eukar… TSAR       Alveola… Ciliophora  Olig… Apos… Pseud… Pseu…
+ 3 HQ591480.1.1… Eukar… TSAR       Alveola… Ciliophora  Olig… Apos… Pseud… Pseu…
+ 4 HM561004.1.9… Eukar… TSAR       Alveola… Ciliophora  Olig… Apos… Pseud… Pseu…
+ 5 HQ591482.1.1… Eukar… TSAR       Alveola… Ciliophora  Olig… Apos… Pseud… Pseu…
+ 6 HQ591473.1.1… Eukar… TSAR       Alveola… Ciliophora  Olig… Apos… Pseud… Pseu…
+ 7 HQ591485.1.1… Eukar… TSAR       Alveola… Ciliophora  Olig… Apos… Pseud… Pseu…
+ 8 HQ591474.1.1… Eukar… TSAR       Alveola… Ciliophora  Olig… Apos… Pseud… Pseu…
+ 9 HQ591479.1.1… Eukar… TSAR       Alveola… Ciliophora  Olig… Apos… Pseud… Pseu…
+10 HQ591472.1.1… Eukar… TSAR       Alveola… Ciliophora  Olig… Apos… Pseud… Pseu…
+# ℹ 15 more rows
+# ℹ 86 more variables: species &lt;chr&gt;, genbank_accession &lt;chr&gt;, start &lt;dbl&gt;,
+#   end &lt;dbl&gt;, label &lt;chr&gt;, gene &lt;chr&gt;, organelle &lt;chr&gt;,
+#   reference_sequence &lt;int&gt;, added_version &lt;chr&gt;, edited_version &lt;chr&gt;,
+#   edited_by &lt;chr&gt;, edited_remark &lt;chr&gt;, remark &lt;chr&gt;, taxo_id &lt;int&gt;,
+#   taxo_edited_version &lt;chr&gt;, taxo_edited_by &lt;chr&gt;, taxo_remark &lt;chr&gt;,
+#   reference &lt;chr&gt;, mixoplankton &lt;chr&gt;, worms_id &lt;int&gt;, worms_marine &lt;chr&gt;, …</code></pre>
+</div>
+</div>
+<p>Isolate metadata that we want about the taxonomic group and alternate taxonomic names.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"input-data/taxonomic-lineages.RData"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(taxonomic_lineages)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Taxon"    "Domain"   "Division" "Phylum"   "Class"    "Order"    "Family"  
+[8] "Genus"    "Species" </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pr2_metadata <span class="ot">&lt;-</span> pr2 <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">Domain =</span> domain, <span class="at">Supergroup =</span> supergroup, <span class="at">Division =</span> division, <span class="at">Phylum =</span> subdivision, <span class="at">Class =</span> class, <span class="at">Order =</span> order, <span class="at">Family =</span> family, <span class="at">Genus =</span> genus, <span class="at">Species =</span> species, gb_taxonomy, metadata_remark, eukribo_UniEuk_taxonomy_string, silva_taxonomy, species_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>taxonomic_lineages_pr2 <span class="ot">&lt;-</span> taxonomic_lineages <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(pr2_metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(Domain, Division, Phylum, Class, Order, Family,
+Genus, Species)`</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(taxonomic_lineages_pr2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 40,013
+Columns: 15
+$ Taxon                          &lt;chr&gt; "Eukaryota;Alveolata;Ciliophora;Nassoph…
+$ Domain                         &lt;chr&gt; "Eukaryota", "Eukaryota", "Eukaryota", …
+$ Division                       &lt;chr&gt; "Alveolata", "Stramenopiles", "Strameno…
+$ Phylum                         &lt;chr&gt; "Ciliophora", "Ochrophyta", "Sagenista"…
+$ Class                          &lt;chr&gt; "Nassophorea", "Pelagophyceae", NA, "Cn…
+$ Order                          &lt;chr&gt; "Nassophorea_X", "Pelagomonadales", NA,…
+$ Family                         &lt;chr&gt; "Discotrichidae", "Pelagomonadaceae", N…
+$ Genus                          &lt;chr&gt; "NASSO_1", "Pelagomonas", NA, NA, "Stro…
+$ Species                        &lt;chr&gt; "NASSO_1_sp.", "Pelagomonas_calceolata"…
+$ Supergroup                     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, "TSAR", "TS…
+$ gb_taxonomy                    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, "Eukaryota;…
+$ metadata_remark                &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ eukribo_UniEuk_taxonomy_string &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ silva_taxonomy                 &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, "Eukaryota;…
+$ species_url                    &lt;glue&gt; NA, NA, NA, NA, NA, NA, NA, "Dino-Grou…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(taxonomic_lineages)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1094    9</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># write.csv(taxonomic_lineages_pr2, file = "taxonomic-assignments-p2.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="compare-with-functional-trait-database" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Compare with Functional Trait Database</h1>
+<p>Import the data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fxn_trait <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"input-data/functional-traits-ramond.csv"</span>, <span class="at">sep =</span> <span class="st">";"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(fxn_trait)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 2,007
+Columns: 37
+$ Lineage                 &lt;chr&gt; "Eukaryota", "Eukaryota|Amoebozoa|Amoebozoa_U1…
+$ Fam                     &lt;chr&gt; "Undetermined_Eukaryota", "Amoebozoa", "Amoebo…
+$ Taxogroup               &lt;chr&gt; "Undetermined_Eukaryota", "Amoebozoa", "Amoebo…
+$ Taxo1                   &lt;chr&gt; "Undetermined_Eukaryota", "Amoebozoa", "Amoebo…
+$ Last                    &lt;chr&gt; "Eukaryota", "PRSlineage", "Protostelium", "Fl…
+$ SizeMin                 &lt;dbl&gt; NA, NA, 20.0, 17.0, 17.0, 70.0, 11.0, 13.5, NA…
+$ SizeMax                 &lt;dbl&gt; NA, NA, 100, 80, 80, 185, 192, 50, NA, NA, 40,…
+$ Cover                   &lt;chr&gt; NA, "Naked", "Naked", "Naked", "Naked", "Organ…
+$ Shape                   &lt;chr&gt; NA, "Amoeboid", "Amoeboid", "Amoeboid", "Amoeb…
+$ Spicule                 &lt;int&gt; NA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ Symmetry                &lt;chr&gt; NA, "Asymetrical", "Asymetrical", "Asymetrical…
+$ Polarity                &lt;chr&gt; NA, "Heteropolar", "Heteropolar", "Heteropolar…
+$ Colony                  &lt;chr&gt; NA, "None", "None", "None", "None", "None", "N…
+$ Motility                &lt;chr&gt; NA, "Gliding", "Gliding", "Gliding", "Gliding"…
+$ Chloroplast             &lt;int&gt; NA, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ Plast_Origin            &lt;chr&gt; NA, "None", "None", "None", "None", "None", "N…
+$ Ingestion               &lt;chr&gt; NA, "Phagotrophic", "Saprotrophic", "Phagotrop…
+$ Behaviour               &lt;chr&gt; NA, "Active_Ambush_Feeder", "Passive_Ambush_Fe…
+$ Mutualistic_Host        &lt;chr&gt; NA, "No", "No", "Other_Mutualist", "Other_Mutu…
+$ Symbiontic              &lt;chr&gt; NA, NA, "No", "No", "No", "No", "No", "No", NA…
+$ Symbiont_Location       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Host_Specialisation     &lt;chr&gt; NA, NA, NA, "Bacteria", "Bacteria", NA, NA, NA…
+$ Symbiont_Specialisation &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Prey_Specialisation     &lt;chr&gt; NA, "0", "deadmatter__bacteria__yeasts__and_fu…
+$ Mucilage                &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Chemical_Signal         &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Nutrient_Afinity        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Oxygen_Tolerance        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Salinity                &lt;chr&gt; NA, NA, "Soil", "Aquatic", "Aquatic", "Aquatic…
+$ Temperature             &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Depth                   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Toxygenity              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Benthic_Phase           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Longevity               &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Cyst_Spore              &lt;int&gt; NA, 1, 1, 1, 1, 1, 1, 1, NA, NA, 1, 1, 1, 1, 1…
+$ Ploidy                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ Genome_Size             &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(fxn_trait)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Lineage"                 "Fam"                    
+ [3] "Taxogroup"               "Taxo1"                  
+ [5] "Last"                    "SizeMin"                
+ [7] "SizeMax"                 "Cover"                  
+ [9] "Shape"                   "Spicule"                
+[11] "Symmetry"                "Polarity"               
+[13] "Colony"                  "Motility"               
+[15] "Chloroplast"             "Plast_Origin"           
+[17] "Ingestion"               "Behaviour"              
+[19] "Mutualistic_Host"        "Symbiontic"             
+[21] "Symbiont_Location"       "Host_Specialisation"    
+[23] "Symbiont_Specialisation" "Prey_Specialisation"    
+[25] "Mucilage"                "Chemical_Signal"        
+[27] "Nutrient_Afinity"        "Oxygen_Tolerance"       
+[29] "Salinity"                "Temperature"            
+[31] "Depth"                   "Toxygenity"             
+[33] "Benthic_Phase"           "Longevity"              
+[35] "Cyst_Spore"              "Ploidy"                 
+[37] "Genome_Size"            </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fxn_trait <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"Pseudocolliniidae"</span>, Lineage))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] Lineage                 Fam                     Taxogroup              
+ [4] Taxo1                   Last                    SizeMin                
+ [7] SizeMax                 Cover                   Shape                  
+[10] Spicule                 Symmetry                Polarity               
+[13] Colony                  Motility                Chloroplast            
+[16] Plast_Origin            Ingestion               Behaviour              
+[19] Mutualistic_Host        Symbiontic              Symbiont_Location      
+[22] Host_Specialisation     Symbiont_Specialisation Prey_Specialisation    
+[25] Mucilage                Chemical_Signal         Nutrient_Afinity       
+[28] Oxygen_Tolerance        Salinity                Temperature            
+[31] Depth                   Toxygenity              Benthic_Phase          
+[34] Longevity               Cyst_Spore              Ploidy                 
+[37] Genome_Size            
+&lt;0 rows&gt; (or 0-length row.names)</code></pre>
+</div>
+</div>
+<p>The above returns no findings, so the species does not exist in this database or is under a different name.</p>
+<p>We can try again with <code>View()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View(fxn_trait)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using a partial text match, I see that <code>Eukaryota|Harosa|Alveolata|Ciliophora|Intramacronucleata|Oligohymenophorea|Apostomatida|Colliniidae|Pseudocollinia</code> is an entry. But now we need to cross check with other rows in our database and see if <code>Colliniidae</code> was a different name at some point. In fact it was!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fxn_trait <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"Colliniidae"</span>, Lineage))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                             Lineage
+1                Eukaryota|Harosa|Alveolata|Ciliophora|Intramacronucleata|Oligohymenophorea|Apostomatida|Colliniidae
+2 Eukaryota|Harosa|Alveolata|Ciliophora|Intramacronucleata|Oligohymenophorea|Apostomatida|Colliniidae|Pseudocollinia
+         Fam  Taxogroup        Taxo1           Last SizeMin SizeMax Cover
+1 Alveolates Ciliophora Apostomatida    Colliniidae      10     100 Naked
+2 Alveolates Ciliophora Apostomatida Pseudocollinia      21      39 Naked
+      Shape Spicule    Symmetry    Polarity Colony Motility Chloroplast
+1 Elongated       0 Asymetrical Heteropolar   None Attached           0
+2 Elongated       0 Asymetrical Heteropolar   None Attached           0
+  Plast_Origin   Ingestion             Behaviour Mutualistic_Host Symbiontic
+1         None Myzocytotic Passive_Ambush_Feeder             &lt;NA&gt;   Parasite
+2         None Myzocytotic Passive_Ambush_Feeder             &lt;NA&gt;   Parasite
+  Symbiont_Location Host_Specialisation Symbiont_Specialisation
+1              &lt;NA&gt;                &lt;NA&gt;                    &lt;NA&gt;
+2              &lt;NA&gt;                &lt;NA&gt;                   Krill
+  Prey_Specialisation Mucilage Chemical_Signal Nutrient_Afinity
+1                &lt;NA&gt;     &lt;NA&gt;            &lt;NA&gt;             &lt;NA&gt;
+2                &lt;NA&gt;     &lt;NA&gt;            &lt;NA&gt;             &lt;NA&gt;
+  Oxygen_Tolerance Salinity Temperature Depth Toxygenity Benthic_Phase
+1             &lt;NA&gt;     &lt;NA&gt;        &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;          &lt;NA&gt;
+2             &lt;NA&gt;     &lt;NA&gt;        &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;          &lt;NA&gt;
+  Longevity Cyst_Spore Ploidy Genome_Size
+1        NA          1   &lt;NA&gt;          NA
+2        NA          1   &lt;NA&gt;          NA</code></pre>
+</div>
+</div>
+<p>Now we can take the above information and full in the other descriptive features.</p>
+</section>
+<section id="compare-with-pida-database" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Compare with PIDA database</h1>
+<p>Datbase explores microbe-microbe interactions.</p>
+<p>Bjorbækmo MFM, Evenstad A, Røsæg LL, Krabberød AK, Logares R. The planktonic protist interactome: where do we stand after a century of research? ISME J 2020; 14: 544–559.</p>
+<p>Reference: https://github.com/ramalok/PIDA/actions</p>
+<p>Import PIDA database.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>pida <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"input-data/PIDA_v_1.11_FORMATTED.csv"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pida)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Observation.type Taxonomic.interaction Interaction Accession.org1
+1                1            Prot - Bac        symb           &lt;NA&gt;
+2                3            Prot - Bac        symb           &lt;NA&gt;
+3                3            Prot - Bac        symb         Y19166
+4                3            Prot - Bac        symb       KT023596
+5                1            Prot - Arc        symb           &lt;NA&gt;
+6                1            Prot - Arc        symb           &lt;NA&gt;
+  Taxonomic.level.1..org1 Taxonomic.level.2..org1 Taxonomic.level.3..org1
+1               Eukaryote               Alveolata          Dinoflagellata
+2               Eukaryote               Alveolata              Ciliophora
+3               Eukaryote               Alveolata              Ciliophora
+4               Eukaryote                  Obazoa               Breviatea
+5               Eukaryote               Alveolata              Ciliophora
+6               Eukaryote               Alveolata              Ciliophora
+   Genus.org1 Species.org1 Accession.org2 Taxonomic.level.1..org2
+1  Histioneis      milneri           &lt;NA&gt;              Prokaryote
+2 Euplotidium         itoi           &lt;NA&gt;              Prokaryote
+3 Euplotidium    arenarium         Y19169              Prokaryote
+4     Lenisia       limosa           &lt;NA&gt;              Prokaryote
+5  Plagiopyla       nasuta           &lt;NA&gt;              Prokaryote
+6     Metopus     striatus           &lt;NA&gt;              Prokaryote
+  Taxonomic.level.2..org2 Taxonomic.level.3..org2              Genus.org2
+1           Cyanobacteria            Cyanophyceae      unknown_cyanophyte
+2         Verrucomicrobia unknown_verrucomicrobia unknown_verrucomicrobia
+3         Verrucomicrobia unknown_verrucomicrobia unknown_verrucomicrobia
+4          Proteobacteria   Epsilonproteobacteria             Arcrobacter
+5                 Archaea         Methanobacteria        Methanobacterium
+6                 Archaea         Methanobacteria        Methanobacterium
+             Species.org2               Reference
+1      unknown_cyanophyte             Gordon 1994
+2 unknown_verrucomicrobia     Petroni et al. 2000
+3 unknown_verrucomicrobia     Petroni et al. 2000
+4                    &lt;NA&gt;      Hamann et al. 2016
+5               formicium      Goosen et al. 1988
+6               formicium van Bruggen et al. 1984
+                                  Link        Database Interaction_ID
+1 http://www.jstor.org/stable/24844780 MicroEcoSystems          ID_70
+2               10.1073/pnas.030438197 MicroEcoSystems           ID_2
+3               10.1073/pnas.030438197 MicroEcoSystems           ID_3
+4                  10.1038/nature18297 MicroEcoSystems           ID_4
+5                   10.1007/BF00425157 MicroEcoSystems           ID_5
+6                   10.1007/BF00692703 MicroEcoSystems           ID_6
+       Ecological.interaction    Habitat
+1           nitrogen fixation     Marine
+2                host defense    Marine 
+3                host defense    Marine 
+4 hydrogen-oxidizing symbiont     Marine
+5       methanogenic symbiont Freshwater
+6       methanogenic symbiont     Marine
+                                                 Source
+1     Water samples (Northern end of the Gulf of Aqaba)
+2 tidal pools, Cape Peninsula, Republic of South Africa
+3 tidal pools, Cape Peninsula, Republic of South Africa
+4                          Intertidal zone (Wadden Sea)
+5                        Sediment samples from aquarium
+6                                collected from seaweed</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View(pida)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In the PIDA database, org 1 corresponds to the host, and org 2 corresponds to the symbiont. See the github page readme for a <a href="https://github.com/ramalok/PIDA?tab=readme-ov-file#columns-">complete description of the database here</a>.</p>
+<p>The below query doesn’t reveal anything.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>pida <span class="sc">%&gt;%</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"Pseudocolli"</span>, Taxonomic.level.<span class="dv">3</span>..org2)) <span class="co">#this doesn't reveal anything.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] Observation.type        Taxonomic.interaction   Interaction            
+ [4] Accession.org1          Taxonomic.level.1..org1 Taxonomic.level.2..org1
+ [7] Taxonomic.level.3..org1 Genus.org1              Species.org1           
+[10] Accession.org2          Taxonomic.level.1..org2 Taxonomic.level.2..org2
+[13] Taxonomic.level.3..org2 Genus.org2              Species.org2           
+[16] Reference               Link                    Database               
+[19] Interaction_ID          Ecological.interaction  Habitat                
+[22] Source                 
+&lt;0 rows&gt; (or 0-length row.names)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>pida <span class="sc">%&gt;%</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"Pseudocolli"</span>, Taxonomic.level.<span class="dv">2</span>..org2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] Observation.type        Taxonomic.interaction   Interaction            
+ [4] Accession.org1          Taxonomic.level.1..org1 Taxonomic.level.2..org1
+ [7] Taxonomic.level.3..org1 Genus.org1              Species.org1           
+[10] Accession.org2          Taxonomic.level.1..org2 Taxonomic.level.2..org2
+[13] Taxonomic.level.3..org2 Genus.org2              Species.org2           
+[16] Reference               Link                    Database               
+[19] Interaction_ID          Ecological.interaction  Habitat                
+[22] Source                 
+&lt;0 rows&gt; (or 0-length row.names)</code></pre>
+</div>
+</div>
+<p>The below query doesn’t reveal anything, again.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>pida <span class="sc">%&gt;%</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"Pseudocolli"</span>, Genus.org2)) <span class="co">#this doesn't reveal anything.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] Observation.type        Taxonomic.interaction   Interaction            
+ [4] Accession.org1          Taxonomic.level.1..org1 Taxonomic.level.2..org1
+ [7] Taxonomic.level.3..org1 Genus.org1              Species.org1           
+[10] Accession.org2          Taxonomic.level.1..org2 Taxonomic.level.2..org2
+[13] Taxonomic.level.3..org2 Genus.org2              Species.org2           
+[16] Reference               Link                    Database               
+[19] Interaction_ID          Ecological.interaction  Habitat                
+[22] Source                 
+&lt;0 rows&gt; (or 0-length row.names)</code></pre>
+</div>
+</div>
+<p>When searching the database by text, only a close text match to <code>Pseudocohnilembus</code> in PIDA came up. This is a different organism. So we can determine that this is not related to the species in our database.</p>
+</section>
+<section id="phylogenetic-relatedness-by-18s-rrna-gene" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Phylogenetic relatedness by 18S rRNA gene</h1>
+<section id="open-tree-of-life" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="open-tree-of-life"><span class="header-section-number">4.1</span> Open tree of life</h2>
+<p>Explore the <a href="https://tree.opentreeoflife.org/opentree/argus/opentree14.9@ott93302">Open tree of life</a> website. As specific branches we want to explore will be covered on this website and we plan to submit projects as well. Therefore, we need to be aware of the requirements for submission.</p>
+<p>Detailed information on how to submit can be found <a href="https://github.com/OpenTreeOfLife/opentree/wiki/Submitting-phylogenies-to-Open-Tree-of-Life">here</a>. You’ll need a GitHub account to access.</p>
+<p>We need to figure out how to explore the Open Tree of Life R package. https://cran.r-project.org/web/packages/rotl/index.html</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
