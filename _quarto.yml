@@ -18,7 +18,7 @@ website:
       - href: db-main.qmd
         text: Database curation
       - href: db-taxa.qmd
-        text: Summary of database
+        text: Summary of taxa
 
 format:
   html:

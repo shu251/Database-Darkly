@@ -4,31 +4,107 @@ format: html
 editor: visual
 ---
 
-# Alveolata
+# Supergroup: Alveolata
 
-_Summary description of deep-sea alveolata_
+Alveolata (or Alveolates) contains well-known groups of protists: Apicomplexa, Ciliophora, and Dinoflagellata. Grouped with Stramenopiles and Rhizaria, the three clades also form what is known as the SAR supergroup. Alveolata share the presence of membrane-enclosed sacs, or vesicles, just beneath the cell membrane. In Dinoflagellata (dinoflagellates), these sacs can contain plates, forming a sort of armor. The sacs ensure a thick yet flexible cell wall in naked cells. Alveolata also share tubulocristate mitochondria, characteristic of the SAR group. Alveolata are ubiquitous in deep-sea environments and often make up the most diverse group present. For instance, MArine ALveolates (or MALV) is an order of parasitic dinoflagellates that are frequently found in deep-sea samples.
+
+## Phylum: Dinoflagellates
+
+The Phylum Dinoflagellata contains around 2,400 living species and even more fossilized species. Dinoflagellates are biflagellated, possessing a transverse and longitudinal flagellum which differ functionally and morphologically, and have retained alveoli. They vary in form and function, being thecate or athecate, but generally pear-shaped, photosynthetic or non-photosynthetic, and free-living or parasitic. Dinoflagellates are abundant in both freshwater and marine environments from the equator to the poles, and even in snow and sea ice. They are second, only to diatoms in oceanic primary production with half of the species being photosynthetic. Dinoflagellates employ a variety of trophic strategies including mixotrophy, phagotrophy, osmotrophy, and myzocytosis. Photosynthetic dinoflagellates are typically mixotrophic, involving heterotrophy, as well. Many species are symbiotic as mutualists and parasites. The most notable mutualistic dinoflagellates are zooxanthellae, having relationships with coral and other invertebrates. The order Syndiniales, also known as Marine Alveolates, are parasitic dinoflagellates whose hosts include crustaceans, fish, cnidarians, and protists, including other dinoflagellates. The Marine Aleveolates consist of two groups whose sequences have frequently been obtained in deep-sea eukaryotic diversity studies. There are many toxic species, several of which can form blooms that kill or cause illness to other organisms. The function of the toxins in other dinoflagellates is understudied, as they do not seem to deter predators. Benthic dinoflagellates and their effect on marine ecosystems are greatly understudied, despite their presence being common in sediments. Notable features of dinoflagellates include a circadian rhythm and bioluminescence in some species. 
+
+## Phylum: Ciliates
+
+The Phylum Ciliophora is a large group of protists, almost all of which are free-living heterotrophs. Ciliates are distinguished by three key traits: a ciliated cell surface, at some stage of life; nuclear dimorphism, the presence of two morphologically and functionally distinct nuclei, the macronucleus and micronucleus; and conjugation, a sexual process in which compatible mates temporarily fuse to exchange genetic material of the micronuclei. The eponymous cilia are typically used for locomotion and feeding, the modes of which are relatively diverse. Ciliates feed upon bacteria, smaller protists, such as algae, and other ciliates. Some ciliates retain ingested bacteria, such as methane and hydrogen sulfide-utilizing bacteria, which continue to function, providing nutrients and space for continued growth and production. This extends to the chloroplasts of ingested algae which can be retained rather than digested, enabling primary production in the ciliate, a process referred to as kleptoplasty. Ciliates can also be symbionts in other organisms, such as ruminal ciliates which aid in the digestion processes of their hosts. There are over 8,000 species of ciliates, distributed globally, in a wide variety of environments, occupying an important trophic level in these ecosystems. 
+
+## Phylum: Apicomplexa
+
+Apicomplexans are a large phylum of unicellular, parasitic protists that range from a symmetrical round to an elongated shape. They utilize myzocytotic ingestion, also known as ‘cellular vampirism’, in which they pierce the cell membrane of their prey with a feeding tube and proceed to suck out the contents and digest them. This is a method of passive ambush feeding, where they wait for prey and then secure them through the use of a quick ambush. 
+
+Through their parasitism, apicomplexans can pose a great risk to the health of the host organism. They are able to conduct these parasitic invasions through the use of a collection of organelles termed the apical complex. These organelles, particularly rhoptries and micronemes, are what gives them the ability to adhere to host cells, subsequently invade the host cells, and establish a parasitophorous vacuole, which is what surrounds the parasite and protects it from the host’s cellular defenses. 
+
+The most interesting feature of the apicomplexans is their possession of an apicoplast, a relict photosynthetic plastid that is only found in this phylum. While the plastids found in photosynthetic organisms, such as plants and algae, are largely known for their green appearance and being the location of photosynthesis, they do not possess either of those traits as they exist in apicomplexans. These organelles are essential to apicomplexan's survival, as without them the organism would perish.
+
+## Phyum: Perkinsea
+
+The Perkinsea phylum is a group of protists consisting of the marine genera Perkinsus and Parvilucifera and the freshwater genera Phagodinium and Rastrimonas. This phylum is mainly parasitic and is the closest sister group to dinoflagellates. These parasitic marine protists have been frequently detected to thrive in the sediments and seawater of hydrothermal vents and have been thought to negatively affect the community structure and population of the organisms inhabiting these sites. Perkinsids largely infect bivalves, with the exception of the genus Parvilucifera which infects other dinoflagellates. Because of this, perkinsid infestation has devastated the aquaculture of mollusks and has the potential to cause harmful algal blooms. 
+
+These protists have a naked cell cover, a round shape, and an attached motility. They also have a spherical symmetry, are heteropolar, and are ectosymbiontic. Except for Parvilucifera, which has a bilateral symmetry and is endosymbiontic. Perkinsids are also, on average, passive ambush feeders with myzocytotic ingestion. Perkinsids possess the “archetype” apical complex and utilize it for the invasion of their host. In perkinsids, this apical complex extends from the flagellar apparatus and consists of an open-sided conoid and diverse vesicular components (such as micronemes). After a successful invasion, Perkinsus marinus develops a trophozoite with a spherical nucleus and a vacuole that occupies the majority of the cytoplasm space. The trophozoite then undergoes palintomy in the vegetative state, wrestling in the schizont containing 4-64 immature trophozoites. After rupturing of the schizont’s cell wall, the immature trophozoites spread throughout the host cell body and asexual proliferation continues. As the host dies and the tissue becomes anoxic, the trophozoite enlarges and becomes a pre-zoosporangium (hypnospore) with a thicker cell wall. However, in marine environments, the pre-zoosporangium develops into a zoosporangium with a discharge tube. The zoosporangium undergoes palintomy, producing numerous biflagellated zoospores, which may serve as an infective stage. Alternatively, after Parvilucifera sporangia’s successful invasion, they will grow within the cytoplasm until they occupy nearly the entire host cell. Once mature, a germ tube then forms and releases zoospores. 
+	
+The Perkinsea phylum and its relation to dinoflagellates and apicomplexans is extremely important for our understanding of early evolution. However, there is not enough research on perkinsids for this evolution to be fully understood. Recent data suggests that this phylum is much more diverse than previously thought and further investigation could reveal critical information regarding the connection of lineages. 
 
 
-## Dinoflagellates
+# Supergroup: Amoebozoa
 
-## Ciliates
+Amoebozoa encompass a wide variety of amoeboid organisms possessing pseudopodia, with no defined shape, and can be free-living or parasitic. The pseudopodia are used to anchor the organism to a substrate, for locomotion, and feeding. Amoebozoans can also propel themselves by flowing their cytoplasm in a forward direction. The cell cover of amoebas can be naked, with or without a coating of glycolax, testate, or scaled. 
 
-## Apicomplexa
+The group is divided into two subphylums: Lobosa and Conosa. Lobose amoebae are characterized by lobe-like pseudopodia while Conosa have thread-like pseudopodia and are further distinguished by a flagellate stage in their lifecycle. The vast majority of Amoebazoans are unicellular; however, Mycetozoans, or slime molds, have a multicellular life stage in which they form macroscopic aggregates. 
 
-# Amoebozoa
+The Supergroup is entirely heterotrophic, employing phagocytosis as the primary mode of ingestion, and typically predating on bacteria, algae, small protists, and yeast. In unfavorable conditions, such as food scarcity, amoebas can encyst, and the excyst when conditions improve. Amoebozoa are present in deep-sea environments, but their abundance and diversity within these communities are vastly understudied. Furthermore, the phylogeny and taxonomy of Amoebozoa remain poorly understood and controversial. 
 
-# Apusozoa
+## Phylum: Conosa
 
-# Archaeplastida
+Conosa is one of the phyla included in the Amoebozoa supergroup. They exist in a wide range of habitats, from aquatic to terrestrial, and can even survive in anoxic soil environments. The majority of this phylum have a naked cell cover, are phagotrophic, and utilize an ambush feeding tactic. An amoeboid shape is common, and they have a motility style ranging from gliding to swimming or floating. 
+Conosa can be identified morphologically by a monolayer of microtubules that either partially or completely surround the anterior basal body. This can then either diverge towards the nucleus and cell posterior as a half or three-quarters open cone (as seen in Variosea and Mycetozoa) or as a complete cone (as seen in Archaemoebae). The flagellar apparatus is an ancestral trait and has been evolutionally changed to suit the needs of different lineages. For example, for Pelobiontida, the posterior flagellum and associated cytoskeleton have been lost and for Entamoebidae the whole flagellar apparatus has been lost. 
 
-# Excavata
 
-# Hacrobia
+# Phylum: Apusozoa
 
-# Opisthokonta
+Apusomonads are morphologically classified as having two flagella at the anterior of the cell. They are motile, via a gliding motion. The phylogenetic placement of this group continue to be debated, but is more often labeled as a phylum (within the Obazoa) that contains the groups Breviata and Apusomonadida (and sometimes Mantamonadida). In the deep sea, Apusozoa are commonly found (but not in high cell abundance) within niche habitats, including sediments and hydrothermal vent fluid. All species within Apusozoa are phagotrophic and are able to actively hunt prey, mainly consisting of bacteria.
 
-# Protalveolata
 
-# Rhizaria
+# Supergroup: Archaeplastida
 
-# Stramenopiles
+The Supergroup Archaeplastida has chloroplast encompassed by two membranes, thought to have been obtained via primary endosymbiosis with a cyanobacterium. Evidence suggests that this plastid originated from a singular event, implying that a common ancestor of Archaeplastida engulfed a cyanobacterium which was retained and passed onto offspring. The supergroup is divided into 3 subgroups: Glaucophyta, Rhodophyta, and Chloroplastida. Chloroplastids, further divided into phylums Streptophyta and Chlorophyta, contain green algae and land plants. Rhodophytes, or red algae, contain marine algae, most of which are seaweed. These two phyla feature a diverse array of cellularity from simple unicellular, flagellated or non-flagellated, colonial, filamentous, or multicellular and macroscopic. The third subgroup is the Glaucophytes, rare freshwater algae associated with surface water. Most Archaeplastids are photosynthetic, but parasitic taxa exist within red algae and land plants, and the few that are heterotrophic employ osmotrophy as their mode of ingestion. Their presence in the deep sea is scarce compared to other microeukaryotic supergroups, and the sequences that have been observed in the deep sea are hypothesized to be from sinking matter. 
+
+
+# Supergroup: Excavata
+
+The Excavata supergroup is a diverse group of organisms that include heterotrophic predators, photosynthetic species, and parasites. This group of protists is of particular interest as it has been largely absent in the global ocean, but has rather been located within the hydrothermal vent fluid range. These organisms tend to be asymmetrical, single-celled with a feeding groove on the side of their bodies, leading to the term “excavated” which serves as the root of their name. One interesting feature is that many species of this supergroup lack the ‘classical’ mitochondria that many other eukaryotic cells possess, but have an organelle referred to as ‘amitochondriates’. However, many of them still contain some kind of greatly modified mitochondrial organelle. 
+
+Metamonada have adapted metabolisms to low oxygen conditions, largely due to the lack of an aerobic mitochondria. This is one reason as to how this supergroup is able to thrive in large numbers in hydrothermal vent sites, as many phyla are adapted to live in anoxic environments.
+
+
+# Supergroup: Hacrobia
+
+The supergroup Hacrobia is a controversial topic among researchers. There are many debates and conflicting classifications of this supergroup. It has several names, the most common being Hacrobia, but occasionally being referred to as CCTH (Cryptophyta, Centrohelida, Telonemia, Haptophyta) or Eukaryomonadae. Hacrobia is also classified as a subkingdom under Chromista. This supergroup resides in a wide variety of environments ranging from marine or terrestrial to freshwater or brackish. Currently, Hacrobia is classified as a photosynthetic clade, but phylogenetically it is being debated whether to classify it as monophyletic or polyphyletic. Haptophyta was previously considered a sister group to the SAR group and Cryptophyta was previously a cluster with Archaeplastida. 
+
+The majority of protists within Hacrobia are eaten by dinoflagellates, others by ciliates, and a few are consumed by kathablepharids. Hacrobia is classified as having a naked or organic shape and being heteropolar with a swimming motility. Many are haplodiplontic, meaning there are two multicellular stages (haploid and diploid), and are ambush feeders. The controversy surrounding research on this group has led to conflicting reports about Hacrobia’s ecology. One paper discussed how Hacrobians were absent at higher salinity levels, but another described that they were much more abundant in euphotic zones rather than the deep sea. 
+
+This Supergroup and its classification continue to be a hotly debated topic throughout scientific communities. Through more research, our understanding of Hacrobia will continue to provide essential information about hydrothermal vent ecology. 
+
+
+# Supergroup: Opisthokonta
+
+The Supergroup Opisthokonta includes a diverse array of organisms including fungi, choanoflagellates, and animals. Opisthokonts are characterized by a singular posterior flagellum at some point in their life. The supergroup is divided into two subclades: Holomycota (nucleariids, microsporidia, and fungi) and Holozoa (Icthyosporea, Filasterea, Choanozoa, and Metazoa). Opisthokonts are exclusively heterotrophic and are typically phagotrophic or osmotrophic, inhabiting both terrestrial and aquatic environments. There are no species that contain chloroplasts although some hold symbiotic or kleptoplastidic relationships with algae. Opisthokonts play a large role in oceanic nutrient cycling. Fungi are known for their role as decomposers in terrestrial ecosystems, yet their role in marine ecosystem nutrient cycling remains understudied, while Metazoans are well-studied, major consumers in deep-sea ecosystems. Non-protist opisthokonts are relatively less common in extreme, deep-sea environments, but some species have adapted to the harsh conditions. Furthermore, Metazoans also hold importance as hosts for a variety of other organisms in deep-sea environments. 
+
+
+# Supergroup: Rhizaria
+
+The Supergroup Rhizaria, the third major group within the SAR clade, contains well-known phyla including Radiolarians, Foraminiferans, and Cercozoans. Rhizarians are characterized by pseudopodia, often thread or needle-like, with cytoplasmic strands to locomote and capture prey. Many Rhizaria synthesize mineral exoskeletons from silica, strontium sulfate, or calcium carbonate. Foraminifera, for instance, typically have reticulopodia, thin, networking pseudopodia, and tests composed of calcium carbonate. Radiolarians, which produce silica exoskeletons, play a large role in the silica cycle. Rhizarians hold significant ecological importance due to their abundance as heterotrophic plankton and their contributions to primary production. Despite being heterotrophs, Rhizarians can harbor photosynthetic algae as symbionts or kleptobionts. Rhizaria are relatively abundant in deep-sea environments, and their presence in hydrothermal vents has been documented.     
+
+# Supergorup: Stramenopiles
+
+The Stramenopiles are an extremely diverse supergroup, with over 100,000 species classified under it. Stramenopiles are one of the three major taxonomic groupings within the SAR supergroup, along with Alveolata and Rhizaria. This supergroup was previously called Heterokonta, but the name was originally used to indicate that a cell has two dissimilar flagella, due to the wide variety within this group they have been reclassified as Stramenopiles in most modern papers. This group can inhabit almost any environment but is most commonly found in marine habitats. The trophic strategy is also wide-ranging including autotrophic, heterotrophic, and parasitic. Most Stramenopiles are unicellular flagellates and at some point in their lifecycle, they can produce flagellated cells such as gametes or zoospores. 
+
+Stramenopiles have several defining characteristics that differentiate them from other supergroups. In most species, Stramenopiles can be distinguished by stiff, tripartite external hairs attached to the flagella. For other species, these hairs can be attached elsewhere on the cellular surface, and in a few species, the flagella hairs have been secondarily lost. The base of the flagellar hari is flexible and inserts into the cell membrane. The second part is dominated by a long stiff tube, the ‘stramen’, and is tipped by many delicate hairs called mastigonemes. The mastigonemes proteins are exclusive to the stramenopile group and are even present in taxa that no longer have hairs, such as diatoms. Many in this group have a form of plastid, called stramenochrome or chromoplast, which allows them to photosynthesize. Two of the most significant autotrophic stramenopiles are brown algae and diatoms, diatoms being one of the most significant primary producers in the ocean ecosystem. Overall, Stramenopiles play a major role in the recycling of carbon on a global scale. 
+
+
+### **References**
+
+* Tomáš Pánek, et al. 2016. "First multigene analysis of Archamoebae (Amoebozoa: Conosa) robustly reveals its phylogeny and shows that Entamoebidae represents a deep lineage of the group." Molecular Phylogenetics and Evolution 98 (pp 41-51).
+
+* Daniel Vaulot, et al. "metaPR2: A database of eukaryotic 18S rRNA metabarcodes with an emphasis on protists." Molecular Ecology Resources 22, no. 8 (2022): 3188-3201.
+
+* Elena Gerasimova, et al. "Taxonomic Structure of Planktonic Protist Communities in Saline and Hypersaline Continental Waters Revealed by Metabarcoding." Water 15, no. 11 (2023): 2008.
+
+* Dapeng Xu, et al. "Pigmented microbial eukaryotes fuel the deep sea carbon pool in the tropical Western Pacific Ocean." Environmental microbiology 20, no. 10 (2018): 3811-3824.
+
+* Dapeng Xu, et al. "Microbial eukaryote diversity and activity in the water column of the South China Sea based on DNA and RNA high throughput sequencing." Frontiers in microbiology 8 (2017): 1121.
+
+* Archibald, et al. 2019. Handbook of the Protists. Cham: Springer International Publishing.
+
+* Ohtsuka, Susumu, et al. 2016.  Marine protists: Diversity and dynamics. SPRINGER Verlag, JAPAN. 
+
+* Lynn, Denis H. 2010. The Ciliated Protozoa. Springer Science. https://doi.org/10.1007/978-1-4020-8239-9. 
+
+* Cavalier-Smith T, Chao EE. Phylogeny and evolution of apusomonadida (protozoa: apusozoa): new genera and species. Protist 2010; 161: 549–576.

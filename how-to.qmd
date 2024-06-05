@@ -10,9 +10,24 @@ As a community, we hope that this information can be used to link across other s
 
 # Compare with your data
 
+
+## Download Database Darkly
+
+Current version of database is [available here](https://zenodo.org/records/11490400).
+
+Files:
+
+* Reference sequences for all ASVs & taxonomy assignments
+
+* Taxonomy assignments with integrated curation information
+
+**last update**:
+As of June 2024, the initial upload for Database Darkly was completed. 
+
+
 ## ASV table
 
-[Data are all available on Zenodo](https://zenodo.org/records/59596940) and code to reproduce microeuk deep-sea survey are [available on Github](https://github.com/shu251/microeuk-amplicon-survey).
+[Data are all available on Zenodo](https://zenodo.org/records/5959694) and code to reproduce microeuk deep-sea survey are [available on Github](https://github.com/shu251/microeuk-amplicon-survey).
 
 ### Download qiime2 data from microeuk survey
 

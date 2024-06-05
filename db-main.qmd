@@ -2,15 +2,9 @@
 title: "Database curation page"
 format: html
 editor: visual
+execute:
+  eval: false
 ---
-
-# Major taxonomic groups
-
-*Visual summaries of what groups are present*
-
-## Taxonomic levels in database
-
-*Visual summaries of taxonomic groups*
 
 ## Compare with PR2
 
@@ -19,8 +13,6 @@ editor: visual
 Set up your R environment.
 
 ```{r}
-# install.packages("devtools")
-# devtools::install_github("pr2database/pr2database")
 library(pr2database)
 library(tidyverse)
 ```
@@ -32,7 +24,7 @@ Take a look at the whole pr2 database. Import and set as `pr2`.
 ```{r}
 pr2 <- pr2_database()
 glimpse(pr2)
-# View(pr2)
+View(pr2)
 ```
 
 Use `View()` to search the database, or `filter()`.
@@ -68,7 +60,7 @@ dim(taxonomic_lineages)
 # write.csv(taxonomic_lineages_pr2, file = "taxonomic-assignments-p2.csv")
 ```
 
-# Compare with Functional Trait Database
+## Compare with Functional Trait Database
 
 Import the data
 
@@ -100,7 +92,7 @@ fxn_trait %>%
 
 Now we can take the above information and full in the other descriptive features.
 
-# Compare with PIDA database
+## Compare with PIDA database
 
 Datbase explores microbe-microbe interactions.
 
