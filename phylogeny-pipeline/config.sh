@@ -17,8 +17,8 @@ PLACE_DIR=${WORKDIR}/05-placement
 
 # Software
 QIIME_MODULE=QIIME2/2024.10-Amplicon
-CONDA_MODULE=Anaconda3/2026.07-1
-CONDA_ENV=${WORKDIR}/conda-env
+ANACONDA_MODULE=Anaconda3/2026.07-1
+PHYLO_ENV=${WORKDIR}/conda-env
 
 # Reference selection (02)
 REF_MIN_LEN=1200       # near-full-length 18S only
@@ -38,6 +38,6 @@ MIN_ALIGNED_BP=150     # drop ASVs with fewer aligned bases than this after trim
 
 load_phylo_env() {
   module purge
-  module load "${CONDA_MODULE}"
-  source activate "${CONDA_ENV}"
+  module load "${ANACONDA_MODULE}"
+  source activate "${PHYLO_ENV}"
 }

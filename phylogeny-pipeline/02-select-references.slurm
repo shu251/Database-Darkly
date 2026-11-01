@@ -19,7 +19,7 @@ mkdir -p "${REF_DIR}"
 cd "${REF_DIR}"
 
 echo "Keep nuclear eukaryote taxonomy (organellar entries are Eukaryota:plas, :mito, etc.)"
-awk -F'\t' '$1 != "Feature ID" && $2 ~ /^Eukaryota;/ { gsub(/; /, ";", $2); print $1 "\t" $2 }' \
+awk -F'\t' '$1 != "Feature ID" && $2 ~ /^Eukaryota;/ { sub(/;\r?$/, "", $2); gsub(/; /, ";", $2); print $1 "\t" $2 }' \
   "${PR2_TAX_TSV}" > pr2-euk-tax.tsv
 [ -s pr2-euk-tax.tsv ] || { echo "No eukaryote taxonomy found: check the format of ${PR2_TAX_TSV}"; exit 1; }
 
