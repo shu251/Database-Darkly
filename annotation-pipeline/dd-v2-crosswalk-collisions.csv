@@ -1,0 +1,146 @@
+v2_taxon,n_sources,structure,n_conflict_all,n_conflict_structured,conflict_structured,resolvable_by_depth,needs_manual
+Eukaryota,6,mixed,2,1,Shape,True,False
+Eukaryota;Amoebozoa;Tubulinea;Tubulinea_X;Elardia;Euamoebida;Vermamoebidae,2,nested_chain,1,1,Symbiotic,True,False
+Eukaryota;Amoebozoa;Tubulinea;Tubulinea_X;Elardia;Leptomyxida;Flabellulidae,2,nested_chain,0,0,,True,False
+Eukaryota;Amoebozoa;Tubulinea;Tubulinea_X;Elardia;Leptomyxida;Flabellulidae;Flabellulidae_X;Flabellulidae_X_sp.;,2,siblings,0,0,,False,False
+Eukaryota;Archaeplastida;Chlorophyta;Chlorophyta_X;Pyramimonadophyceae;Pyramimonadales,3,mixed,2,2,Shape; Cyst Spore,True,False
+Eukaryota;Archaeplastida;Chlorophyta;Chlorophyta_X;Pyramimonadophyceae;Pyramimonadales;Pyramimonadaceae;Pyramimonas,2,nested_chain,0,0,,True,False
+Eukaryota;Archaeplastida;Prasinodermophyta;Prasinodermophyta_X;Prasinodermophyceae;Prasinodermales;Prasinodermaceae,2,nested_chain,2,2,Polarity; Behavior,True,False
+Eukaryota;Archaeplastida;Streptophyta;Streptophyta_X;Embryophyceae;Embryophyceae_X;Embryophyceae_XX,3,mixed,1,0,,True,False
+Eukaryota;Cryptista;Cryptophyta;Cryptophyta_X;Cryptophyceae;Cryptomonadales;Cryptomonadales_X;Teleaulax,2,nested_chain,0,0,,True,False
+Eukaryota;Cryptista;Cryptophyta;Cryptophyta_X;Cryptophyceae;Goniomonadales;Goniomonadales_X;Goniomonadales_XX;Goniomonadales_XX_sp.;,2,nested_chain,1,1,Shape,True,False
+Eukaryota;Cryptista;Cryptophyta;Cryptophyta_X;Cryptophyceae;Goniomonadales;Goniomonadales_X;Goniomonas;Goniomonas_sp.;,2,nested_chain,1,1,Shape,True,False
+Eukaryota;Haptista;Haptophyta;Haptophyta_X;Prymnesiophyceae,5,mixed,2,2,Spicule; Ingestion,True,False
+Eukaryota;Haptista;Haptophyta;Haptophyta_X;Prymnesiophyceae;Prymnesiales,3,mixed,0,0,,True,False
+Eukaryota;Haptista;Haptophyta;Haptophyta_X;Prymnesiophyceae;Prymnesiales;Chrysochromulinaceae;Chrysochromulina,2,nested_chain,0,0,,True,False
+Eukaryota;Haptista;Haptophyta;Haptophyta_X;Prymnesiophyceae;Prymnesiales;Chrysochromulinaceae;Chrysochromulina;Chrysochromulina_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;Haptista;Haptophyta;Haptophyta_X;Prymnesiophyceae;Prymnesiales;Prymnesiaceae;Prymnesium,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Apusomonada;Apusomonada_X;Apusomonadidae;Apusomonadidae_Group-1;Apusomonadidae_Group-1_X;Apusomonadidae_Group-1_XX;Apusomonadidae_Group-1_XX_sp.;,5,mixed,1,1,Shape,True,False
+Eukaryota;Obazoa;Opisthokonta;Choanoflagellata;Choanoflagellatea,5,mixed,2,2,Cell Cover; Behavior,True,False
+Eukaryota;Obazoa;Opisthokonta;Choanoflagellata;Choanoflagellatea;Acanthoecida,6,mixed,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Choanoflagellata;Choanoflagellatea;Acanthoecida;Acanthoecidae_Group_G,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Choanoflagellata;Choanoflagellatea;Acanthoecida;Acanthoecidae_Group_G;Acanthoecidae_Group_G_X;Acanthoecidae_Group_G_X_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Choanoflagellata;Choanoflagellatea;Acanthoecida;Stephanoecidae_Group_H,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Choanoflagellata;Choanoflagellatea;Craspedida;Monosigidae_Group_A;Monosigidae_Group_A_X;Monosigidae_Group_A_X_sp.;,2,siblings,2,2,Cell Cover; Behavior,False,True
+Eukaryota;Obazoa;Opisthokonta;Choanoflagellata;Choanoflagellatea;Craspedida;Monosigidae_Group_B;Monosigidae_Group_B_X;Monosigidae_Group_B_X_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Choanoflagellata;Choanoflagellatea;Craspedida;Salpingoecidae_Group_C2;Salpingoecidae_Group_C2_X;Salpingoecidae_Group_C2_X_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Fungi,3,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota;Pezizomycotina;Eurotiomycetes;Aspergillus,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota;Pezizomycotina;Sordariomycetes,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota;Saccharomycotina;Saccharomycetales,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota;Agaricomycotina;Agaricomycetes,3,mixed,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota;Agaricomycotina;Tremellomycetes,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota;Pucciniomycotina,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota;Pucciniomycotina;Cystobasidiomycetes,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Fungi;Basidiomycota;Pucciniomycotina;Cystobasidiomycetes;Rhodotorula,3,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Fungi;Chytridiomycota;Chytridiales;Chytridiales_X;Chytridiales_XX;Chytridiales_XX_sp.;,4,mixed,1,1,Shape,True,False
+Eukaryota;Obazoa;Opisthokonta;Fungi;Chytridiomycota;Chytridiomycota_X;Chytridiomycota_XX;Chytridiomycota_XXX;Chytridiomycota_XXX_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Fungi;Chytridiomycota;Spizellomycetales;Spizellomycetaceae;Spizellomyces;Spizellomyces_sp.;,4,nested_chain,1,1,Shape,True,False
+Eukaryota;Obazoa;Opisthokonta;Fungi;Fungi_X;Fungi_XX;Fungi_XXX;Fungi_XXXX;Fungi_XXXX_sp.;,3,nested_chain,1,1,Shape,True,False
+Eukaryota;Obazoa;Opisthokonta;Ichthyosporea;Ichthyophonida,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Metazoa;Annelida;Annelida_X;Annelida_XX,2,nested_chain,0,0,,True,False
+Eukaryota;Obazoa;Opisthokonta;Opisthokonta_X;Opisthokonta_XX;Opisthokonta_XXX;Opisthokonta_XXXX;Opisthokonta_XXXXX;Opisthokonta_XXXXX_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;Provora;Nibbleridia;Nibbleridia_X;Nibbleridea;Nibbleridida;Nibbleridae;Nibbleromonas,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR,3,mixed,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora,3,mixed,4,3,Trophic strategy; Prey Specialization; Field-based studies,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Armophorea;Armophorea_X;Metopidae;Metopus_1,2,nested_chain,1,1,Oxygen Tolerance,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Ciliophora_X;Ciliophora_XX;Protocruziidae;Protocruzia,2,nested_chain,1,1,Shape,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Heterotrichea;Heterotrichea_X;Condylostomatidae;Condylostoma,2,nested_chain,1,1,Presence in other subeuphotic regions?,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Karyorelictea;Karyorelictea_X;Trachelocercidae,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Litostomatea,4,mixed,2,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Litostomatea;Haptoria_5;Pleurostomatida,3,mixed,2,1,Prey Specialization,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Litostomatea;Haptoria_6;Lacrymariidae,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Oligohymenophorea,5,mixed,2,2,Ingestion; Symbiotic,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Oligohymenophorea;Apostomatia,5,mixed,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Oligohymenophorea;Apostomatia;Opalinopsidae;Chromidina;Chromidina_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Oligohymenophorea;OLIGO5;OLIGO5_X;OLIGO5_XX;OLIGO5_XX_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Oligohymenophorea;Oligohymenophorea_X;Oligohymenophorea_XX,4,mixed,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Oligohymenophorea;Oligohymenophorea_X;Oligohymenophorea_XX;Oligohymenophorea_XXX;Oligohymenophorea_XXX_sp.;,4,mixed,1,1,Symbiotic,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Oligohymenophorea;Peritrichia_2;Sessilida,3,mixed,1,1,Behavior,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Oligohymenophorea;Peritrichia_2;Sessilida;Sessilida_X;Sessilida_X_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Prostomatea_1;Prostomatea_1_X;Colepidae,2,siblings,3,3,Shape; Motility; Symbiotic,False,True
+Eukaryota;TSAR;Alveolata;Ciliophora;Spirotrichea,3,siblings,5,5,Cell Cover; Shape; Spicule; Symmetry; Behavior,False,True
+Eukaryota;TSAR;Alveolata;Ciliophora;Spirotrichea;Choreotrichida,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Spirotrichea;Choreotrichida-Tintinnina;Tintinnidae;Tintinnidae_X;Tintinnidae_X_sp.;,4,mixed,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Spirotrichea;Hypotrichia,2,siblings,0,0,,False,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Spirotrichea;Hypotrichia;Oxytrichidae,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Spirotrichea;Oligotrichida,3,mixed,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Spirotrichea;Oligotrichida;Strombidiidae,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Spirotrichea;Oligotrichida;Strombidiidae;Strombidiidae_X;Strombidiidae_X_sp.;,3,mixed,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Ciliophora;Spirotrichea;Oligotrichida;Tontoniidae;Laboea,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata,4,siblings,1,0,,False,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae,13,mixed,15,13,Cell Cover; Shape; Spicule; Symmetry; Motility; Chloroplast; Ingestion; Behavior; Symbiotic; Symbiont Specialization; Prey Specialization; Toxygenity; Cyst Spore,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae;Dinophyceae_X;Dinophyceae_XX;Dinophyceae_XXX;Dinophyceae_XXX_sp.;,10,mixed,15,14,Cell Cover; Shape; Spicule; Symmetry; Polarity; Motility; Chloroplast; Ingestion; Behavior; Mutualistic Host; Symbiotic; Symbiont location; Prey Specialization; Toxygenity,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae;Gymnodiniales;Gymnodiniaceae,2,siblings,4,4,Cell Cover; Shape; Ingestion; Behavior,False,True
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae;Peridiniales,2,siblings,7,6,Cell Cover; Spicule; Symmetry; Motility; Chloroplast; Ingestion,False,True
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae;Peridiniales;Thoracosphaeraceae,2,siblings,3,3,Spicule; Ingestion; Prey Specialization,False,True
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyta_X;Dinophyta_XX;Dinophyta_XXX;Dinophyta_XXXX;Dinophyta_XXXX_sp.;,3,mixed,1,0,,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-I,3,mixed,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-I;Dino-Group-I-Clade-5;Dino-Group-I-Clade-5_X;Dino-Group-I-Clade-5_X_sp.;,2,nested_chain,2,1,Behavior,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-I;Dino-Group-I-Clade-8;Dino-Group-I-Clade-8_X;Dino-Group-I-Clade-8_X_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-II,16,mixed,1,0,,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-II;Dino-Group-II-Clade-10-and-11;Dino-Group-II-Clade-10-and-11_X;Dino-Group-II-Clade-10-and-11_X_sp.;,3,mixed,1,0,,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-II;Dino-Group-II-Clade-14;Dino-Group-II-Clade-14_X;Dino-Group-II-Clade-14_X_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-II;Dino-Group-II-Clade-20;Dino-Group-II-Clade-20_X;Dino-Group-II-Clade-20_X_sp.;,2,siblings,0,0,,False,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-II;Dino-Group-II-Clade-21;Dino-Group-II-Clade-21_X;Dino-Group-II-Clade-21_X_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-II;Dino-Group-II-Clade-23;Dino-Group-II-Clade-23_X;Dino-Group-II-Clade-23_X_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-II;Dino-Group-II-Clade-27;Dino-Group-II-Clade-27_X;Dino-Group-II-Clade-27_X_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-II;Dino-Group-II-Clade-5;Dino-Group-II-Clade-5_X;Dino-Group-II-Clade-5_X_sp.;,2,siblings,0,0,,False,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-II;Dino-Group-II-Clade-6;Dino-Group-II-Clade-6_X;Dino-Group-II-Clade-6_X_sp.;,2,siblings,5,4,Cell Cover; Symmetry; Motility; Symbiotic,False,True
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-II;Dino-Group-II-Clade-7;Dino-Group-II-Clade-7_X;Dino-Group-II-Clade-7_X_sp.;,4,mixed,1,0,,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-II;Dino-Group-II_X;Dino-Group-II_XX;Dino-Group-II_XX_sp.;,5,mixed,1,0,,True,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-IV,2,siblings,0,0,,False,False
+Eukaryota;TSAR;Alveolata;Dinoflagellata;Syndiniales;Dino-Group-IV;Dino-Group-IV-Hematodinium-Group;Hematodinium;Hematodinium_sp.;,3,mixed,1,1,Shape,True,False
+Eukaryota;TSAR;Alveolata;Perkinsea;Perkinsida;Perkinsida_X,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Alveolata;Perkinsea;Perkinsida;Perkinsida_X;Perkinsida_XX;Perkinsida_XXX;Perkinsida_XXX_sp.;,6,mixed,9,7,Cell Cover; Symmetry; Motility; Chloroplast; Ingestion; Symbiotic; Prey Specialization,True,False
+Eukaryota;TSAR;Rhizaria;Cercozoa,5,mixed,2,2,Cell Cover; Shape,True,False
+Eukaryota;TSAR;Rhizaria;Cercozoa;Endomyxa-Phytomyxea;Phagomyxida;Phagomyxidae;Phagomyxa;Phagomyxa_sp.;,3,mixed,0,0,,True,False
+Eukaryota;TSAR;Rhizaria;Cercozoa;Endomyxa;Vampyrellida,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Rhizaria;Cercozoa;Endomyxa;Vampyrellida;Vampyrellida_X;Vampyrellida_clade_B;Vampyrellida_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Rhizaria;Cercozoa;Filosa-Granofilosea;Massiterida;Massiteriidae;Massisteria,3,mixed,0,0,,True,False
+Eukaryota;TSAR;Rhizaria;Cercozoa;Filosa-Granofilosea;Massiterida;Massiteriidae;Massisteria;Massisteria_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Rhizaria;Cercozoa;Filosa-Imbricatea;Euglyphida;Paulinellidae;Paulinella;Paulinella_micropora;,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Rhizaria;Cercozoa;Filosa-Thecofilosea;Filosa-Thecofilosea_X;Filosa-Thecofilosea_XX;Filosa-Thecofilosea_XXX;Filosa-Thecofilosea_XXX_sp.;,2,siblings,5,5,Cell Cover; Shape; Symmetry; Motility; Behavior,False,True
+Eukaryota;TSAR;Rhizaria;Cercozoa;Filosa-Thecofilosea;Ventricleftida,3,mixed,0,0,,True,False
+Eukaryota;TSAR;Rhizaria;Radiolaria;Acantharea;Acantharea_3;Acantharea_3b;Acantharea_3b_X;Acantharea_3b_X_sp.;,2,siblings,0,0,,False,False
+Eukaryota;TSAR;Rhizaria;Radiolaria;Acantharea;Acantharea_C;Acantharea_C3;Litholophus;Litholophus_spB;,2,siblings,0,0,,False,False
+Eukaryota;TSAR;Stramenopiles,15,mixed,3,1,Shape,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Bicoecea,2,nested_chain,1,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Bicoecea;Anoecales;Cafeteriaceae;Cafeteria,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Bicoecea;Anoecales;Symbiomonaceae;Symbiomonas,2,nested_chain,1,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Bicoecea;Bicoecea_X;Bicoecea_XX;Bicoecea_XXX;Bicoecea_XXX_sp.;,3,mixed,1,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Opalozoa;Bicosoecida;MAST-22;MAST-22B;MAST-22B_sp.;,2,nested_chain,1,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Opalozoa;Nanomonadea;MAST-3,6,mixed,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Opalozoa;Nanomonadea;MAST-3;MAST-3C;MAST-3C_sp.;,2,siblings,0,0,,False,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Opalozoa;Nanomonadea;MAST-3;MAST-3E;MAST-3E_sp.;,3,mixed,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Opalozoa;Nanomonadea;MAST-3;MAST-3J;MAST-3J_sp.;,2,siblings,0,0,,False,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Opalozoa;Nanomonadea;MAST-3;MAST-3K;MAST-3K_sp.;,3,mixed,1,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Sagenista,2,siblings,0,0,,False,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Sagenista;Labyrinthulomycetes,4,mixed,1,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Sagenista;Labyrinthulomycetes;Labyrinthulomycetes_LAB1/6/8;Labyrinthulomycetes_LAB6;Labyrinthulomycetes_LAB6_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Sagenista;Labyrinthulomycetes;Labyrinthulomycetes_LAB14;Labyrinthulomycetes_LAB14_X;Labyrinthulomycetes_LAB14_X_sp.;,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Sagenista;Labyrinthulomycetes;Thraustochytriaceae;Thraustochytriaceae_LAB18;Thraustochytriaceae_LAB18_sp.;,2,nested_chain,1,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Sagenista;Labyrinthulomycetes;Thraustochytriaceae;Thraustochytriaceae_SEK690;Thraustochytriaceae_SEK690_sp.;,2,nested_chain,1,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Sagenista;Sagenista_X;MAST-10;MAST-10_X;MAST-10_X_sp.;,2,siblings,0,0,,False,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Sagenista;Sagenista_X;MAST-7,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Bigyra;Sagenista;Sagenista_X;MAST-8,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Gyrista,5,siblings,1,0,,False,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Bacillariophyceae,3,siblings,1,0,,False,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Bacillariophyceae;Bacillariales;Bacillariaceae;Nitzschia,2,nested_chain,1,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Bacillariophyceae;Bacillariophyceae_X;Bacillariophyceae_XX;Bacillariophyceae_XXX;Bacillariophyceae_XXX_sp.;,2,siblings,1,0,,False,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Bacillariophyceae;Naviculales;Naviculaceae;Navicula,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Chrysophyceae;Paraphysomonadales;Paraphysomonadaceae;Paraphysomonas,2,nested_chain,1,1,Prey Specialization,True,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Chrysophyceae;Paraphysomonadales;Paraphysomonadaceae;Paraphysomonas;Paraphysomonas_sp.;,2,nested_chain,1,1,Prey Specialization,True,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Dictyochophyceae;Dictyochophyceae_X,3,mixed,1,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Dictyochophyceae;Dictyochophyceae_X;Florenciellales,4,mixed,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Dictyochophyceae;Dictyochophyceae_X;Florenciellales;Pseudochattonella,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Dictyochophyceae;Dictyochophyceae_X;Pedinellales,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Dictyochophyceae;Dictyochophyceae_X;Rhizochromulinales;Rhizochromulina,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae,2,siblings,0,0,,False,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Mediophyceae;Thalassiosirales;Stephanodiscaceae;Cyclotella,2,nested_chain,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Pelagophyceae;Pelagomonadales,3,siblings,2,0,,False,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Peronosporomycetes;Peronosporomycetes_X;Peronosporales,2,nested_chain,1,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Peronosporomycetes;Peronosporomycetes_X;Peronosporomycetes_XX;Peronosporomycetes_XXX;Peronosporomycetes_XXX_sp.;,2,nested_chain,1,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Gyrista;Pirsoniales;Pirsoniales_X;Pirsoniales_XX,4,mixed,0,0,,True,False
+Eukaryota;TSAR;Stramenopiles;Stramenopiles_X;Stramenopiles_X-Group-6;Stramenopiles_X-Group-6_X;Stramenopiles_X-Group-6_XX;Stramenopiles_X-Group-6_XXX;Stramenopiles_X-Group-6_XXX_sp.;,2,siblings,0,0,,False,False
+Eukaryota;TSAR;Stramenopiles;Stramenopiles_X;Stramenopiles_XX;Stramenopiles_XXX;Stramenopiles_XXXX;Stramenopiles_XXXXX;Stramenopiles_XXXXX_sp.;,13,mixed,6,4,Shape; Motility; Chloroplast; Ingestion,True,False
