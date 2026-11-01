@@ -80,7 +80,9 @@ input-data/DATABSE_*
 
 # compiled pipeline outputs (released via Zenodo)
 annotation-pipeline/*.csv.gz
-Database-Darkly-v2-compiled.xlsx
+Database-Darkly-v2-*.xlsx
+Database-Darkly-annotation-database-*.xlsx
+~$*.xlsx
 
 # OS cruft
 .DS_Store
