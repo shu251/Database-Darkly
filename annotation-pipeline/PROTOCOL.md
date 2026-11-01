@@ -1,4 +1,4 @@
-# Curation protocol — Database Darkly v2
+# Curation protocol — Database Darkly v2.1
 
 How the version 2 database was built, in the order it was done. Parameters and
 counts are the ones actually used. Companion files: `VERSIONS.md` (version

@@ -1,5 +1,6 @@
-# Version manifest — Database Darkly v2 annotation pipeline
+# Version manifest — Database Darkly v2.1 annotation pipeline
 
+Release: **v2.1**, 2026-11-01 (Zenodo 10.5281/zenodo.15496977)
 Last rebuilt: 2026-11-01
 
 ## Reference versions
