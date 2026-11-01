@@ -1,0 +1,13 @@
+name: phylo-placement
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - seqkit
+  - vsearch
+  - mafft
+  - trimal
+  - iqtree
+  - raxml-ng
+  - epa-ng
+  - gappa

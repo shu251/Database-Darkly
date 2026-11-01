@@ -1,0 +1,32 @@
+#!/bin/bash
+##ENVIRONMENT SETTINGS; CHANGE WITH CAUTION
+#SBATCH --export=NONE        #Do not propagate environment
+#SBATCH --get-user-env=L     #Replicate login environment
+
+##NECESSARY JOB SPECIFICATIONS
+#SBATCH --job-name=phylo-03-align
+#SBATCH --time=48:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=24
+#SBATCH --mem=180GB
+#SBATCH --output=phylo-03-align-log.%j
+
+set -eo pipefail
+source "${SLURM_SUBMIT_DIR}/config.sh"
+load_phylo_env
+
+mkdir -p "${ALN_DIR}"
+cd "${ALN_DIR}"
+
+echo "Align references"
+mafft --auto --thread "${SLURM_CPUS_PER_TASK}" "${REF_DIR}/reference.fasta" > reference-aligned.fasta
+
+echo "Trim columns that are mostly gaps"
+trimal -in reference-aligned.fasta -out trimmed-raw.fasta -gt "${TRIM_GT}" -fasta
+seqkit seq -u -w 0 trimmed-raw.fasta > reference-trimmed.fasta
+rm trimmed-raw.fasta
+
+echo "Alignment length before and after trimming"
+seqkit stats -a reference-aligned.fasta reference-trimmed.fasta
+
+echo "Done"
