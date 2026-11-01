@@ -1,0 +1,112 @@
+=== SLURM LIMITS
+PARTITION AVAIL  TIMELIMIT   NODES(A/I/O/T) NODELIST
+short*       up    2:00:00    316/1/483/800 c[001-800]
+medium       up 1-00:00:00    316/1/483/800 c[001-800]
+long         up 7-00:00:00    316/1/483/800 c[001-800]
+xlong        up 21-00:00:0    316/1/483/800 c[001-800]
+vnc          up   12:00:00     105/11/1/117 g[001-100],r[001-009],t[001-008]
+gpu          up 4-00:00:00     105/11/1/117 g[001-100],r[001-009],t[001-008]
+bigmem       up 2-00:00:00          7/0/1/8 b[001-008]
+special      up 7-00:00:00   421/12/484/917 c[001-800],g[001-100],r[001-009],t[001-008]
+PartitionName=short
+   MaxNodes=32 MaxTime=02:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED
+   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
+PartitionName=medium
+   MaxNodes=128 MaxTime=1-00:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED
+   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
+PartitionName=long
+   MaxNodes=64 MaxTime=7-00:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED
+   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
+PartitionName=xlong
+   MaxNodes=32 MaxTime=21-00:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED
+   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
+PartitionName=vnc
+   MaxNodes=32 MaxTime=12:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED
+   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
+PartitionName=gpu
+   MaxNodes=32 MaxTime=4-00:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED
+   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
+PartitionName=bigmem
+   MaxNodes=4 MaxTime=2-00:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED
+   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
+PartitionName=special
+   MaxNodes=UNLIMITED MaxTime=7-00:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED
+   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
+=== QUOTA
+Your current disk quotas are:
+Disk                             Disk Usage      Limit    File Usage      Limit
+/home/skhu                             5.4G      10.0G          7689      10000
+/scratch/user/skhu                   382.0G       1.0T        447872    3000000
+  * Quota increase for /scratch/user/skhu will expire on Aug 12, 2025
+/scratch/group/hu-lab                 19.1T      50.0T        755315    1000000
+  * Quota increase for /scratch/group/hu-lab will expire on Oct 5, 2028
+=== QIIME MODULE
+
+------------------------------------------------------------------------------------------------
+  QIIME2: QIIME2/2024.10-Amplicon
+------------------------------------------------------------------------------------------------
+    Description:
+      QIIME is an open-source bioinformatics pipeline for performing microbiome analysis from
+      raw DNA sequencing data.
+
+
+    This module can be loaded directly: module load QIIME2/2024.10-Amplicon
+
+    Help:
+      Description
+      ===========
+      QIIME is an open-source bioinformatics pipeline for performing microbiome analysis
+=== ASV FILE
+675382374ac051df38aafb72b7fa3ac8  /scratch/group/hu-lab/deepsea-18S-merged-outputs/ref-seqs/ref-seqs-deepsea-DB_052025.fasta
+27559
+/scratch/group/hu-lab/databases/PR2:
+total 847M
+-rw-rw-r-- 1 skhu hu-lab 2.0K Oct 30 13:01 notes-pr2.txt
+-rw-rw-r-- 1 skhu hu-lab  32M Oct 30 12:21 pr2-tax_5.1.1.tsv
+-rw-rw-r-- 1 skhu hu-lab  29M Jul  8  2024 pr2-tax.tsv
+-rw-rw-r-- 1 skhu hu-lab  49M Aug 22  2024 pr2_version_5.0.0_seqs.qza
+-rw-rw-r-- 1 skhu hu-lab 302M May 14  2023 pr2_version_5.0.0_SSU_mothur.fasta
+-rw-rw-r-- 1 skhu hu-lab  29M May 14  2023 pr2_version_5.0.0_SSU_mothur.tax
+-rw-rw-r-- 1 skhu hu-lab 4.4M Aug 22  2024 pr2_version_5.0.0_tax.qza
+-rw-rw-r-- 1 skhu hu-lab  49M Oct 30 13:06 pr2_version_5.1.1_seqs.qza
+-rw-rw-r-- 1 skhu hu-lab 319M Oct 27  2025 pr2_version_5.1.1_SSU_mothur.fasta
+-rw-rw-r-- 1 skhu hu-lab  32M Oct 27  2025 pr2_version_5.1.1_SSU_mothur.tax
+-rw-rw-r-- 1 skhu hu-lab 4.5M Oct 30 12:52 pr2_version_5.1.1_tax.qza
+
+/scratch/group/hu-lab/databases/silva:
+total 100M
+-rw-r--r-- 1 skhu hu-lab  93M Oct 18  2024 silva-138-99-seqs.qza
+-rw-r--r-- 1 skhu hu-lab 6.6M Oct 18  2024 silva-138-99-tax.qza
+=== PR2 TAXONOMY
+Feature ID	Taxon
+AB353770.1.1740_U	Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae;Peridiniales;Kryptoperidiniaceae;Unruhdinium;Unruhdinium_kevei;
+AB284159.1.1765_U	Eukaryota;TSAR;Alveolata;Dinoflagellata;Dinophyceae;Peridiniales;Protoperidiniaceae;Protoperidinium;Protoperidinium_bipes;
+240202 /scratch/group/hu-lab/databases/PR2/pr2-tax_5.1.1.tsv
+=== PR2 SEQUENCES
+>AB353770.1.1740_U
+ATGCTTGTCTCAAAGATTAAGCCATGCATGTCTCAGTATAAGCTTTTACATGGCGAAACTGCGAATGGCTCATTAAAACAGTTACAGTTTATTTGAAGGTCATTTTCTACATGGATAACT
+sequences: 240201
+1200-3000 bp: 147822
+IDs also in taxonomy: 240201
+=== SILVA
+Feature ID	Taxon
+CP013078.2406498.2408039	d__Bacteria; p__Proteobacteria; c__Gammaproteobacteria; o__Burkholderiales; f__Alcaligenaceae; g__Bordetella; s__Bordetella_pertussis
+CP015924.1224168.1225721	d__Bacteria; p__Proteobacteria; c__Gammaproteobacteria; o__Enterobacterales; f__Enterobacteriaceae; g__Salmonella; s__Salmonella_enterica
+
+EnvironmentLocationNotFound: Not a conda environment: /scratch/group/hu-lab/deepsea-18S-merged-outputs/phylo-placement/conda-env
+
+=== TOOLS
+=== EPA-NG
+-bash: epa-ng: command not found
+=== GAPPA
+-bash: gappa: command not found
+-bash: gappa: command not found
+-bash: gappa: command not found
+=== RAXML-NG
+-bash: raxml-ng: command not found
+=== IQ-TREE
+-bash: iqtree2: command not found
+=== MAFFT
+-bash: mafft: command not found
+=== TRIMAL
+-bash: trimal: command not found
