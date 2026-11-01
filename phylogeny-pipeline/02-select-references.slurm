@@ -52,6 +52,21 @@ awk -v cap_named="${CAP_NAMED_GENUS}" -v cap_x="${CAP_X_GENUS}" -v cap_coarse="$
   -f "${SLURM_SUBMIT_DIR}/select-references.awk" pr2-euk-tax.tsv centroid-lengths.tsv > reference-ids.txt
 
 seqkit grep -f reference-ids.txt pr2-euk-centroids.fasta | seqkit seq -w 0 > reference.fasta
+
+echo "Add references that the filters would otherwise lose"
+for id in ${FORCE_REFERENCES}; do
+  grep -qxF "${id}" reference-ids.txt && continue
+  seqkit grep -p "${id}" "${DB_DIR}/pr2-5.1.1-seqs.fasta" | seqkit seq -i -u -w 0 > forced.fasta
+  if [ -s forced.fasta ]; then
+    cat forced.fasta >> reference.fasta
+    echo "Added ${id}"
+  else
+    echo "WARNING: ${id} not found in PR2 sequences"
+  fi
+done
+rm -f forced.fasta
+seqkit seq -n -i reference.fasta > reference-ids.txt
+
 awk -F'\t' 'FNR == NR { keep[$1]; next } $1 in keep' reference-ids.txt pr2-euk-tax.tsv > reference-taxonomy.tsv
 
 echo "Selected references"

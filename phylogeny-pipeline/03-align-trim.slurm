@@ -29,4 +29,9 @@ rm trimmed-raw.fasta
 echo "Alignment length before and after trimming"
 seqkit stats -a reference-aligned.fasta reference-trimmed.fasta
 
+echo "Bases left after trimming in force-added references"
+for id in ${FORCE_REFERENCES}; do
+  seqkit grep -p "${id}" reference-trimmed.fasta | seqkit seq -g | seqkit fx2tab -n -i -l
+done
+
 echo "Done"

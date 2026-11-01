@@ -39,7 +39,9 @@ Nuclear eukaryote sequences of 1,200–3,000 bp are clustered at 97%, then cappe
 
 These three groups hold 18,839 of the 22,929 PR2 5.1.1 eukaryote genera with SSU
 sequences, so sampling them per genus would swamp the protists. Lineages with
-18S longer than 3,000 bp drop out unless `REF_MAX_LEN` is raised.
+18S longer than 3,000 bp drop out unless `REF_MAX_LEN` is raised. Sequences listed
+in `FORCE_REFERENCES` are added regardless of these filters: currently
+`PP680531.1.3998_U` (3,998 bp), the only Malawimonadidae sequence in PR2 5.1.1.
 
 ## Main outputs
 

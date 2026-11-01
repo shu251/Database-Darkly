@@ -31,7 +31,8 @@ mv "${DB_DIR}/silva-seqs/dna-sequences.fasta" "${DB_DIR}/silva-138-99-seqs.fasta
 qiime tools export --input-path "${SILVA_TAX_QZA}" --output-path "${DB_DIR}/silva-tax"
 mv "${DB_DIR}/silva-tax/taxonomy.tsv" "${DB_DIR}/silva-138-99-tax.tsv"
 
-rmdir "${DB_DIR}/pr2-seqs" "${DB_DIR}/silva-seqs" "${DB_DIR}/silva-tax" "${DB_DIR}/tmp"
+rmdir "${DB_DIR}/pr2-seqs" "${DB_DIR}/silva-seqs" "${DB_DIR}/silva-tax"
+rm -rf "${DB_DIR}/tmp"   # QIIME 2 leaves temporary files here
 
 echo "Check the formats"
 head -c 300 "${DB_DIR}/pr2-5.1.1-seqs.fasta"; echo
