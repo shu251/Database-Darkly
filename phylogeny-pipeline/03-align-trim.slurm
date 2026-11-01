@@ -5,7 +5,7 @@
 
 ##NECESSARY JOB SPECIFICATIONS
 #SBATCH --job-name=phylo-03-align
-#SBATCH --time=48:00:00
+#SBATCH --time=96:00:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=24
 #SBATCH --mem=180GB
@@ -19,7 +19,8 @@ mkdir -p "${ALN_DIR}"
 cd "${ALN_DIR}"
 
 echo "Align references"
-mafft --auto --thread "${SLURM_CPUS_PER_TASK}" "${REF_DIR}/reference.fasta" > reference-aligned.fasta
+# FFT-NS-i. --auto picks the rougher FFT-NS-2 at this many sequences
+mafft --retree 2 --maxiterate 2 --thread "${SLURM_CPUS_PER_TASK}" "${REF_DIR}/reference.fasta" > reference-aligned.fasta
 
 echo "Trim columns that are mostly gaps"
 trimal -in reference-aligned.fasta -out trimmed-raw.fasta -gt "${TRIM_GT}" -fasta
