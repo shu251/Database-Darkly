@@ -17,7 +17,7 @@ PLACE_DIR=${WORKDIR}/05-placement
 
 # Software
 QIIME_MODULE=QIIME2/2024.10-Amplicon
-CONDA_MODULE=Anaconda3                  # check the name with: module spider Anaconda3
+CONDA_MODULE=Anaconda3/2026.07-1
 CONDA_ENV=${WORKDIR}/conda-env
 
 # Reference selection (02)
