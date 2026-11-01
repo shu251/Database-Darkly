@@ -55,7 +55,7 @@ seqkit sample -s 11 -p 0.011 "${ASV_FASTA}" | seqkit seq -u -w 0 > asv-sample.fa
 seqkit seq -n -i "${ALN}" > aln-ids.txt
 mafft --6merpair --thread "${SLURM_CPUS_PER_TASK}" --keeplength \
   --addfragments asv-sample.fasta "${ALN}" 2> /dev/null \
-  | seqkit seq -u -w 0 | seqkit grep -v -f aln-ids.txt > asv-sample-aligned.fasta
+  | seqkit seq -u -w 0 | seqkit grep -w 0 -v -f aln-ids.txt > asv-sample-aligned.fasta
 awk -f "${SLURM_SUBMIT_DIR}/alignment-coverage.awk" asv-sample.fasta asv-sample-aligned.fasta > asv-coverage.tsv
 quantiles asv-coverage.tsv
 echo "ASVs below ${MIN_ALIGNED_BP} bases kept: $(awk -F'\t' -v m="${MIN_ALIGNED_BP}" '$3 < m' asv-coverage.tsv | wc -l)"
