@@ -1,14 +1,14 @@
 # Shared settings, sourced by every step. Edit here, not in the job scripts.
 
 # Inputs
-ASV_FASTA=/scratch/group/hu-lab/deepsea-18S-merged-outputs/ref-seqs/ref-seqs-deepsea-DB_052025.fasta
+ASV_FASTA=${TEST_ASV_FASTA:-/scratch/group/hu-lab/deepsea-18S-merged-outputs/ref-seqs/ref-seqs-deepsea-DB_052025.fasta}
 PR2_SEQS_QZA=/scratch/group/hu-lab/databases/PR2/pr2_version_5.1.1_seqs.qza
 PR2_TAX_TSV=/scratch/group/hu-lab/databases/PR2/pr2-tax_5.1.1.tsv
 SILVA_SEQS_QZA=/scratch/group/hu-lab/databases/silva/silva-138-99-seqs.qza
 SILVA_TAX_QZA=/scratch/group/hu-lab/databases/silva/silva-138-99-tax.qza
 
 # All outputs go here
-WORKDIR=/scratch/group/hu-lab/deepsea-18S-merged-outputs/phylo-placement
+WORKDIR=${TEST_WORKDIR:-/scratch/group/hu-lab/deepsea-18S-merged-outputs/phylo-placement}   # the TEST_ values are only set by smoke-test.slurm
 DB_DIR=${WORKDIR}/01-databases
 REF_DIR=${WORKDIR}/02-references
 ALN_DIR=${WORKDIR}/03-alignment
@@ -18,7 +18,7 @@ PLACE_DIR=${WORKDIR}/05-placement
 # Software
 QIIME_MODULE=QIIME2/2024.10-Amplicon
 ANACONDA_MODULE=Anaconda3/2026.07-1
-PHYLO_ENV=${WORKDIR}/conda-env
+PHYLO_ENV=/scratch/group/hu-lab/deepsea-18S-merged-outputs/phylo-placement/conda-env
 
 # Reference selection (02)
 REF_MIN_LEN=1200       # near-full-length 18S only
