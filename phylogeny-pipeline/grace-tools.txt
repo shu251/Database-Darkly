@@ -1,0 +1,243 @@
+epa-ng                     0.3.8            h077b44d_7        bioconda
+gappa                      0.9.0            h077b44d_0        bioconda
+iqtree                     2.4.0            h503566f_0        bioconda
+mafft                      7.526            h4bc722e_0        conda-forge
+raxml-ng                   2.0.4            h870a6a7_0        bioconda
+seqkit                     2.14.0           hb192632_0        bioconda
+trimal                     1.5.1            h9948957_0        bioconda
+vsearch                    2.32.0           hd2be7a0_0        bioconda
+epa-ng - Massively-Parallel Evolutionary Placement Algorithm
+Usage: epa-ng [OPTIONS]
+
+Options:
+  -h,--help                   Print this help message and exit
+  -v,--version                Display version.
+  --verbose                   Display debug output.
+
+
+Convert:
+  -c,--bfast TEXT:FILE        Convert the given fasta file to bfast format.
+  -B,--dump-binary            Binary Dump mode: write ref. tree in binary format then exit. NOTE: not compatible with premasking!
+  --split TEXT:FILE ...       Takes a reference MSA (phylip/fasta/fasta.gz) and combined ref + query MSA(s) (phylip/fasta/fasta.gz) and outputs a monolithic query file (fasta), as well as a reference file (fasta), ready for use. Usage: epa-ng --split ref_alignment query_alignments+
+
+
+Input:
+  -t,--tree TEXT:FILE Excludes: --binary
+                              Path to Reference Tree file.
+  -s,--ref-msa,--msa TEXT:FILE Excludes: --binary
+                              Path to Reference MSA file.
+  -b,--binary TEXT:FILE Excludes: --tree --ref-msa
+                              Path to binary reference file, as created using --dump-binary.
+  -q,--query TEXT:FILE        Path to Query MSA file.
+  -m,--model TEXT=GTR+G       Description string of the model to be used, or a RAxML_info file. --model STRING | FILE See: https://github.com/amkozlov/raxml-ng/wiki/Input-data#evolutionary-model
+
+
+Output:
+  -w,--outdir,--out-dir TEXT:DIR=./
+                              Path to output directory.
+  --filter-acc-lwr FLOAT:FLOAT in [0 - 1] Excludes: --filter-min-lwr
+                              Accumulated likelihood weight after which further placements are discarded.
+  --filter-min-lwr FLOAT:FLOAT in [0 - 1]=0.01 Excludes: --filter-acc-lwr
+                              Minimum likelihood weight below which a placement is discarded.
+  --filter-min UINT=1         Minimum number of placements per sequence to include in final output.
+  --filter-max UINT=7         Maximum number of placements per sequence to include in final output.
+  --precision UINT=10         Output decimal point precision for floating point numbers.
+  --redo                      Overwrite existing files.
+  --preserve-rooting TEXT:{off,on}
+                              Preserve the rooting of rooted trees. When disabled, EPA-ng will print the result as an unrooted tree.
+
+
+Compute:
+  -g,--dyn-heur FLOAT:FLOAT in [0 - 1]=0.99999 Excludes: --fix-heur --baseball-heur --no-heur
+                              Two-phase heuristic, determination of candidate edges using accumulative threshold. Enabled by default! See --no-heur for disabling it
+  -G,--fix-heur FLOAT:FLOAT in [0 - 1] Excludes: --dyn-heur --baseball-heur --no-heur
+                              Two-phase heuristic, determination of candidate edges by specified percentage of total edges.
+  --baseball-heur Excludes: --dyn-heur --fix-heur --no-heur
+                              Baseball heuristic as known from pplacer. strike_box=3,max_strikes=6,max_pitches=40.
+  --no-heur Excludes: --dyn-heur --fix-heur --baseball-heur
+                              Disables heuristic preplacement completely. Overrides all other heuristic flags.
+  --chunk-size UINT=5000      Number of query sequences to be read in at a time. May influence performance.
+  --raxml-blo                 Employ old style of branch length optimization during thorough insertion as opposed to sliding approach. WARNING: may significantly slow down computation.
+  --no-pre-mask               Do NOT pre-mask sequences. Enables repeats unless --no-repeats is also specified.
+  --rate-scalers TEXT:{off,on,auto}
+                              Use individual rate scalers. Important to avoid numerical underflow in taxa rich trees.
+  -T,--threads UINT=0         Number of threads to use. If 0 is passed as argument,program will run with the maximum number of threads available.
+Make a tree with each of the query sequences represented as a pendant edge.
+Usage: gappa examine graft [OPTIONS]
+
+Input:
+  --jplace-path TEXT:PATH(existing)=[] ... REQUIRED
+                              List of jplace files or directories to process. For directories, only files with the extension `.jplace[.gz]` are processed.
+
+
+Settings:
+  --fully-resolve FLAG        If set, branches that contain multiple pqueries are resolved by creating a new branch for each of the pqueries individually, placed according to their distal/proximal lengths. If not set (default), all pqueries at one branch are collected in a subtree that branches off from the branch.
+  --name-prefix TEXT          Specify a prefix to be added to all new leaf nodes, i.e., to the query sequence names.
+
+
+Output:
+  --out-dir TEXT=.            Directory to write output files to.
+  --file-prefix TEXT          File prefix for output files. Most gappa commands use the command name as the base name for file output. This option amends the base name, to distinguish runs with different data.
+  --file-suffix TEXT          File suffix for output files. Most gappa commands use the command name as the base name for file output. This option amends the base name, to distinguish runs with different data.
+
+
+Newick Tree Output:
+  --newick-tree-quote-invalid-chars FLAG 
+                              If set, node labels that contain characters that are invalid in the Newick format (i.e., spaces and `:;()[],{}`) are put into quotation marks. If not set (default), these characters are instead replaced by underscores, which changes the names, but works better with most downstream tools.
+
+
+Global Options:
+  --allow-file-overwriting FLAG 
+                              Allow to overwrite existing output files instead of aborting the command.
+  --verbose FLAG              Produce more verbose output.
+  --threads UINT=1            Number of threads to use for calculations.
+  --log-file TEXT             Write all output to a log file, in addition to standard output to the terminal.
+  --help FLAG                 Print this help message and exit.
+
+gappa - a toolkit for analyzing and visualizing phylogenetic (placement) data
+Taxonomically assign placed query sequences and output tabulated summarization.
+Usage: gappa examine assign [OPTIONS]
+
+Input:
+  --jplace-path TEXT:PATH(existing)=[] ... REQUIRED
+                              List of jplace files or directories to process. For directories, only files with the extension `.jplace[.gz]` are processed.
+  --taxon-file TEXT:FILE REQUIRED
+                              File containing a tab-separated list of reference taxon to taxonomic string assignments.
+  --root-outgroup TEXT:FILE   Root the tree by the outgroup taxa defined in the specified file.
+  --taxonomy TEXT:FILE        EXPERIMENTAL: File containing a tab-separated list defining the taxonomy. If mapping is incomplete (for example if the output taxonomy shall be NCBI, but SILVA was used as the basis in the --taxon-file) a best-effort mapping is attempted.
+  --ranks-string TEXT=superkingdom|phylum|class|order|family|genus|species
+                              String specifying the rank names, in order, to which the taxonomy adheres. Required when using the CAMI output format. Assignments not adhereing to this constrained will be collapsed to the last valid mapping
+                              EXAMPLE: superkingdom|phylum|class|order|family|genus|species
+
+
+Settings:
+  --sub-taxopath TEXT         Taxopath (example: Eukaryota;Animalia;Chordata) by which the high level summary should be filtered. Doesn't affect intermediate results, and an unfiltered verison will be printed as well.
+  --max-level UINT=0          Maximal level of the taxonomy to be printed. Default is 0, that is, the whole taxonomy is printed. If set to a value about 0, only this many levels are printed. That is, taxonomic levels below the specified one are omitted.
+  --distribution-ratio FLOAT:FLOAT in [0 - 1]=-1
+                              Ratio by which LWR is split between annotations if an edge has two possible annotations. Specifies the amount going to the proximal annotation. If not set program will determine the ratio automatically from the 'distal length' specified per placement.
+  --consensus-thresh FLOAT:FLOAT in [0 - 1]=1
+                              For assignment of taxonomic labels to the reference tree, require this consensus threshold. Example: if set to 0.6, and 60% of an inner node's descendants share a taxonomic path, set that path at the inner node.
+  --resolve-missing-paths FLAG 
+                              Should the taxon file be incomplete and leave some taxa without taxopaths, fill in the missing node labels using the closest (in the tree) label.
+                              If not specified, those parts of the tree remain unlabelled, and their placements unassigned.
+  --distant-label FLAG        Take into account the pendant length of the placements, assigning the LWR to a new label called 'DISTANT' in proportion to the pendant length. Assigns no LWR to 'DISTANT' if the pednant length is below the insertion branch length, and assigns all LWR to 'DISTANT' is the pendant length exceeds the radius of the reference tree.
+
+
+Output:
+  --out-dir TEXT=.            Directory to write output files to.
+  --file-prefix TEXT          File prefix for output files. Most gappa commands use the command name as the base name for file output. This option amends the base name, to distinguish runs with different data.
+  --file-suffix TEXT          File suffix for output files. Most gappa commands use the command name as the base name for file output. This option amends the base name, to distinguish runs with different data.
+  --cami FLAG  Needs: --taxonomy
+                              EXPERIMENTAL: Print result in the CAMI Taxonomic Profiling Output Format.
+  --sample-id TEXT Needs: --cami
+                              Sample-ID string to be used in the CAMI output file
+  --krona FLAG                Print result in the Krona text format.
+  --sativa FLAG               Print result as SATIVA would.
+  --per-query-results FLAG    Print intermediate / per-query results (per_query.tsv).
+  --best-hit FLAG             In the per-query results, only print the taxonomic path with the highest LWR.
+
+
+Global Options:
+  --allow-file-overwriting FLAG 
+                              Allow to overwrite existing output files instead of aborting the command.
+  --verbose FLAG              Produce more verbose output.
+  --threads UINT=1            Number of threads to use for calculations.
+  --log-file TEXT             Write all output to a log file, in addition to standard output to the terminal.
+  --help FLAG                 Print this help message and exit.
+
+gappa - a toolkit for analyzing and visualizing phylogenetic (placement) data
+Calcualte the Expected Distance between Placement Locations (EDPL) for all pqueries.
+Usage: gappa examine edpl [OPTIONS]
+
+Input:
+  --jplace-path TEXT:PATH(existing)=[] ... REQUIRED
+                              List of jplace files or directories to process. For directories, only files with the extension `.jplace[.gz]` are processed.
+
+
+Settings:
+  --histogram-bins UINT=25    Number of histogram bins for binning the EDPL values.
+  --histogram-max FLOAT=-1    Maximum value to use in the histogram for binning the EDPL values. To use the maximal EDPL found in the samples, use a negative value (default).
+  --no-list-file FLAG         If set, do not write out the EDPL per pquery, but just the histogram file. As the list needs to keep all pquery names in memory (to get the correct order), the memory requirements might be too large. In that case, this option can help.
+
+
+Output:
+  --out-dir TEXT=.            Directory to write output files to.
+  --file-prefix TEXT          File prefix for output files. Most gappa commands use the command name as the base name for file output. This option amends the base name, to distinguish runs with different data.
+  --file-suffix TEXT          File suffix for output files. Most gappa commands use the command name as the base name for file output. This option amends the base name, to distinguish runs with different data.
+
+
+Global Options:
+  --allow-file-overwriting FLAG 
+                              Allow to overwrite existing output files instead of aborting the command.
+  --verbose FLAG              Produce more verbose output.
+  --threads UINT=1            Number of threads to use for calculations.
+  --log-file TEXT             Write all output to a log file, in addition to standard output to the terminal.
+  --help FLAG                 Print this help message and exit.
+
+gappa - a toolkit for analyzing and visualizing phylogenetic (placement) data
+
+RAxML-NG v. 2.0.4 released on 28.10.2026 by The Exelixis Lab.
+Developed by: Oleksiy M. Kozlov and Alexandros Stamatakis.
+Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth,
+              Julia Haag, Anastasis Togkousidis, Julius Wiegert, Christoph Stelz.
+Latest version: https://codeberg.org/amkozlov/raxml-ng
+Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
+
+System: Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz, 48 cores, 375 GB RAM (allocated: 24 physical cores)
+
+Usage: raxml-ng [OPTIONS]
+
+Commands (mutually exclusive):
+  --help                                     display help information
+  --version                                  display version information
+  --evaluate                                 evaluate the likelihood of a tree (with model+brlen optimization)
+  --search                                   ML tree search (default: use adaptive heuristic)
+  --bootstrap                                bootstrapping (default: use bootstopping to auto-detect #replicates)
+  --all                                      all-in-one (ML search + bootstrapping)
+  --support                                  compute bipartition support for a given reference tree (e.g., best ML tree)
+                                             and a set of replicate trees (e.g., from a bootstrap analysis)
+  --bsconverge                               test for bootstrapping convergence using autoMRE criterion
+  --bsmsa                                    generate bootstrap replicate MSAs
+  --terrace                                  check whether a tree lies on a phylogenetic terrace 
+  --check                                    check alignment correctness and remove empty columns/rows
+  --parse                                    parse alignment, compress patterns and create binary MSA file
+  --start                                    generate parsimony/random starting trees and exit
+  --rfdist                                   compute pair-wise Robinson-Foulds (RF) distances between trees
+  --consense [ STRICT | MR | MR<n> | MRE ]   build strict, majority-rule (MR) or extended MR (MRE) consensus tree (default: MR)
+                                             eg: --consense MR75 --tree bsrep.nw
+  --ancestral                                ancestral state reconstruction at all inner nodes
+  --mutmap                                   map mutations to the tree branches
+  --sitelh                                   print per-site log-likelihood values
+  --pythia                                   compute and print Pythia MSA difficulty score
+  --moose [ OPTIONS ]                        select best-fit MOdel Of Sequence Evolution (OPTIONS: see below)
+
+Command shortcuts (mutually exclusive):
+  --search1                                  Alias for: --search --tree pars{1}
+  --fast                                     Alias for: --search --tree pars{1} --opt-topology simplified --stop-rule kh-mult
+  --allfast                                  Alias for: --all --tree pars{1} --opt-topology simplified --stop-rule kh-mult --bs-metric ebg
+  --loglh                                    Alias for: --evaluate --opt-model off --opt-branches off --nofiles --log result
+  --rf                                       Alias for: --rfdist --nofiles --log result
+  --pt                                       Alias for: --pythia --nofiles --log result
+  --sh [ REPS ]                              Alias for: --all --opt-topology nni --bs-metric sh [ --sh-reps REPS ]
+  --ebg                                      Alias for: --all --bs-metric ebg --opt-topology off
+  --gcf [ REF_TREE ]                         Alias for: --support --bs-metric gcf [ --tree REF_TREE ] 
+
+Input and output options:
+  --tree            rand{N} | pars{N} |      starting tree: rand(om), pars(imony) or user-specified (newick file)
+                    FILE | auto              N = number of trees (default: auto-detect based on MSA difficulty)
+  --msa             FILE                     alignment file
+  --msa-format      VALUE                    alignment file format: FASTA, PHYLIP, CATG or AUTO-detect (default)
+  --data-type       VALUE                    data type: DNA, AA, BIN(ary) or AUTO-detect (default)
+  --tree-constraint FILE                     constraint tree
+  --prefix          STRING                   prefix for output files (default: MSA file name)
+  --log             VALUE                    log verbosity: ERROR,WARNING,RESULT,INFO,PROGRESS,DEBUG (default: PROGRESS)
+  --redo                                     overwrite existing result files and ignore checkpoints (default: OFF)
+  --nofiles                                  do not create any output files, print results to the terminal only
+  --precision       VALUE                    number of decimal places to print (default: 6)
+  --outgroup        o1,o2,..,oN              comma-separated list of outgroup taxon names (it's just a drawing option!)
+IQ-TREE multicore version 2.4.0 for Linux x86 64-bit built Feb 12 2025
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor, Heiko Schmidt,
+v7.526 (2024/Apr/26)
+
+trimAl v1.5.rev1 build[2025-11-25]
+
