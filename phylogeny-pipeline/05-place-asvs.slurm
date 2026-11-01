@@ -69,13 +69,18 @@ raxml-ng --evaluate \
   --threads "${THREADS}" \
   --redo
 
+# The bestModel line reads: model string, partition name = sites
+MODEL=$(cut -d',' -f1 reference-model.raxml.bestModel)
+echo "Model: ${MODEL}"
+
 echo "Place ASVs"
 mkdir -p epa
 epa-ng \
   --ref-msa reference.fasta \
   --tree reference-model.raxml.bestTree \
   --query query-filtered.fasta \
-  --model reference-model.raxml.bestModel \
+  --model "${MODEL}" \
+  --rate-scalers on \
   --threads "${THREADS}" \
   --outdir epa \
   --redo
@@ -88,17 +93,23 @@ gappa examine graft \
   --out-dir gappa \
   --allow-file-overwriting
 
-gappa examine assign \
+gappa examine edpl \
   --jplace-path epa/epa_result.jplace \
-  --taxon-file "${REF_DIR}/reference-taxonomy.tsv" \
-  --per-query-results \
-  --best-hit \
   --threads "${THREADS}" \
   --out-dir gappa \
   --allow-file-overwriting
 
-gappa examine edpl \
+# Taxonomic labels depend on the root, and the tree's own root is arbitrary, so root on Amorphea
+awk -F'\t' '{ split($2, r, ";"); if (r[2] == "Obazoa" || r[2] == "Amoebozoa") print $1 }' \
+  "${REF_DIR}/reference-taxonomy.tsv" > root-outgroup.txt
+echo "Outgroup references: $(wc -l < root-outgroup.txt)"
+
+gappa examine assign \
   --jplace-path epa/epa_result.jplace \
+  --taxon-file "${REF_DIR}/reference-taxonomy.tsv" \
+  --root-outgroup root-outgroup.txt \
+  --per-query-results \
+  --best-hit \
   --threads "${THREADS}" \
   --out-dir gappa \
   --allow-file-overwriting
