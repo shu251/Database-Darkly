@@ -6,7 +6,7 @@ editor: visual
 
 ::: {style="float:right"}
 ```{r, echo=FALSE, out.width= "250px", out.extra='style="float:left; padding:30px"'}
-knitr::include_graphics("visuals/logo.jpg")
+knitr::include_graphics("visuals/logo-web.jpg")
 ```
 :::
 
@@ -16,21 +16,53 @@ Curate and annotate what we know about deep-sea marine microbial eukaryotes. Muc
 
 There are three primary goals of this project: (1) Complement our comprehensive sequence database of deep-sea microbial eukaryotic diversity with metadata on taxonomic nomenclature (Costello et al. 2013; Horton et al. 2017), tree of life placement (e.g., iTOL and Open Tree of Life Letunic and Bork 2021; Michonneau et al. 2016; OpenTreeOfLife et al. 2019), a functional trait database (e.g., cell morphology, motility, ploidy, etc.; Ramond et al. 2019), and accounts of planktonic protist interactions (Bjorbækmo et al. 2020), (2) to highlight the number of taxonomic lineages that are severely lacking representation in the sequence reference database (Guillou et al. 2012), and (3) to look for patterns in the assignment of the phylogenetically elusive protists that may be related to fluid geochemistry or biogeography.
 
-### Origin of data
+## Current release
+
+**Version 2 — data release, May 2025.** [Zenodo record 10.5281/zenodo.15496977](https://zenodo.org/records/15496977), CC BY 4.0.
+
+| What | Status |
+|------|--------|
+| ASVs (18S rRNA gene, V4) | **27,559** |
+| Vent fields | Piccard, Von Damm, Gorda Ridge, Axial Seamount (incl. Axial 2022 and 2023) |
+| Samples | 176 |
+| Reference taxonomy | PR2 5.1.1 |
+| Hand-curated taxa | 1,095 entries, 641 with at least one annotation |
+| License | CC BY 4.0 |
+
+Taxonomy was assigned by `classify-consensus-vsearch` against PR2 5.0.0 and carried onto PR2 5.1.1 through the official taxon crosswalk; 94.6% of taxa have an identical nine-rank path between those two releases. See the version manifest in `annotation-pipeline/VERSIONS.md` for what this does and does not change.
+
+### What is new since version 1
+
+- **Axial Seamount 2022 and 2023** added, taking the database from 17,934 to 27,559 ASVs. ASV identifiers are sequence hashes, so every version 1 identifier persists unchanged.
+- **PR2 5.1.1** replaces the version 4.x taxonomy used in version 1. The supergroup scheme changed substantially — `Hacrobia` no longer exists, and `Alveolata`, `Stramenopiles` and `Rhizaria` are now divisions within `TSAR`.
+- **A functional annotation layer**, aligning five sources onto the PR2 taxonomy: the hand curation from version 1, the Mixoplankton Database (Mitra et al. 2023), a trophic trait compilation, the Ramond et al. (2019) trait database, and PIDA (Bjorbækmo et al. 2020).
+- **Annotation coverage is reported honestly.** 28.7% of ASVs and 47.1% of reads currently carry any functional annotation. Coverage is strongly uneven by lineage: 57.3% of Haptista ASVs have species-level annotation, against 11.9% for TSAR and 0% for PANNAM. None of the published trait databases is deep-sea in origin, so the annotation gap is concentrated in exactly the lineages this project exists to document.
+
+## Origin of data
 
 An expansive 18S rRNA gene tag-sequencing survey of protists across four deep-sea hydrothermal vent fields (Piccard, Von Damm, Axial Seamount, and Gorda Ridge) demonstrated that the interface of deep seawater mixing with diffuse vent fluid contained a highly diverse and species rich protistan assemblage compared to deep background seawater.
 
 [Find the paper here](https://onlinelibrary.wiley.com/doi/full/10.1111/mec.16745)
 
-### 18S rRNA gene (V4 region)
+## How to cite
 
-*Explanation of amplicon sequencing*
+Please cite both the data release and the originating survey.
 
-1.  Molecular ecology paper ASV tables
-2.  Get reference sequences from ASV determination, collect this information. Once this table is completed, upload to Zenodo. Decide on what a "complete" package for this is. (a) fasta sequences, (b) taxonomic IDs, (c) ASV document that can be joined with future iterations of 18S, (d) QIIME2 file
-3.  Organize by families or classes. 4 *Pick how to triage these families or classes*
-4.  For the taxonomic assignment from PR2, what other information does PR2 give?
-5.  Literature search, what else do we know about the ASV?
+> Hu, S. K. (2025). *Database Darkly files* (Version 2) \[Data set\]. Zenodo. <https://doi.org/10.5281/zenodo.15496977>
+
+> Hu, S. K., Smith, A. R., Anderson, R. E., Sylva, S. P., Setzer, M., Steadmon, M., Frank, K. L., Chan, E. W., Lim, D. S. S., German, C. R., Breier, J. A., Lang, S. Q., Butterfield, D. A., Fortunato, C. S., Seewald, J. S., & Huber, J. A. (2022). Globally-distributed microbial eukaryotes exhibit endemism at deep-sea hydrothermal vents. *Molecular Ecology*, 32(23), 6580–6598. <https://doi.org/10.1111/mec.16745>
+
+If you use the functional annotation layer, please also cite the source databases it draws on — they are listed with full references in `annotation-pipeline/VERSIONS.md`.
+
+## Reproducing this work
+
+Large data files are released through Zenodo rather than stored in the repository. After cloning:
+
+``` bash
+bash scripts/fetch-data.sh
+```
+
+This prints where each released file belongs and downloads the PR2 reference tables. The third-party trait databases are not redistributed here; the script lists their sources.
 
 ## Contributors
 

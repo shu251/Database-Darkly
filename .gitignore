@@ -39,8 +39,7 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# pkgdown site
-docs/
+# pkgdown site (NOT our docs/ - that is the Quarto output-dir served by GitHub Pages)
 
 # translation temp files
 po/*~
@@ -49,3 +48,40 @@ po/*~
 rsconnect/
 
 /.quarto/
+
+**/*.quarto_ipynb
+
+# ---------------------------------------------------------------------------
+# Large data: lives on Zenodo (10.5281/zenodo.15496977), not in git.
+# Fetch with: bash scripts/fetch-data.sh
+# ---------------------------------------------------------------------------
+
+# sequence data and QIIME2 artifacts
+*.qza
+*.qzv
+*.fasta
+*.fastq
+*.fastq.gz
+*.tar
+qiime2-files/
+db-update-may_2025/*.tsv
+qiime2-code-may2025/*.fasta
+
+# large v1 inputs
+input-data/microeuk-merged-asv-table.tsv
+input-data/taxonomy.tsv
+input-data/taxonomic-assignments.csv
+input-data/taxonomic-lineages.RData
+
+# third-party reference databases (download, do not redistribute)
+input-data/pr2_version_*.xlsx
+input-data/DATABASE_*
+input-data/DATABSE_*
+
+# compiled pipeline outputs (released via Zenodo)
+annotation-pipeline/*.csv.gz
+Database-Darkly-v2-compiled.xlsx
+
+# OS cruft
+.DS_Store
+**/.DS_Store

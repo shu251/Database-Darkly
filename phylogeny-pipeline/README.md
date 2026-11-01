@@ -5,8 +5,8 @@ deep-sea ASVs on it. The ASVs are about 380 bp, too short to resolve deep
 relationships in a tree of their own, so the tree comes from near-full-length
 references and stays fixed during placement.
 
-These scripts have **not been run yet**. They were written away from Grace, so
-the first run is the test.
+All steps have run end to end on a small sample with `smoke-test.slurm` (147
+references, 271 ASVs). The full-size run has not finished yet.
 
 ## Running on Grace
 
@@ -39,9 +39,17 @@ Nuclear eukaryote sequences of 1,200–3,000 bp are clustered at 97%, then cappe
 
 These three groups hold 18,839 of the 22,929 PR2 5.1.1 eukaryote genera with SSU
 sequences, so sampling them per genus would swamp the protists. Lineages with
-18S longer than 3,000 bp drop out unless `REF_MAX_LEN` is raised. Sequences listed
-in `FORCE_REFERENCES` are added regardless of these filters: currently
-`PP680531.1.3998_U` (3,998 bp), the only Malawimonadidae sequence in PR2 5.1.1.
+18S longer than 3,000 bp drop out unless `REF_MAX_LEN` is raised.
+
+`force-references.tsv` adds sequences back regardless of these filters, one for each
+lineage chosen from the report made by `check-lost-lineages.sh`. Its columns are id,
+length, reason and lineage:
+
+| reason | what it restores |
+|---|---|
+| `over_max_length` | lineages with no sequence short enough to pass, including deep-sea Foraminifera and Malawimonadidae |
+| `absorbed_or_capped` | class and order lineages lost to clustering or a cap |
+| `short_deep_lineage` | deep lineages known only from partial sequences; these carry less signal |
 
 ## Main outputs
 
@@ -50,9 +58,9 @@ In `05-placement/`:
 | file | contents |
 |---|---|
 | `epa/epa_result.jplace` | all placements with likelihood weights |
-| `gappa/*.newick` | reference tree with ASVs grafted on, for iTOL or ggtree |
-| `gappa/` assign output | taxonomy per ASV from its placement |
-| `gappa/` edpl output | placement uncertainty per ASV |
+| `gappa/epa_result.newick` | reference tree with ASVs grafted on, for iTOL or ggtree |
+| `gappa/per_query.tsv` | taxonomy per ASV from its placement |
+| `gappa/edpl_list.csv` | placement uncertainty per ASV |
 | `silva-best-hit.tsv`, `asvs-non-eukaryote.txt` | SILVA screen results |
 | `asv-aligned-bases.tsv` | aligned bases per ASV after trimming |
 
@@ -64,3 +72,6 @@ In `05-placement/`:
 - Those ASVs may be novel, but they may also be chimeras or non-target sequence.
   Check them before calling them novel.
 - The tree is unrooted. Root between Amorphea and the other eukaryotes for display.
+- `gappa examine assign` does not warn if the outgroup is not monophyletic: a smoke
+  test with a deliberately split outgroup still exited 0. Check that Amorphea forms
+  one clade in `reference.treefile` before trusting `per_query.tsv`.

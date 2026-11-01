@@ -28,7 +28,7 @@ REF_CLUSTER_ID=0.97
 CAP_NAMED_GENUS=1      # sequences kept per named genus
 CAP_X_GENUS=5          # sequences kept per unnamed genus (e.g. Family_X), to retain environmental clades
 CAP_COARSE_FAMILY=1    # sequences kept per family in Metazoa, Fungi and Streptophyta
-FORCE_REFERENCES="PP680531.1.3998_U"   # space-separated ids kept regardless of filters. PP680531: only Malawimonadidae sequence in PR2 5.1.1, too long for REF_MAX_LEN
+FORCE_REFERENCES=$(cut -f1 "${SLURM_SUBMIT_DIR:-.}/force-references.tsv")   # kept regardless of the filters above
 
 # Alignment trimming (03)
 TRIM_GT=0.1            # keep columns with sequence in at least this fraction of references
