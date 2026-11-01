@@ -41,8 +41,14 @@ awk -f "${SLURM_SUBMIT_DIR}/alignment-coverage.awk" "${REF_DIR}/reference.fasta"
 quantiles reference-coverage.tsv
 echo "References below 50% kept: $(awk -F'\t' '$4 < 0.5' reference-coverage.tsv | wc -l)"
 echo "Lowest 30: id, length, bases kept, fraction, taxonomy"
-sort -t$'\t' -k4,4n reference-coverage.tsv | head -n 30 \
-  | awk -F'\t' 'FNR == NR { tax[$1] = $2; next } { print $0 "\t" tax[$1] }' "${REF_DIR}/reference-taxonomy.tsv" -
+sort -t$'\t' -k4,4n reference-coverage.tsv \
+  | awk -F'\t' 'FNR == NR { tax[$1] = $2; next } FNR <= 30 { print $0 "\t" tax[$1] }' "${REF_DIR}/reference-taxonomy.tsv" -
+
+echo "=== REFERENCES WITH UNDER 1,000 BASES KEPT, BY SUBDIVISION"
+awk -F'\t' 'FNR == NR { split($2, r, ";"); group[$1] = r[3] ";" r[4]; next }
+            $3 < 1000 { n[group[$1]]++; total++ }
+            END { print total + 0, "total"; for (g in n) print n[g], g }' \
+  "${REF_DIR}/reference-taxonomy.tsv" reference-coverage.tsv | sort -k1,1nr
 
 echo "=== ASV SAMPLE: FRACTION OF EACH ASV KEPT"
 seqkit sample -s 11 -p 0.011 "${ASV_FASTA}" | seqkit seq -u -w 0 > asv-sample.fasta
