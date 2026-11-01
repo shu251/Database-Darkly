@@ -1,0 +1,39 @@
+Checking /scratch/group/hu-lab/deepsea-18S-merged-outputs/phylo-placement/03-alignment/fft-ns-2/reference-trimmed.fasta
+=== ALIGNMENT
+file                                                                                                            format  type  num_seqs    sum_len  min_len  avg_len  max_len     Q1     Q2     Q3    sum_gap    N50  N50_num  Q20(%)  Q30(%)  AvgQual  GC(%)  sum_n
+/scratch/group/hu-lab/deepsea-18S-merged-outputs/phylo-placement/03-alignment/fft-ns-2/reference-trimmed.fasta  FASTA   DNA      4,115  9,369,855    2,277    2,277    2,277  2,277  2,277  2,277  2,609,967  2,277    2,058       0       0        0  33.29    825
+gaps: 27.9% of 2277 columns x 4115 sequences
+=== REFERENCES: FRACTION OF EACH SEQUENCE KEPT
+n=4115 min=0.261 p1=0.475 p5=0.660 p25=0.924 median=0.981 p75=0.990 max=1.000
+References below 50% kept: 55
+Lowest 30: id, length, bases kept, fraction, taxonomy
+KJ522681.1.2893_U	2893	754	0.261	Eukaryota;Archaeplastida;Chlorophyta;Chlorophyta_X;Trebouxiophyceae;Chlorellales;Chlorellales_X;Oocystis;Oocystis_lacustris
+X06034.1.2182_U	2182	706	0.324	Eukaryota;Archaeplastida;Streptophyta;Streptophyta_X;Embryophyceae;Embryophyceae_X;Embryophyceae_XX;Oenothera;Oenothera_berteroana
+HE965431.1.4863_U	4863	1747	0.359	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_Clade-Y;Reticulomyxidae;Haplomyxa;Haplomyxa_saranae
+AY316151.251.3237_G	2987	1143	0.383	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota;Pezizomycotina;Lecanoromycetes;Pleopsidium;Pleopsidium_chlorophanum
+HQ418414.1.2894_G	2894	1125	0.389	Eukaryota;Archaeplastida;Chlorophyta;Chlorophyta_X;Trebouxiophyceae;Prasiolales;Prasiolales_X;Prasiolales_XX;Prasiolales_XX_sp.
+HE998685.1.4215_U	4215	1643	0.390	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Lagynidae;Nemogullmia;Nemogullmia_sp.
+JQ315650.1.2337_U	2337	913	0.391	Eukaryota;Archaeplastida;Chlorophyta;Chlorophyta_X;Trebouxiophyceae;Chlorellales;Chlorellales_X;Chlorellales_XX;Chlorellales_XX_sp.
+FM999885.1.1310_U	1310	525	0.401	Eukaryota;TSAR;Rhizaria;Foraminifera;Foraminifera_X;Foraminifera_XX;Foraminifera_XXX;Foraminifera_XXXX;Foraminifera_XXXX_sp.
+PQ184224.1.1457_U	1457	592	0.406	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Monothalamids_XXX;Monothalamids_XXX_sp.
+EU649778.1.4054_U	4054	1652	0.407	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_Clade-C;Monothalamids_Clade-C_X;Shinkaiya;Shinkaiya_lindsayi
+HG425205.1.4030_U	4030	1664	0.413	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Globigerinoidea;Globigerinita;Globigerinita_glutinata
+PQ184560.1.1358_U	1358	562	0.414	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Monothalamids_XXX;Monothalamids_XXX_sp.
+KF848917.1.3736_U	3736	1563	0.418	Eukaryota;Obazoa;Opisthokonta;Fungi;Zoopagomycota;Kickxellomycotina;Kickxellomycotina_X;Asellaria;Asellaria_ligiae
+PQ184220.1.1407_U	1407	588	0.418	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Monothalamids_XXX;Monothalamids_XXX_sp.
+FJ705907.1.1336_U	1336	560	0.419	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Cassidulinidae;Cassidulina;Cassidulina_laevigata
+DQ205389.1.1342_U	1342	566	0.422	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Buliminidae;Bulimina;Bulimina_marginata
+PQ184557.1.1294_U	1294	556	0.430	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Monothalamids_XXX;Monothalamids_XXX_sp.
+DQ205385.1.1296_U	1296	558	0.431	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Epistominellidae;Epistominella;Epistominella_vitrea
+PP680531.1.3998_U	3998	1732	0.433	Eukaryota;Eukaryota_X;Malawimonadidae;Malawimonadidae_X;Malawimonadidae_XX;Malawimonadidae_XXX;Malawimonadidae_XXXX;Malawimonas;Malawimonas_californiana
+Z69609.1.1444_U	1444	625	0.433	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_Clade-I;Monothalamids_Clade-I_X;Astrammina;Astrammina_triangularis
+PQ183987.1.1342_U	1342	584	0.435	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Crithionina;Crithionina_delacai
+JX481292.1.3000_G	3000	1312	0.437	Eukaryota;Amoebozoa;Evosea;Eumycetozoa;Myxogastria_Lucisporidia;Myxogastria_Lucisporidia_X;Dictydiaethaliidae;Dictydiaethalium;Dictydiaethalium_plumbeum
+DQ205381.1.1265_U	1265	557	0.440	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Pulleniidae;Pullenia;Pullenia_subcarinata
+DQ205376.1.1209_U	1209	538	0.445	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Cibicididae;Cibicidoides;Cibicidoides_pachyderma
+AJ315955.1.1372_U	1372	612	0.446	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Toxisarcon;Toxisarcon_synsuicidica
+GU433634.1.1283_U	1283	576	0.449	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Rotaliida_X;Rotaliida_XX;Rotaliida_XX_sp.
+PQ184231.1.1320_U	1320	593	0.449	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Hippocrepinella;Hippocrepinella_alba
+FR839765.1.1226_U	1226	563	0.459	Eukaryota;TSAR;Rhizaria;Foraminifera;Tubothalamea;Miliolida;Hauerinidae;Siphonaperta;Siphonaperta_sp.
+AJ318228.1.3553_U	3553	1637	0.461	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Textulariida;Eggerellidae;Eggerelloides;Eggerelloides_scaber
+JQ031957.1.2965_G	2965	1370	0.462	Eukaryota;Amoebozoa;Evosea;Eumycetozoa;Myxogastria_Fuscisporidia;Stemonitida;Stemonitidae;Brefeldia;Brefeldia_maxima
