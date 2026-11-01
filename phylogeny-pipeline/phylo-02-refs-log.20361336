@@ -1,0 +1,515 @@
+Keep nuclear eukaryote taxonomy (organellar entries are Eukaryota:plas, :mito, etc.)
+PR2 sequence lengths, all sequences
+file                                                                                                format  type  num_seqs      sum_len  min_len  avg_len  max_len   Q1     Q2     Q3  sum_gap    N50  N50_num  Q20(%)  Q30(%)  AvgQual  GC(%)   sum_n
+/scratch/group/hu-lab/deepsea-18S-merged-outputs/phylo-placement/01-databases/pr2-5.1.1-seqs.fasta  FASTA   DNA    240,201  328,943,202      374  1,369.4    7,859  932  1,472  1,755        0  1,679   90,414       0       0        0  47.67  40,328
+Filter by taxonomy, length and ambiguous bases
+[33m[WARN][0m you may switch on flag -g/--remove-gaps to remove spaces
+[INFO][0m 223210 patterns loaded from file
+[33m[WARN][0m it's already DNA, no need to convert
+file                format  type  num_seqs      sum_len  min_len  avg_len  max_len     Q1     Q2     Q3  sum_gap    N50  N50_num  Q20(%)  Q30(%)  AvgQual  GC(%)   sum_n
+pr2-euk-long.fasta  FASTA   DNA    133,691  228,016,089    1,200  1,705.5    3,000  1,638  1,742  1,797        0  1,752   61,555       0       0        0  47.76  27,239
+Cluster at 0.97
+vsearch v2.32.0_linux_x86_64, 90.0GB/375.9GB RAM, 24/48 cores
+https://github.com/torognes/vsearch
+
+Reading file pr2-euk-long.fasta 0%
+Reading file pr2-euk-long.fasta 1%
+Reading file pr2-euk-long.fasta 2%
+Reading file pr2-euk-long.fasta 3%
+Reading file pr2-euk-long.fasta 4%
+Reading file pr2-euk-long.fasta 5%
+Reading file pr2-euk-long.fasta 6%
+Reading file pr2-euk-long.fasta 7%
+Reading file pr2-euk-long.fasta 8%
+Reading file pr2-euk-long.fasta 9%
+Reading file pr2-euk-long.fasta 10%
+Reading file pr2-euk-long.fasta 11%
+Reading file pr2-euk-long.fasta 12%
+Reading file pr2-euk-long.fasta 13%
+Reading file pr2-euk-long.fasta 14%
+Reading file pr2-euk-long.fasta 15%
+Reading file pr2-euk-long.fasta 16%
+Reading file pr2-euk-long.fasta 17%
+Reading file pr2-euk-long.fasta 18%
+Reading file pr2-euk-long.fasta 19%
+Reading file pr2-euk-long.fasta 20%
+Reading file pr2-euk-long.fasta 21%
+Reading file pr2-euk-long.fasta 22%
+Reading file pr2-euk-long.fasta 23%
+Reading file pr2-euk-long.fasta 24%
+Reading file pr2-euk-long.fasta 25%
+Reading file pr2-euk-long.fasta 26%
+Reading file pr2-euk-long.fasta 27%
+Reading file pr2-euk-long.fasta 28%
+Reading file pr2-euk-long.fasta 29%
+Reading file pr2-euk-long.fasta 30%
+Reading file pr2-euk-long.fasta 31%
+Reading file pr2-euk-long.fasta 32%
+Reading file pr2-euk-long.fasta 33%
+Reading file pr2-euk-long.fasta 34%
+Reading file pr2-euk-long.fasta 35%
+Reading file pr2-euk-long.fasta 36%
+Reading file pr2-euk-long.fasta 37%
+Reading file pr2-euk-long.fasta 38%
+Reading file pr2-euk-long.fasta 39%
+Reading file pr2-euk-long.fasta 40%
+Reading file pr2-euk-long.fasta 41%
+Reading file pr2-euk-long.fasta 42%
+Reading file pr2-euk-long.fasta 43%
+Reading file pr2-euk-long.fasta 44%
+Reading file pr2-euk-long.fasta 45%
+Reading file pr2-euk-long.fasta 46%
+Reading file pr2-euk-long.fasta 47%
+Reading file pr2-euk-long.fasta 48%
+Reading file pr2-euk-long.fasta 49%
+Reading file pr2-euk-long.fasta 50%
+Reading file pr2-euk-long.fasta 51%
+Reading file pr2-euk-long.fasta 52%
+Reading file pr2-euk-long.fasta 53%
+Reading file pr2-euk-long.fasta 54%
+Reading file pr2-euk-long.fasta 55%
+Reading file pr2-euk-long.fasta 56%
+Reading file pr2-euk-long.fasta 57%
+Reading file pr2-euk-long.fasta 58%
+Reading file pr2-euk-long.fasta 59%
+Reading file pr2-euk-long.fasta 60%
+Reading file pr2-euk-long.fasta 61%
+Reading file pr2-euk-long.fasta 62%
+Reading file pr2-euk-long.fasta 63%
+Reading file pr2-euk-long.fasta 64%
+Reading file pr2-euk-long.fasta 65%
+Reading file pr2-euk-long.fasta 66%
+Reading file pr2-euk-long.fasta 67%
+Reading file pr2-euk-long.fasta 68%
+Reading file pr2-euk-long.fasta 69%
+Reading file pr2-euk-long.fasta 70%
+Reading file pr2-euk-long.fasta 71%
+Reading file pr2-euk-long.fasta 72%
+Reading file pr2-euk-long.fasta 73%
+Reading file pr2-euk-long.fasta 74%
+Reading file pr2-euk-long.fasta 75%
+Reading file pr2-euk-long.fasta 76%
+Reading file pr2-euk-long.fasta 77%
+Reading file pr2-euk-long.fasta 78%
+Reading file pr2-euk-long.fasta 79%
+Reading file pr2-euk-long.fasta 80%
+Reading file pr2-euk-long.fasta 81%
+Reading file pr2-euk-long.fasta 82%
+Reading file pr2-euk-long.fasta 83%
+Reading file pr2-euk-long.fasta 84%
+Reading file pr2-euk-long.fasta 85%
+Reading file pr2-euk-long.fasta 86%
+Reading file pr2-euk-long.fasta 87%
+Reading file pr2-euk-long.fasta 88%
+Reading file pr2-euk-long.fasta 89%
+Reading file pr2-euk-long.fasta 90%
+Reading file pr2-euk-long.fasta 91%
+Reading file pr2-euk-long.fasta 92%
+Reading file pr2-euk-long.fasta 93%
+Reading file pr2-euk-long.fasta 94%
+Reading file pr2-euk-long.fasta 95%
+Reading file pr2-euk-long.fasta 96%
+Reading file pr2-euk-long.fasta 97%
+Reading file pr2-euk-long.fasta 98%
+Reading file pr2-euk-long.fasta 99%
+Reading file pr2-euk-long.fasta 100%
+228016089 nt in 133691 seqs, min 1200, max 3000, avg 1706
+Sorting by length 0%
+Sorting by length 100%
+Counting k-mers 0%
+Counting k-mers 1%
+Counting k-mers 2%
+Counting k-mers 3%
+Counting k-mers 4%
+Counting k-mers 5%
+Counting k-mers 6%
+Counting k-mers 7%
+Counting k-mers 8%
+Counting k-mers 9%
+Counting k-mers 10%
+Counting k-mers 11%
+Counting k-mers 12%
+Counting k-mers 13%
+Counting k-mers 14%
+Counting k-mers 15%
+Counting k-mers 16%
+Counting k-mers 17%
+Counting k-mers 18%
+Counting k-mers 19%
+Counting k-mers 20%
+Counting k-mers 21%
+Counting k-mers 22%
+Counting k-mers 23%
+Counting k-mers 24%
+Counting k-mers 25%
+Counting k-mers 26%
+Counting k-mers 27%
+Counting k-mers 28%
+Counting k-mers 29%
+Counting k-mers 30%
+Counting k-mers 31%
+Counting k-mers 32%
+Counting k-mers 33%
+Counting k-mers 34%
+Counting k-mers 35%
+Counting k-mers 36%
+Counting k-mers 37%
+Counting k-mers 38%
+Counting k-mers 39%
+Counting k-mers 40%
+Counting k-mers 41%
+Counting k-mers 42%
+Counting k-mers 43%
+Counting k-mers 44%
+Counting k-mers 45%
+Counting k-mers 46%
+Counting k-mers 47%
+Counting k-mers 48%
+Counting k-mers 49%
+Counting k-mers 50%
+Counting k-mers 51%
+Counting k-mers 52%
+Counting k-mers 53%
+Counting k-mers 54%
+Counting k-mers 55%
+Counting k-mers 56%
+Counting k-mers 57%
+Counting k-mers 58%
+Counting k-mers 59%
+Counting k-mers 60%
+Counting k-mers 61%
+Counting k-mers 62%
+Counting k-mers 63%
+Counting k-mers 64%
+Counting k-mers 65%
+Counting k-mers 66%
+Counting k-mers 67%
+Counting k-mers 68%
+Counting k-mers 69%
+Counting k-mers 70%
+Counting k-mers 71%
+Counting k-mers 72%
+Counting k-mers 73%
+Counting k-mers 74%
+Counting k-mers 75%
+Counting k-mers 76%
+Counting k-mers 77%
+Counting k-mers 78%
+Counting k-mers 79%
+Counting k-mers 80%
+Counting k-mers 81%
+Counting k-mers 82%
+Counting k-mers 83%
+Counting k-mers 84%
+Counting k-mers 85%
+Counting k-mers 86%
+Counting k-mers 87%
+Counting k-mers 88%
+Counting k-mers 89%
+Counting k-mers 90%
+Counting k-mers 91%
+Counting k-mers 92%
+Counting k-mers 93%
+Counting k-mers 94%
+Counting k-mers 95%
+Counting k-mers 96%
+Counting k-mers 97%
+Counting k-mers 98%
+Counting k-mers 99%
+Counting k-mers 100%
+Clustering 0%
+Clustering 1%
+Clustering 2%
+Clustering 3%
+Clustering 4%
+Clustering 5%
+Clustering 6%
+Clustering 7%
+Clustering 8%
+Clustering 9%
+Clustering 10%
+Clustering 11%
+Clustering 12%
+Clustering 13%
+Clustering 14%
+Clustering 15%
+Clustering 16%
+Clustering 17%
+Clustering 18%
+Clustering 19%
+Clustering 20%
+Clustering 21%
+Clustering 22%
+Clustering 23%
+Clustering 24%
+Clustering 25%
+Clustering 26%
+Clustering 27%
+Clustering 28%
+Clustering 29%
+Clustering 30%
+Clustering 31%
+Clustering 32%
+Clustering 33%
+Clustering 34%
+Clustering 35%
+Clustering 36%
+Clustering 37%
+Clustering 38%
+Clustering 39%
+Clustering 40%
+Clustering 41%
+Clustering 42%
+Clustering 43%
+Clustering 44%
+Clustering 45%
+Clustering 46%
+Clustering 47%
+Clustering 48%
+Clustering 49%
+Clustering 50%
+Clustering 51%
+Clustering 52%
+Clustering 53%
+Clustering 54%
+Clustering 55%
+Clustering 56%
+Clustering 57%
+Clustering 58%
+Clustering 59%
+Clustering 60%
+Clustering 61%
+Clustering 62%
+Clustering 63%
+Clustering 64%
+Clustering 65%
+Clustering 66%
+Clustering 67%
+Clustering 68%
+Clustering 69%
+Clustering 70%
+Clustering 71%
+Clustering 72%
+Clustering 73%
+Clustering 74%
+Clustering 75%
+Clustering 76%
+Clustering 77%
+Clustering 78%
+Clustering 79%
+Clustering 80%
+Clustering 81%
+Clustering 82%
+Clustering 83%
+Clustering 84%
+Clustering 85%
+Clustering 86%
+Clustering 87%
+Clustering 88%
+Clustering 89%
+Clustering 90%
+Clustering 91%
+Clustering 92%
+Clustering 93%
+Clustering 94%
+Clustering 95%
+Clustering 96%
+Clustering 97%
+Clustering 98%
+Clustering 99%
+Clustering 100%
+Sorting clusters 0%
+Sorting clusters 100%
+Writing clusters 0%
+Writing clusters 1%
+Writing clusters 2%
+Writing clusters 3%
+Writing clusters 4%
+Writing clusters 5%
+Writing clusters 6%
+Writing clusters 7%
+Writing clusters 8%
+Writing clusters 9%
+Writing clusters 10%
+Writing clusters 11%
+Writing clusters 12%
+Writing clusters 13%
+Writing clusters 14%
+Writing clusters 15%
+Writing clusters 16%
+Writing clusters 17%
+Writing clusters 18%
+Writing clusters 19%
+Writing clusters 20%
+Writing clusters 21%
+Writing clusters 22%
+Writing clusters 23%
+Writing clusters 24%
+Writing clusters 25%
+Writing clusters 26%
+Writing clusters 27%
+Writing clusters 28%
+Writing clusters 29%
+Writing clusters 30%
+Writing clusters 31%
+Writing clusters 32%
+Writing clusters 33%
+Writing clusters 34%
+Writing clusters 35%
+Writing clusters 36%
+Writing clusters 37%
+Writing clusters 38%
+Writing clusters 39%
+Writing clusters 40%
+Writing clusters 41%
+Writing clusters 42%
+Writing clusters 43%
+Writing clusters 44%
+Writing clusters 45%
+Writing clusters 46%
+Writing clusters 47%
+Writing clusters 48%
+Writing clusters 49%
+Writing clusters 50%
+Writing clusters 51%
+Writing clusters 52%
+Writing clusters 53%
+Writing clusters 54%
+Writing clusters 55%
+Writing clusters 56%
+Writing clusters 57%
+Writing clusters 58%
+Writing clusters 59%
+Writing clusters 60%
+Writing clusters 61%
+Writing clusters 62%
+Writing clusters 63%
+Writing clusters 64%
+Writing clusters 65%
+Writing clusters 66%
+Writing clusters 67%
+Writing clusters 68%
+Writing clusters 69%
+Writing clusters 70%
+Writing clusters 71%
+Writing clusters 72%
+Writing clusters 73%
+Writing clusters 74%
+Writing clusters 75%
+Writing clusters 76%
+Writing clusters 77%
+Writing clusters 78%
+Writing clusters 79%
+Writing clusters 80%
+Writing clusters 81%
+Writing clusters 82%
+Writing clusters 83%
+Writing clusters 84%
+Writing clusters 85%
+Writing clusters 86%
+Writing clusters 87%
+Writing clusters 88%
+Writing clusters 89%
+Writing clusters 90%
+Writing clusters 91%
+Writing clusters 92%
+Writing clusters 93%
+Writing clusters 94%
+Writing clusters 95%
+Writing clusters 96%
+Writing clusters 97%
+Writing clusters 98%
+Writing clusters 99%
+Writing clusters 100%
+Clusters: 24000 Size min 1, max 2213, avg 5.6
+Singletons: 13342, 10.0% of seqs, 55.6% of clusters
+Cap sequences per taxonomic group
+[INFO][0m 4067 patterns loaded from file
+Add references that the filters would otherwise lose
+Added KY233156.1.1625_U
+Added KJ762479.1.1805_U
+Added KF031848.1.1765_U
+Added AF026043.1.1771_U
+Added U23814.1.1771_U
+Added KF129994.1.1776_U
+Added FN690514.1.1693_U
+Added AM490986.1.1722_U
+Added AM490983.1.1724_U
+Added ADVD01001051.10304.12136_U
+Added KX771766.1.1741_U
+Added LC176287.1.1667_U
+Added AB534326.1.1612_U
+Added GU305991.1.1740_U
+Added KJ925260.1.1658_U
+Added OR921547.1.1759_U
+Added KT861014.1.1654_U
+Added KC814809.1.1725_U
+Added PP680531.1.3998_U
+Added KF848917.1.3736_U
+Added HG425212.1.3006_U
+Added HE998677.1.3534_U
+Added AJ318227.1.3111_U
+Added HG425205.1.4030_U
+Added KF042527.1.3076_U
+Added DQ440527.1.3473_U
+Added DQ452687.1.3365_U
+Added AJ318228.1.3553_U
+Added FR821694.1.3331_U
+Added EU649779.1.3213_U
+Added EU649778.1.4054_U
+Added HE998683.1.3256_U
+Added HE965431.1.4863_U
+Added HE998685.1.4215_U
+Added JQ782285.1.864_U
+Added EU143506.1.906_U
+Added HM103458.1.1000_U
+Added EU561746.1.926_U
+Added GQ344731.1.859_U
+Added FJ353823.1.1026_U
+Added GQ344724.1.838_U
+Added HQ868574.1.914_U
+Added GU825691.1.1078_U
+Added HQ867947.1.902_U
+Added GU825573.1.1081_U
+Added HQ866380.1.895_U
+Added EU500081.1.804_U
+Added DQ119997.1.843_U
+Selected references
+file             format  type  num_seqs    sum_len  min_len  avg_len  max_len     Q1     Q2     Q3  sum_gap    N50  N50_num  Q20(%)  Q30(%)  AvgQual  GC(%)  sum_n
+reference.fasta  FASTA   DNA      4,115  7,385,018      804  1,794.7    4,863  1,706  1,776  1,811        0  1,784    1,875       0       0        0  46.31  1,065
+References per division
+   1272 Alveolata
+    669 Stramenopiles
+    570 Rhizaria
+    369 Opisthokonta
+    297 Chlorophyta
+    233 Rhodophyta
+    186 Discoba
+    122 Metamonada
+    110 Evosea
+     46 Haptophyta
+     44 Discosea
+     40 Tubulinea
+     26 Cryptophyta
+     23 Centroplasthelida
+     17 Breviatea
+     15 Picozoa
+     12 Apusomonada
+     12 Telonemia
+      9 Kathablepharidacea
+      8 Ancyromonadida
+      8 Streptophyta
+      5 Prasinodermophyta
+      4 Glaucophyta
+      2 Amoebozoa_X
+      2 Collodictyonidae
+      2 Eukaryota_XX
+      2 Mantamonadidea
+      2 Nebulidia
+      2 Nibbleridia
+      2 Rigifilida
+      1 Cryptista_X
+      1 Hemimastigophora
+      1 Malawimonadidae
+      1 Rhodelphidia
+Done
