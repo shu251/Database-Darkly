@@ -2,6 +2,8 @@
 ##ENVIRONMENT SETTINGS; CHANGE WITH CAUTION
 #SBATCH --export=NONE        #Do not propagate environment
 #SBATCH --get-user-env       #Replicate login environment
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=skhu@tamu.edu
 
 ##NECESSARY JOB SPECIFICATIONS
 #SBATCH --job-name=phylo-04-tree
