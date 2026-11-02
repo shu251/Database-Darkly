@@ -5,9 +5,8 @@ order the work was done. Parameters and counts are the ones actually used.
 Companion files: `README.md` (how to run the pipeline), `config.sh` (all paths and
 thresholds), `force-references.tsv` (references added by hand).
 
-**Status on 2026-11-01:** steps 1–4 are complete and the first alignment has been
-checked. The FFT-NS-i alignment in step 5 was submitted and its result has not been
-reviewed. The reference tree and ASV placement (steps 6–7) have not been run.
+**Status on 2026-11-02:** steps 1–5 are complete, and the FFT-NS-i alignment was chosen
+for the tree. The reference tree and ASV placement (steps 6–7) have not been run.
 
 ## 1. Approach
 
@@ -133,11 +132,32 @@ V4 survives trimming well, and every sampled ASV exceeds the 150-base minimum us
 step 7, so `TRIM_GT=0.1` was kept. This shows that ASV bases land in retained columns,
 not that they are aligned correctly within V4's hypervariable regions.
 
-**Second alignment, FFT-NS-i (submitted, not yet reviewed).** The references were
-realigned with `mafft --retree 2 --maxiterate 2` to refine the fast alignment. The same
-checks will be run on it. It will be used for the tree if its gap percentage and column
-count are the same or lower and its reference and ASV coverage are similar. Otherwise,
-the FFT-NS-2 alignment will be reconsidered.
+**Second alignment, FFT-NS-i (job 20361432, checked in job 20367299).** The references
+were realigned with `mafft --retree 2 --maxiterate 2` to refine the fast alignment. The
+same 300 sampled ASVs were checked.
+
+| measure | FFT-NS-2 | FFT-NS-i |
+|---|---|---|
+| Columns before trimming | 62,570 | 62,974 |
+| Columns after trimming | 2,277 | 2,269 |
+| Gaps after trimming | 27.9% | 27.9% |
+| Reference bases kept, median | 98.1% | 98.1% |
+| Reference bases kept, 5th percentile | 66.0% | 65.2% |
+| Reference bases kept, minimum | 26.1% | 25.0% |
+| References with under 50% kept | 55 | 72 |
+| References with under 1,000 bases kept | 68 | 70 |
+| ASV bases kept, median | 98.7% | 98.7% |
+| ASV bases kept, 5th percentile | 90.4% | 91.2% |
+| ASV bases kept, minimum | 76.9% | 68.9% |
+| Sampled ASVs under 150 bases kept | 0 | 0 |
+
+The FFT-NS-i alignment was chosen for the tree. It met the criteria set beforehand:
+trimmed gaps and column count were the same or lower, and reference and ASV coverage
+were similar.
+
+The one clear difference is in Foraminifera. The 14 forced Foraminifera lost 7.8–11.6%
+more bases under FFT-NS-i (mean 9.6%), while the other 34 forced references changed by
+less than 1%. These logs cannot show which alignment places those bases correctly.
 
 ## 6. Reference tree (not yet run)
 
@@ -181,7 +201,8 @@ None of these affected a final output.
 
 ## Open items
 
-- Review the FFT-NS-i alignment and choose the alignment for the tree.
+- Check Foraminifera in the finished tree, given the extra bases they lost to trimming
+  under FFT-NS-i.
 - Review the roughly 120 lineages left out of `force-references.tsv`, especially
   Syndiniales and short Foraminifera.
 
@@ -192,8 +213,8 @@ None of these affected a final output.
   pendant branches or with high uncertainty could be novel, chimeric or non-target.
 - Forced short references carry less signal, and their positions need checking in the
   finished tree.
-- ASV coverage comes from a sample of about 300 and from the FFT-NS-2 alignment only.
-  The run's sample count was not captured in the output reviewed.
+- ASV coverage comes from a sample of 300 ASVs, not the full set. Step 7 reports the
+  full count.
 - References use PR2 5.1.1, while the ASV taxonomy in `annotation-pipeline/` was assigned
   against PR2 5.0.0 and crosswalked. Part of any disagreement between placement and
   assignment taxonomy may come from this version difference.
