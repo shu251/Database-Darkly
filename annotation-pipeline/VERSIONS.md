@@ -1,5 +1,6 @@
-# Version manifest — Database Darkly v2 annotation pipeline
+# Version manifest — Database Darkly v2.1 annotation pipeline
 
+Release: **v2.1**, 2026-11-01 (Zenodo 10.5281/zenodo.15496977)
 Last rebuilt: 2026-11-01
 
 ## Reference versions
@@ -100,3 +101,94 @@ answer: it has five bins total.
 | `dd-v2-pr2-taxon-key.csv.gz` | pr2_taxon_id | 64,870 — the spine |
 | `dd-v2-trophic-mdb-tmd.csv` | species + AphiaID | 604 |
 | `dd-v2-crosswalk-collisions.csv` | v2 taxon | 145 |
+
+## Source independence — read before weighting evidence
+
+Two pairs of sources in this database are **not independent**. Agreement
+between either pair is shared provenance, not corroboration.
+
+**MDB and TMD.** TMD's `Morphotype` column uses MDB's mixoplankton functional
+type vocabulary, asterisk convention included, and extends it with heterotroph
+morphotypes (SH, GH, CV, PA) and finer NCM codes (pGNCM, eGNCM). 184 of 209
+shared species agree exactly.
+
+**The hand curation and Ramond.** 20 of Ramond's 30 trait fields share names
+with the 41 curated fields — `Cover`, `Shape`, `Spicule`, `Symmetry`,
+`Polarity`, `Colony`, `Motility`, `Chloroplast`, `Ingestion`,
+`Symbiont_Location`, `Oxygen_Tolerance`, `Depth`, `Ploidy` and others. The
+curation schema was evidently modelled on Ramond's. Where both speak — 936
+lineage x trait pairs across 123 lineages — **97% of values are identical**,
+which is far too high for independent derivation.
+
+This does not diminish the curation. It relocates its value: the curation
+earns its keep in the ~3,000 lineages Ramond cannot reach, not in the 123
+where the two overlap. The 25 genuine disagreements that remain are listed in
+`dd-v2-annotation-by-taxon.csv.gz` wherever `sources` names both.
+
+## PIDA habitat scope
+
+PIDA observations are retained **for all habitats**, not filtered to marine.
+Of the habitat-tagged rows reaching our taxa: marine 12,254, freshwater 3,568,
+brackish 595, saline water 6. A freshwater interaction record still says
+something about what a genus is capable of, and discarding it would throw away
+evidence rather than qualify it.
+
+`interaction_habitat` is carried on every PIDA row, so filtering is a one-line
+operation downstream for anyone who wants marine only. The scope decision is
+deliberately the user's, not baked into the release.
+
+Note separately that 91% of PIDA's annotation rows (78,314 of 86,089) attach at
+genus rank. PIDA is the largest contributor by volume and the least specific by
+evidence; filter on `evidence_rank` before treating any of it as a statement
+about a species.
+
+## Value canonicalisation (applied 2026-11-01)
+
+All trait values pass through a single canonicaliser before storage:
+
+- Integral numerics collapse to integer form, so `1`, `1.0` and ` 1 ` are one
+  value. This alone removed 57 of 87 apparent curation-vs-Ramond conflicts,
+  which were numeric formatting rather than disagreement.
+- NFKC normalisation unifies compatibility characters, notably the micro sign
+  (U+00B5) with Greek mu (U+03BC) in size ranges.
+- Known typos corrected: `Heterpolar` to `Heteropolar`, `Phagptrophic` to
+  `Phagotrophic`, `Elonagted` to `Elongated`, `asymmetric` and `Asymetrical`
+  to `Asymmetrical`.
+- Controlled-vocabulary collapse then runs on the text fields; 19 mappings
+  over 104 cells remain after the steps above.
+
+**Implementation caution.** Numeric detection uses a strict regular expression,
+not `float()`. Python's `float()` accepts underscores as digit separators, so
+`float("0_100")` returns 100.0 — values such as `0_100` and `02_25` in the
+trait tables would be silently rewritten. Any future change to this step must
+keep the strict pattern.
+
+One cross-source variant is knowingly left in place: `HAB hemolysin` (curation)
+against `HAB_hemolysin` (Ramond). The vocabulary collapse runs within a source,
+not across sources.
+
+## TMD provenance and version currency (resolved 2026-11-01)
+
+TMD is now fully citable:
+
+- Jones EL, Menden-Deuer S, Rynearson TA (2025). Dinoflagellate and ciliate
+  trophic modes database. *Microbiology Resource Announcements* 14(7):e0015425.
+  doi:10.1128/mra.00154-25
+- Jones EL, Menden-Deuer S, Rynearson T (2025). Trophic Mode Database (TMD) for
+  Dinoflagellate and Ciliate Species [Data set]. Zenodo.
+  doi:10.5281/zenodo.15149504
+
+This also justifies the TMD-priority rule in the MDB/TMD reconciliation: TMD is a
+purpose-built trophic-mode database for exactly the two groups it covers
+(262 Dinoflagellata, 116 Ciliophora), whereas MDB is a broader mixoplankton
+compilation. Within TMD's scope it is the more specific authority. That is
+consistent with its 94% placement rate, the highest of any external source.
+
+**Version currency: resolved.** Our data table is TMD v1.1 and is current. The
+Zenodo record increments (v2, v3) add only references to `Jones_TMD_References.docx`;
+the trophic-mode data table itself is unchanged. So v1.1 is not a superseded copy.
+
+One note for readers of the release: Zenodo record 15149504 as published contains
+only the references document, not the data table, so the DOI alone does not
+retrieve our input. Cite both the paper and the data set, and state that the data
+table is TMD v1.1.

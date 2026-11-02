@@ -18,7 +18,7 @@ There are three primary goals of this project: (1) Complement our comprehensive 
 
 ## Current release
 
-**Version 2 — data release, May 2025.** [Zenodo record 10.5281/zenodo.15496977](https://zenodo.org/records/15496977), CC BY 4.0.
+**Version 2.1 — 1 November 2026.** [Zenodo record 10.5281/zenodo.15496977](https://zenodo.org/records/15496977), CC BY 4.0. Adds the compiled functional annotation database; the version 2 sequence data release (May 2025) is unchanged.
 
 | What | Status |
 |------|--------|
@@ -31,7 +31,7 @@ There are three primary goals of this project: (1) Complement our comprehensive 
 
 Taxonomy was assigned by `classify-consensus-vsearch` against PR2 5.0.0 and carried onto PR2 5.1.1 through the official taxon crosswalk; 94.6% of taxa have an identical nine-rank path between those two releases. See the version manifest in `annotation-pipeline/VERSIONS.md` for what this does and does not change.
 
-### What is new since version 1
+### What is new in version 2.1
 
 - **Axial Seamount 2022 and 2023** added, taking the database from 17,934 to 27,559 ASVs. ASV identifiers are sequence hashes, so every version 1 identifier persists unchanged.
 - **PR2 5.1.1** replaces the version 4.x taxonomy used in version 1. The supergroup scheme changed substantially — `Hacrobia` no longer exists, and `Alveolata`, `Stramenopiles` and `Rhizaria` are now divisions within `TSAR`.
@@ -48,7 +48,7 @@ An expansive 18S rRNA gene tag-sequencing survey of protists across four deep-se
 
 Please cite both the data release and the originating survey.
 
-> Hu, S. K. (2025). *Database Darkly files* (Version 2) \[Data set\]. Zenodo. <https://doi.org/10.5281/zenodo.15496977>
+> Hu, S. K. (2026). *Database Darkly files* (Version 2.1) \[Data set\]. Zenodo. <https://doi.org/10.5281/zenodo.15496977>
 
 > Hu, S. K., Smith, A. R., Anderson, R. E., Sylva, S. P., Setzer, M., Steadmon, M., Frank, K. L., Chan, E. W., Lim, D. S. S., German, C. R., Breier, J. A., Lang, S. Q., Butterfield, D. A., Fortunato, C. S., Seewald, J. S., & Huber, J. A. (2022). Globally-distributed microbial eukaryotes exhibit endemism at deep-sea hydrothermal vents. *Molecular Ecology*, 32(23), 6580–6598. <https://doi.org/10.1111/mec.16745>
 

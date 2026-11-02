@@ -1,0 +1,20 @@
+field,original_value,canonical_value,n_rows_changed
+Trophic strategy,mixotrophic,Mixotrophic,1
+Behavior,Passive ambush feeder,Passive Ambush Feeder,3
+Behavior,Passive_Ambush_Feeder,Passive Ambush Feeder,34
+Behavior,Unmotile Autotroph,Unmotile_Autotroph,1
+Behavior,Cruise feeder,Cruise_feeder,7
+Behavior,Cruise_Feeder,Cruise_feeder,13
+Behavior,Cruise Feeder,Cruise_feeder,6
+Behavior,Active ambush feeder,Active_Ambush_Feeder,1
+Behavior,Active Ambush Feeder,Active_Ambush_Feeder,15
+Behavior,Current_feeder,Current Feeder,3
+Behavior,Current_Feeder,Current Feeder,1
+Behavior,Current feeder,Current Feeder,11
+Behavior,current_feeder,Current Feeder,2
+Behavior,Active_Ambush,Active Ambush,1
+Behavior,Passive_Ambush,Passive Ambush,1
+Nutrient Affinity,parasitic,Parasitic,1
+Oxygen Tolerance,anaerobic,Anaerobic,1
+Toxygenity,Fish Mortality,Fish_Mortality,1
+Toxygenity,Fish mortality,Fish_Mortality,1
