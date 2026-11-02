@@ -1,0 +1,65 @@
+Checking /scratch/group/hu-lab/deepsea-18S-merged-outputs/phylo-placement/03-alignment/reference-trimmed.fasta
+=== ALIGNMENT
+file                                                                                                   format  type  num_seqs    sum_len  min_len  avg_len  max_len     Q1     Q2     Q3    sum_gap    N50  N50_num  Q20(%)  Q30(%)  AvgQual  GC(%)  sum_n
+/scratch/group/hu-lab/deepsea-18S-merged-outputs/phylo-placement/03-alignment/reference-trimmed.fasta  FASTA   DNA      4,115  9,336,935    2,269    2,269    2,269  2,269  2,269  2,269  2,601,336  2,269    2,058       0       0        0   33.3    818
+gaps: 27.9% of 2269 columns x 4115 sequences
+=== REFERENCES: FRACTION OF EACH SEQUENCE KEPT
+n=4115 min=0.250 p1=0.440 p5=0.652 p25=0.923 median=0.981 p75=0.990 max=1.000
+References below 50% kept: 72
+Lowest 30: id, length, bases kept, fraction, taxonomy
+KJ522681.1.2893_U	2893	724	0.250	Eukaryota;Archaeplastida;Chlorophyta;Chlorophyta_X;Trebouxiophyceae;Chlorellales;Chlorellales_X;Oocystis;Oocystis_lacustris
+X06034.1.2182_U	2182	637	0.292	Eukaryota;Archaeplastida;Streptophyta;Streptophyta_X;Embryophyceae;Embryophyceae_X;Embryophyceae_XX;Oenothera;Oenothera_berteroana
+HE965431.1.4863_U	4863	1545	0.318	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_Clade-Y;Reticulomyxidae;Haplomyxa;Haplomyxa_saranae
+HE998685.1.4215_U	4215	1490	0.353	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Lagynidae;Nemogullmia;Nemogullmia_sp.
+FJ705907.1.1336_U	1336	493	0.369	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Cassidulinidae;Cassidulina;Cassidulina_laevigata
+EU649778.1.4054_U	4054	1499	0.370	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_Clade-C;Monothalamids_Clade-C_X;Shinkaiya;Shinkaiya_lindsayi
+HG425205.1.4030_U	4030	1494	0.371	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Globigerinoidea;Globigerinita;Globigerinita_glutinata
+DQ205389.1.1342_U	1342	502	0.374	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Buliminidae;Bulimina;Bulimina_marginata
+JQ315650.1.2337_U	2337	873	0.374	Eukaryota;Archaeplastida;Chlorophyta;Chlorophyta_X;Trebouxiophyceae;Chlorellales;Chlorellales_X;Chlorellales_XX;Chlorellales_XX_sp.
+HQ418414.1.2894_G	2894	1094	0.378	Eukaryota;Archaeplastida;Chlorophyta;Chlorophyta_X;Trebouxiophyceae;Prasiolales;Prasiolales_X;Prasiolales_XX;Prasiolales_XX_sp.
+AY316151.251.3237_G	2987	1144	0.383	Eukaryota;Obazoa;Opisthokonta;Fungi;Ascomycota;Pezizomycotina;Lecanoromycetes;Pleopsidium;Pleopsidium_chlorophanum
+DQ205385.1.1296_U	1296	497	0.383	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Epistominellidae;Epistominella;Epistominella_vitrea
+FM999885.1.1310_U	1310	505	0.385	Eukaryota;TSAR;Rhizaria;Foraminifera;Foraminifera_X;Foraminifera_XX;Foraminifera_XXX;Foraminifera_XXXX;Foraminifera_XXXX_sp.
+PQ184224.1.1457_U	1457	570	0.391	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Monothalamids_XXX;Monothalamids_XXX_sp.
+DQ205381.1.1265_U	1265	498	0.394	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Pulleniidae;Pullenia;Pullenia_subcarinata
+DQ205376.1.1209_U	1209	480	0.397	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Cibicididae;Cibicidoides;Cibicidoides_pachyderma
+PQ184560.1.1358_U	1358	540	0.398	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Monothalamids_XXX;Monothalamids_XXX_sp.
+PQ184220.1.1407_U	1407	562	0.399	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Monothalamids_XXX;Monothalamids_XXX_sp.
+PQ184557.1.1294_U	1294	530	0.410	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Monothalamids_XXX;Monothalamids_XXX_sp.
+Z69609.1.1444_U	1444	593	0.411	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_Clade-I;Monothalamids_Clade-I_X;Astrammina;Astrammina_triangularis
+PQ183987.1.1342_U	1342	553	0.412	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Crithionina;Crithionina_delacai
+AJ315955.1.1372_U	1372	569	0.415	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Toxisarcon;Toxisarcon_synsuicidica
+AJ318228.1.3553_U	3553	1475	0.415	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Textulariida;Eggerellidae;Eggerelloides;Eggerelloides_scaber
+DQ452711.1.1514_U	1514	630	0.416	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Globobuliminidae;Globobulimina;Globobulimina_turgida
+KF848917.1.3736_U	3736	1554	0.416	Eukaryota;Obazoa;Opisthokonta;Fungi;Zoopagomycota;Kickxellomycotina;Kickxellomycotina_X;Asellaria;Asellaria_ligiae
+HE998677.1.3534_U	3534	1483	0.420	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Robertinida;Robertinidae;Robertina;Robertina_arctica
+PQ184231.1.1320_U	1320	558	0.423	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Hippocrepinella;Hippocrepinella_alba
+KF042547.1.2916_U	2916	1236	0.424	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Elphidiidae;Elphidium;Elphidium_asklundi
+GU433634.1.1283_U	1283	545	0.425	Eukaryota;TSAR;Rhizaria;Foraminifera;Globothalamea;Rotaliida;Rotaliida_X;Rotaliida_XX;Rotaliida_XX_sp.
+AJ311214.1.1314_U	1314	565	0.430	Eukaryota;TSAR;Rhizaria;Foraminifera;Monothalamids;Monothalamids_X;Monothalamids_XX;Notodendrodes;Notodendrodes_hyalinosphaira
+=== REFERENCES WITH UNDER 1,000 BASES KEPT, BY SUBDIVISION
+70 total
+37 Rhizaria;Foraminifera
+5 Chlorophyta;Chlorophyta_X
+4 Alveolata;Apicomplexa
+4 Stramenopiles;Stramenopiles_X
+4 Tubulinea;Tubulinea_X
+3 Stramenopiles;Gyrista
+2 Discoba;Discoba_X
+2 Discoba;Euglenozoa
+1 Alveolata;Ciliophora
+1 Ancyromonadida;Ancyromonadida_X
+1 Apusomonada;Apusomonada_X
+1 Breviatea;Breviatea_X
+1 Evosea;Eumycetozoa
+1 Opisthokonta;Metazoa
+1 Rhizaria;Cercozoa
+1 Streptophyta;Streptophyta_X
+1 Telonemia;Telonemia_X
+=== ASV SAMPLE: FRACTION OF EACH ASV KEPT
+[INFO][0m sample by proportion
+[INFO][0m 300 sequences outputted
+[INFO][0m 4115 patterns loaded from file
+n=300 min=0.689 p1=0.799 p5=0.912 p25=0.971 median=0.987 p75=1.000 max=1.000
+ASVs below 150 bases kept: 0
+Done
