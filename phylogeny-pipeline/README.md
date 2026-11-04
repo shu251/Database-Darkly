@@ -11,7 +11,9 @@ references, 271 ASVs). The full-size run has not finished yet.
 ## Running on Grace
 
 Copy this folder to Grace and submit every job from inside it. Check each step's
-log before starting the next.
+log, written to `logs/`, before starting the next. Slurm does not create that
+folder, so run `mkdir -p logs` first if it is missing; otherwise the job fails with
+no log.
 
 | step | command | check before moving on |
 |---|---|---|
@@ -19,7 +21,7 @@ log before starting the next.
 | Export | `sbatch 01-export-databases.slurm` | taxonomy format printed in the log |
 | References | `sbatch 02-select-references.slurm` | reference count, `references-per-division.txt` |
 | Alignment | `sbatch 03-align-trim.slurm` | trimmed alignment length |
-| Tree | `sbatch 04-reference-tree.slurm` | `reference.iqtree`, long branches, major groups recovered |
+| Tree | move any finished `04-tree/reference.*` aside, then `sbatch 04-reference-tree.slurm` | `reference.iqtree`, long branches, major groups recovered |
 | Placement | `sbatch 05-place-asvs.slurm` | ASVs dropped at each filter |
 
 Paths and thresholds are all in `config.sh`. Outputs go to
@@ -48,7 +50,7 @@ length, reason and lineage:
 | reason | what it restores |
 |---|---|
 | `over_max_length` | lineages with no sequence short enough to pass, including deep-sea Foraminifera and Malawimonadidae |
-| `absorbed_or_capped` | class and order lineages lost to clustering or a cap |
+| `absorbed_or_capped` | class, order and family lineages lost to clustering or a cap |
 | `short_deep_lineage` | deep lineages known only from partial sequences; these carry less signal |
 
 ## Main outputs

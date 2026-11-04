@@ -5,8 +5,12 @@ order the work was done. Parameters and counts are the ones actually used.
 Companion files: `README.md` (how to run the pipeline), `config.sh` (all paths and
 thresholds), `force-references.tsv` (references added by hand).
 
-**Status on 2026-11-02:** steps 1–5 are complete, and the FFT-NS-i alignment was chosen
-for the tree. The reference tree and ASV placement (steps 6–7) have not been run.
+**Status on 2026-11-04:** the first reference tree (job 20367329, 4,115 references)
+finished. On review, all 122 remaining lost lineages were added to
+`force-references.tsv` (170 forced in total), so steps 02–04 must be rerun before
+placement. ASV placement (step 7) has not been run.
+
+Job logs are written to `logs/`.
 
 ## 1. Approach
 
@@ -100,8 +104,25 @@ The rerun (job 20361336) added all 48. The final set has 804–4,863 bp sequence
 1,776 bp) and represents 34 divisions, from Alveolata (1,272 references) to single
 references for Hemimastigophora, Malawimonadidae, Rhodelphidia and Cryptista_X.
 
-About 120 lost lineages were deliberately left out, for example nine Dino-Group-II
-clades, OLIGO3 and short Foraminifera. These still await review (see Open items).
+The other 122 lost lineages, for example nine Dino-Group-II clades, OLIGO3 and short
+Foraminifera, were at first left out. After the first tree (step 6), all of them were
+added on 2026-11-04, so every lineage in `lost-lineages.tsv` now has a forced
+reference. One sequence was taken from each lineage's row in `lost-lineages.tsv`:
+
+| case | n | sequence used | reason |
+|---|---|---|---|
+| sequences passed the filters but were clustered away or capped | 51 family | longest passing sequence | `absorbed_or_capped` |
+| no sequence passed, all under 1,200 bp | 12 order, 59 family | longest sequence (526–1,199 bp) | `short_deep_lineage` |
+
+Six of these are under 800 bp: Euglenophyceae_X (637 bp), Gregarinomorphea_X_GRE2
+(562), OLIGO10 (730), PHYLL_3 (553), Suessiales_X (526) and Nassellaria_4 (591).
+After trimming they will carry little signal, and their positions need checking in
+the rerun tree. The 51 `absorbed_or_capped` additions are each at least 97% identical
+to a reference already in the set, so they restore the lineage label more than new
+sequence diversity.
+
+The rerun of step 02 should report 4,237 references (4,115 + 122), and
+`check-lost-lineages.sh` should then report no lost lineages.
 
 ## 5. Alignment and trimming
 
@@ -159,9 +180,9 @@ The one clear difference is in Foraminifera. The 14 forced Foraminifera lost 7.8
 more bases under FFT-NS-i (mean 9.6%), while the other 34 forced references changed by
 less than 1%. These logs cannot show which alignment places those bases correctly.
 
-## 6. Reference tree (not yet run)
+## 6. Reference tree
 
-`04-reference-tree.slurm` will run IQ-TREE on `03-alignment/reference-trimmed.fasta`:
+`04-reference-tree.slurm` runs IQ-TREE on `03-alignment/reference-trimmed.fasta`:
 
 ```
 iqtree2 -m MFP -mset GTR -mfreq F -mrate G,R -B 1000 -alrt 1000 -T 24 --mem 320G --seed 20261101
@@ -169,9 +190,84 @@ iqtree2 -m MFP -mset GTR -mfreq F -mrate G,R -B 1000 -alrt 1000 -T 24 --mem 320G
 
 The job limit is 7 days. If it times out, resubmitting resumes from the checkpoint.
 
-The tree will be reviewed before placement for long branches (especially Foraminifera
+The tree is reviewed before placement for long branches (especially Foraminifera
 and Euglenozoa), bootstrap convergence, recovery of major groups, and monophyly of
 Amorphea (Obazoa + Amoebozoa).
+
+**First tree (job 20367329, 4,115 references; superseded by the rerun).** It finished
+in 28 hours. Output files are copied locally to `fromhprc/`.
+
+| measure | result |
+|---|---|
+| Alignment | 2,269 columns, 2,268 parsimony-informative, 0 constant |
+| Best-fit model (BIC) | GTR+F+R10 (AICc chose GTR+F+G4) |
+| Log-likelihood | −1,581,984.45 |
+| Total tree length | 602.9 (28.0% internal) |
+| UFBoot convergence | not reached after 1,001 iterations; split correlation 0.937, 0.922, 0.911 (needs 0.99) |
+| Nodes with SH-aLRT ≥ 80 / UFBoot ≥ 95 / both | 71.2% / 66.2% / 55.5% |
+| References failing the composition test | 971 (p < 0.05) |
+| References over 50% gaps | 128 |
+| Identical references | `KM020045.1.2160_R` and `KM020045.1.2160_G` |
+
+UFBoot non-convergence does not affect placement, because step 7 uses only the ML tree
+and refits GTR+G4+F on it. It does affect any support values reported for the tree.
+
+Terminal branches have a median length of 0.053 substitutions per site. 233 are longer
+than 0.339 (Q3 + 3 IQR). The longest include fast-evolving lineages: the myxomycete
+*Reticularia lycoperdon* (`JX481311.1.1276_G`, 4.97), *Bulbochaete* (3.07), *Creneis*
+(2.78), *Netzelia* (2.19) and the metchnikovellid *Amphiacantha* (1.79). Of the 48
+forced references, only the Kickxellomycotina reference (`KF848917.1.3736_U`, 1.20) is
+among them. The forced short references have median terminal branches of 0.14.
+
+Major groups were checked against `02-references/reference-taxonomy.tsv` (from the
+first step 02 run). For each group, the clade that best matched it was found
+(fewest group members outside plus fewest intruders inside).
+
+**Amorphea is not monophyletic.** It splits into 66 clades containing only Amorphea
+(31 of them single references). The largest, 232 references of Fungi,
+Choanoflagellata and Ichthyosporea, has 100/100 support. Metazoa are scattered in
+several clades, and Amoebozoa is split, with 146 of its 196 references outside its best
+clade. Rooting `gappa examine assign` on Amorphea, as step 05 does now, would
+therefore root on an arbitrary point.
+
+Other groups that 18S alone is known to resolve poorly were also split:
+
+| group | n | members outside the best clade | main cause |
+|---|---|---|---|
+| Rhizaria | 570 | 125 | Foraminifera and Polycystinea (Retaria) |
+| Alveolata | 1,272 | 42 | Gregarinomorphea (31) |
+| Discoba | 186 | 54 | Heterolobosea (40) |
+| Metamonada | 122 | 43 | Fornicata, Preaxostyla |
+| Stramenopiles | 669 | 4 | — |
+| Chlorophyta | 297 | 2 | — |
+
+Cryptophyta, Picozoa, Telonemia, Kathablepharidacea and Glaucophyta were monophyletic.
+
+44 of the 48 forced references sit next to members of their own division. The other
+four are Malawimonadidae (next to Breviatea, Rigifilida and Hemimastigophora, all
+orphan lineages), Kickxellomycotina `KF848917.1.3736_U` (a long branch among Discoba
+and Amoebozoa, misplaced), a short Ancyromonadida reference (next to Discosea) and a
+short Breviatea reference (next to Opisthokonta, still within Obazoa).
+
+**Decision (2026-11-04): constrain the backbone in the rerun.** 18S alone cannot
+resolve the deepest splits, and long branches pull fast-evolving groups together. The
+rerun therefore gives IQ-TREE a constraint tree (`-g constraint.tree`), written in step
+04 from `reference-taxonomy.tsv` by `make-constraint.awk`. It enforces only groups with
+strong phylogenomic support:
+
+- Amorphea (Obazoa + Amoebozoa), and within it Opisthokonta (with Metazoa and Fungi
+  each enforced) and Amoebozoa
+- Rhizaria, Alveolata, Stramenopiles and Discoba
+
+All relationships inside these groups, and the position of every other reference
+(Archaeplastida, Haptista, Cryptista, Metamonada, the orphan lineages and others), are
+left to the data. On the first run's taxonomy, the constraint covers 3,291 of the 4,115
+references and leaves 824 free. Constraining makes rooting on Amorphea in step 05 valid.
+The deep backbone comes from the constraint, not from 18S, and the methods must say so.
+
+Before the rerun, the first tree's outputs must be moved out of `04-tree/` (for example
+to `04-tree/run1-unconstrained/`), because IQ-TREE will not start over a finished run.
+Step 04 now stops with a message if it finds one.
 
 ## 7. ASV placement (not yet run)
 
@@ -203,13 +299,19 @@ None of these affected a final output.
 
 - Check Foraminifera in the finished tree, given the extra bases they lost to trimming
   under FFT-NS-i.
-- Review the roughly 120 lineages left out of `force-references.tsv`, especially
-  Syndiniales and short Foraminifera.
+- Rerun 02 → `check-lost-lineages.sh` → 03 → `check-alignment.slurm` → 04 with the
+  170 forced references and the backbone constraint.
+- In the rerun tree, see where the free groups (Archaeplastida, Haptista, Cryptista,
+  Metamonada, orphan lineages) land, and compare its log-likelihood with the first
+  tree's (−1,581,984.45) to show what the constraint costs.
+- Decide whether to rerun UFBoot with more iterations (`-nm`) or report SH-aLRT alongside it.
+- Check whether the longest branches (for example `JX481311.1.1276_G`, `EF616484.1.1801_U`)
+  are real fast evolution or misalignment or chimeras.
 
 ## Known limits
 
-- Placement can only attach an ASV to a lineage in the tree. The lineages left out in
-  step 4 will appear as placements near their closest reference, and ASVs on long
+- Placement can only attach an ASV to a lineage in the tree. Lineages absent from PR2
+  will appear as placements near their closest reference, and ASVs on long
   pendant branches or with high uncertainty could be novel, chimeric or non-target.
 - Forced short references carry less signal, and their positions need checking in the
   finished tree.
