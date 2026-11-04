@@ -9,7 +9,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=24
 #SBATCH --mem=90GB
-#SBATCH --output=phylo-check-aln-log.%j
+#SBATCH --output=logs/phylo-check-aln-log.%j
 
 # Checks a trimmed reference alignment before the tree job, including how much of the
 # ASVs (a sample of about 300) survives in its columns.

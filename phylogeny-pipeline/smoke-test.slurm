@@ -9,7 +9,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=24
 #SBATCH --mem=90GB
-#SBATCH --output=phylo-smoke-test-log.%j
+#SBATCH --output=logs/phylo-smoke-test-log.%j
 
 # Runs the real steps 02-05 on a small random sample, in phylo-placement/smoke-test/.
 # Submit after step 01 has finished. The results test the commands, not the biology.

@@ -9,7 +9,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=24
 #SBATCH --mem=180GB
-#SBATCH --output=phylo-03-align-log.%j
+#SBATCH --output=logs/phylo-03-align-log.%j
 
 set -eo pipefail
 source "${SLURM_SUBMIT_DIR}/config.sh"

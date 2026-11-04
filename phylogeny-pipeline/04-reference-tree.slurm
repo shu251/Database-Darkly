@@ -11,7 +11,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=24
 #SBATCH --mem=340GB
-#SBATCH --output=phylo-04-tree-log.%j
+#SBATCH --output=logs/phylo-04-tree-log.%j
 
 set -eo pipefail
 source "${SLURM_SUBMIT_DIR}/config.sh"
@@ -20,9 +20,19 @@ load_phylo_env
 mkdir -p "${TREE_DIR}"
 cd "${TREE_DIR}"
 
+# A finished run makes IQ-TREE refuse to start. A timed-out run is fine: it resumes.
+if [ -f reference.log ] && grep -q "^Date and Time:" reference.log; then
+  echo "A finished tree is already in ${TREE_DIR}. Move reference.* to a subfolder, then resubmit."
+  exit 1
+fi
+
+echo "Backbone constraint from the reference taxonomy (references per group)"
+awk -f "${SLURM_SUBMIT_DIR}/make-constraint.awk" "${REF_DIR}/reference-taxonomy.tsv" > constraint.tree
+
 echo "Build the reference tree"
 iqtree2 \
   -s "${ALN_DIR}/reference-trimmed.fasta" \
+  -g constraint.tree \
   --prefix reference \
   -m MFP -mset GTR -mfreq F -mrate G,R \
   -B 1000 -alrt 1000 \

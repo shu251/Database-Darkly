@@ -9,7 +9,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=24
 #SBATCH --mem=340GB
-#SBATCH --output=phylo-05-place-log.%j
+#SBATCH --output=logs/phylo-05-place-log.%j
 
 set -eo pipefail
 source "${SLURM_SUBMIT_DIR}/config.sh"
