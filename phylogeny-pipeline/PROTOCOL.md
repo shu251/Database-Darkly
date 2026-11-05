@@ -7,8 +7,8 @@ thresholds), `force-references.tsv` (references added by hand).
 
 **Status on 2026-11-04:** the first reference tree (job 20367329, 4,115 references)
 finished. On review, all 122 remaining lost lineages were added to
-`force-references.tsv` (170 forced in total), so steps 02–04 must be rerun before
-placement. ASV placement (step 7) has not been run.
+`force-references.tsv`, and 9 more on 2026-11-05 (179 forced in total), so steps
+02–04 must be rerun before placement. ASV placement (step 7) has not been run.
 
 Job logs are written to `logs/`.
 
@@ -121,8 +121,14 @@ the rerun tree. The 51 `absorbed_or_capped` additions are each at least 97% iden
 to a reference already in the set, so they restore the lineage label more than new
 sequence diversity.
 
-The rerun of step 02 should report 4,237 references (4,115 + 122), and
-`check-lost-lineages.sh` should then report no lost lineages.
+The 2026-11-05 rerun of step 02 with these 170 forced references still left 9 families
+without a reference. These were not new losses. `check-lost-lineages.sh` reports only
+the highest rank lost, so before three orders (Textulariida, Syracosphaerales and
+Zygodiscales) were restored by single forced references, their other families were
+hidden. They were forced by the same rule (3 of the Textulariida sequences are
+3,119–3,475 bp, so `over_max_length`), giving 179 forced references. Family is the
+lowest rank checked, so this cannot recur. The next rerun of step 02 should report
+4,246 references (4,115 + 131), and `check-lost-lineages.sh` should report none.
 
 ## 5. Alignment and trimming
 
@@ -300,7 +306,7 @@ None of these affected a final output.
 - Check Foraminifera in the finished tree, given the extra bases they lost to trimming
   under FFT-NS-i.
 - Rerun 02 → `check-lost-lineages.sh` → 03 → `check-alignment.slurm` → 04 with the
-  170 forced references and the backbone constraint.
+  179 forced references and the backbone constraint.
 - In the rerun tree, see where the free groups (Archaeplastida, Haptista, Cryptista,
   Metamonada, orphan lineages) land, and compare its log-likelihood with the first
   tree's (−1,581,984.45) to show what the constraint costs.
