@@ -186,6 +186,18 @@ The one clear difference is in Foraminifera. The 14 forced Foraminifera lost 7.8
 more bases under FFT-NS-i (mean 9.6%), while the other 34 forced references changed by
 less than 1%. These logs cannot show which alignment places those bases correctly.
 
+**Rerun with 179 forced references (step 02 job 20407183, step 03 job 20407384).**
+Step 02 added all 179 forced references, giving 4,246 references (526–4,863 bp,
+median 1,775), and `check-lost-lineages.sh` then reported no lost lineages. The FFT-NS-i
+alignment had 65,417 columns, trimmed to 2,243 (27.4% gaps).
+
+| forced references | n | bases kept after trimming |
+|---|---|---|
+| all | 179 | 443–1,798 (median 1,104; median 97.9% of the sequence) |
+| over 3,000 bp (`over_max_length`, mostly Foraminifera) | 19 | 1,579–1,784 (37–58% lost, mostly Foraminifera insertions) |
+| short Foraminifera keeping under 60% | 18 | 566–640 (50–60% kept) |
+| lowest | 1 | Euglenophyceae_X `KC440730.1.637_U`, 443 of 637 bp |
+
 ## 6. Reference tree
 
 `04-reference-tree.slurm` runs IQ-TREE on `03-alignment/reference-trimmed.fasta`:
