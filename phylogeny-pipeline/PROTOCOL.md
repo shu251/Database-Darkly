@@ -198,6 +198,24 @@ alignment had 65,417 columns, trimmed to 2,243 (27.4% gaps).
 | short Foraminifera keeping under 60% | 18 | 566–640 (50–60% kept) |
 | lowest | 1 | Euglenophyceae_X `KC440730.1.637_U`, 443 of 637 bp |
 
+`check-alignment.slurm` (job 20421398) on the rerun alignment:
+
+| measure | first FFT-NS-i (4,115) | rerun (4,246) |
+|---|---|---|
+| Columns after trimming, gaps | 2,269, 27.9% | 2,243, 27.4% |
+| Reference bases kept, median | 98.1% | 98.0% |
+| Reference bases kept, 5th percentile | 65.2% | 64.4% |
+| Reference bases kept, minimum | 25.0% | 36.4% |
+| References with under 50% kept | 72 | 42 |
+| References with under 1,000 bases kept | 70 | 113 (62 Foraminifera) |
+| ASV bases kept, median | 98.7% | 99.0% |
+| ASV bases kept, 5th percentile | 91.2% | 89.1% |
+| ASV bases kept, minimum | 68.9% | 71.4% |
+| Sampled ASVs under 150 bases kept | 0 | 0 |
+
+The increase in references under 1,000 bases comes from the short forced references.
+ASV coverage is unchanged, so the tree (step 04) went ahead on this alignment.
+
 ## 6. Reference tree
 
 `04-reference-tree.slurm` runs IQ-TREE on `03-alignment/reference-trimmed.fasta`:
