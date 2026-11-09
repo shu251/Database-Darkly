@@ -33,6 +33,11 @@ FORCE_REFERENCES=$(cut -f1 "${SLURM_SUBMIT_DIR:-.}/force-references.tsv")   # ke
 # Alignment trimming (03)
 TRIM_GT=0.1            # keep columns with sequence in at least this fraction of references
 
+# Reference tree (04)
+TREE_MODEL=GTR+F+R10   # BIC choice in both earlier full trees; fixed so every search is scored under one model
+TREE_NSTOP=500         # stop a search after this many iterations without improvement (IQ-TREE default 100)
+TREE_SEED=20261101     # search N uses TREE_SEED + N
+
 # ASV screening (05)
 SILVA_SCREEN_ID=0.90   # drop ASVs whose best SILVA hit at this identity is not eukaryotic
 MIN_ALIGNED_BP=150     # drop ASVs with fewer aligned bases than this after trimming

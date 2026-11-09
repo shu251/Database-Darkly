@@ -43,7 +43,7 @@ done
 
 echo "=== SUMMARY"
 seqkit stats -a "${REF_DIR}/reference.fasta" "${ALN_DIR}/reference-trimmed.fasta" "${PLACE_DIR}/query-filtered.fasta"
-grep -m1 'Best-fit model' "${TREE_DIR}/reference.iqtree"
+grep -m1 'Model of substitution' "${TREE_DIR}/search-1/reference.iqtree"
 ls -la "${PLACE_DIR}" "${PLACE_DIR}/epa" "${PLACE_DIR}/gappa"
 head -n 5 "${PLACE_DIR}/gappa/"*per_query.tsv
 

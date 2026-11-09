@@ -7,6 +7,8 @@
 #       Fungi
 #     Amoebozoa
 #   Rhizaria, Alveolata, Stramenopiles, Discoba
+#   Rhodophyta, so that the fast-evolving Cyanidiales stay with the red algae
+#   instead of joining Metamonada by long-branch attraction (second tree, job 20421447)
 # Usage: awk -f make-constraint.awk reference-taxonomy.tsv > constraint.tree
 BEGIN { FS = "\t" }
 {
@@ -20,6 +22,7 @@ BEGIN { FS = "\t" }
   else if (r[3] == "Alveolata")    g = "alveolata"
   else if (r[3] == "Stramenopiles") g = "stramenopiles"
   else if (r[3] == "Discoba")      g = "discoba"
+  else if (r[3] == "Rhodophyta")   g = "rhodophyta"
   else                             g = "free"
   tips[g] = (g in tips ? tips[g] "," : "") $1
   n[g]++
@@ -30,5 +33,5 @@ END {
   for (k in n) print k "\t" n[k] > "/dev/stderr"
   opis = "(" grp("metazoa") "," grp("fungi") "," tips["opisthokonta"] ")"
   amor = "(" opis "," grp("amoebozoa") "," tips["amorphea"] ")"
-  print "(" amor "," grp("rhizaria") "," grp("alveolata") "," grp("stramenopiles") "," grp("discoba") "," tips["free"] ");"
+  print "(" amor "," grp("rhizaria") "," grp("alveolata") "," grp("stramenopiles") "," grp("discoba") "," grp("rhodophyta") "," tips["free"] ");"
 }
