@@ -21,13 +21,14 @@ no log.
 | Export | `sbatch 01-export-databases.slurm` | taxonomy format printed in the log |
 | References | `sbatch 02-select-references.slurm` | reference count, `references-per-division.txt` |
 | Alignment | `sbatch 03-align-trim.slurm` | trimmed alignment length |
-| Tree | move any finished `04-tree/reference.*` aside, then `sbatch 04-reference-tree.slurm` | `reference.iqtree`, long branches, major groups recovered |
+| Tree searches | move any earlier `04-tree/` outputs aside, then `sbatch 04-reference-tree.slurm` (array of 6: 5 constrained seeds, 1 unconstrained) | every `search-N/reference.log` ends with a date |
+| Choose tree | `sbatch --dependency=afterok:<array job id> 04b-compare-trees.slurm` | `compare/search-loglik.tsv`, RF distances, AU test; long branches and major groups in `reference.treefile` |
 | Placement | `sbatch 05-place-asvs.slurm` | ASVs dropped at each filter |
 
 Paths and thresholds are all in `config.sh`. Outputs go to
 `/scratch/group/hu-lab/deepsea-18S-merged-outputs/phylo-placement/`.
-If the tree job hits its time limit, resubmit it: IQ-TREE resumes from its
-checkpoint.
+If a tree search hits its time limit, resubmit that task alone
+(`sbatch --array=N 04-reference-tree.slurm`): IQ-TREE resumes from its checkpoint.
 
 ## Reference selection
 

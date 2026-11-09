@@ -5,10 +5,12 @@ order the work was done. Parameters and counts are the ones actually used.
 Companion files: `README.md` (how to run the pipeline), `config.sh` (all paths and
 thresholds), `force-references.tsv` (references added by hand).
 
-**Status on 2026-11-04:** the first reference tree (job 20367329, 4,115 references)
-finished. On review, all 122 remaining lost lineages were added to
-`force-references.tsv`, and 9 more on 2026-11-05 (179 forced in total), so steps
-02–04 must be rerun before placement. ASV placement (step 7) has not been run.
+**Status on 2026-11-08:** the constrained rerun tree (job 20421447, 4,246 references,
+179 forced) finished on 2026-11-08 and was reviewed against the first tree (step 6).
+It satisfies the backbone constraint and recovers most free groups. After review,
+Rhodophyta was added to the constraint and one misplaced forced reference was dropped,
+so steps 02–04 must be rerun again (step 6, decisions). ASV placement (step 7) has not
+been run.
 
 Job logs are written to `logs/`.
 
@@ -198,6 +200,22 @@ alignment had 65,417 columns, trimmed to 2,243 (27.4% gaps).
 | short Foraminifera keeping under 60% | 18 | 566–640 (50–60% kept) |
 | lowest | 1 | Euglenophyceae_X `KC440730.1.637_U`, 443 of 637 bp |
 
+`check-alignment.slurm` on this alignment (job 20421398):
+
+| measure | 4,115 references (job 20367299) | 4,246 references (job 20421398) |
+|---|---|---|
+| Reference bases kept, median | 98.1% | 98.0% |
+| Reference bases kept, 5th percentile | 65.2% | 64.4% |
+| Reference bases kept, minimum | 25.0% | 36.4% |
+| References with under 50% kept | 72 | 42 |
+| References with under 1,000 bases kept | 70 | 113 (62 Foraminifera) |
+| ASV bases kept, median | 98.7% | 99.0% |
+| ASV bases kept, 5th / minimum | 91.2% / 68.9% | 89.1% / 71.4% |
+| Sampled ASVs under 150 bases kept | 0 | 0 |
+
+The rise in references under 1,000 bases comes from the 90 forced references that
+were under 1,200 bp to begin with.
+
 `check-alignment.slurm` (job 20421398) on the rerun alignment:
 
 | measure | first FFT-NS-i (4,115) | rerun (4,246) |
@@ -218,7 +236,7 @@ ASV coverage is unchanged, so the tree (step 04) went ahead on this alignment.
 
 ## 6. Reference tree
 
-`04-reference-tree.slurm` runs IQ-TREE on `03-alignment/reference-trimmed.fasta`:
+For the first two trees, `04-reference-tree.slurm` ran IQ-TREE on `03-alignment/reference-trimmed.fasta` (replaced after the second tree; see decisions below):
 
 ```
 iqtree2 -m MFP -mset GTR -mfreq F -mrate G,R -B 1000 -alrt 1000 -T 24 --mem 320G --seed 20261101
@@ -303,7 +321,157 @@ The deep backbone comes from the constraint, not from 18S, and the methods must 
 
 Before the rerun, the first tree's outputs must be moved out of `04-tree/` (for example
 to `04-tree/run1-unconstrained/`), because IQ-TREE will not start over a finished run.
-Step 04 now stops with a message if it finds one.
+Step 04 now stops with a message if it finds one. The first tree is in
+`04-tree/run1-unconstrained/`.
+
+**Second tree, constrained (job 20421447, 4,246 references; current).** It started
+2026-11-06 and finished 2026-11-08 in 41 hours. The constraint
+(`04-tree/constraint.tree`) covered 3,413 references and left 833 free.
+
+Both trees were reviewed with the same script, which first reproduced every first-tree
+number above (support, branch lengths, group splits, forced-reference neighbours).
+Groups were checked against the current `reference-taxonomy.tsv`.
+
+| measure | first tree (unconstrained) | second tree (constrained) |
+|---|---|---|
+| References / columns | 4,115 / 2,269 | 4,246 / 2,243 |
+| Best-fit model (BIC) | GTR+F+R10 | GTR+F+R10 |
+| Log-likelihood | −1,581,984.45 | −1,621,964.75 |
+| Total tree length | 602.9 (28.0% internal) | 610.4 (28.0% internal) |
+| UFBoot convergence | not reached; last correlations 0.937, 0.922, 0.911 | not reached; last correlations 0.908, 0.914, 0.931 |
+| Nodes with SH-aLRT ≥ 80 / UFBoot ≥ 95 / both | 71.2% / 66.2% / 55.5% | 72.4% / 69.7% / 58.8% |
+| References failing the composition test | 971 | 1,027 |
+| References over 50% gaps | 128 | 184 |
+| Terminal branches, median | 0.053 | 0.052 |
+| Terminal branches over Q3 + 3 IQR | 233 (> 0.339) | 252 (> 0.329) |
+
+The two log-likelihoods are not comparable, because the alignments differ (131 more
+references, 26 fewer columns). The difference therefore does not show what the
+constraint costs (open items).
+
+*The constraint held.* All 9 enforced groups are clades in the ML tree. Their 100/100
+support is set by the constraint, not measured: IQ-TREE warned 9 times that a branch
+whose both NNIs violate the constraint shows 100% SH-aLRT. These are the only 9 such
+branches, so the support rates above barely change without them. Several enforced stems
+have length near zero (Amorphea, Alveolata, Rhizaria and Metazoa 0.000, Fungi 0.001,
+Amoebozoa 0.006), so the data give these groups almost no length of their own. Rooting
+`gappa examine assign` on Amorphea is now valid, because Amorphea is a clade by
+construction.
+
+*Groups inside the constraint* (members outside the best clade / intruders inside it):
+
+| group | n (second tree) | first tree | second tree |
+|---|---|---|---|
+| Foraminifera | 102 | 0 / 0 | 0 / 0 |
+| Heterolobosea | 42 | 15 / 0 | 0 / 0 |
+| Euglenozoa | 133 | 0 / 3 | 0 / 0 |
+| Gregarinomorphea | 98 | 55 / 3 | 21 / 17 |
+| Apicomplexa | 215 | 66 / 1 | 18 / 5 |
+| Radiolaria | 188 | 38 / 4 | 43 / 0 |
+| Evosea | 110 | 60 / 0 | 58 / 0 |
+| Discosea | 46 | 33 / 1 | 18 / 9 (Evosea) |
+| Bigyra | 184 | 88 / 2 | 92 / 2 |
+
+*Free groups.* Metamonada improved (43 outside in the first tree, now 0 outside),
+except that 7 of the 8 Cyanidiales red algae and *Paravannella* (`KF895375.1.2066_U`,
+`Eukaryota_XX`) now sit inside it. Cyanidiales are fast-evolving extremophiles, and
+`FN546176.1.1551_U` (1.42) sits next to Fornicata, so this is most likely long-branch
+attraction. Discoba and Metamonada do not form Excavata, which phylogenomics does not
+support either.
+
+| group | n | first tree | second tree |
+|---|---|---|---|
+| Metamonada | 122 | 43 / 1 | 0 / 8 (7 Cyanidiales, *Paravannella*) |
+| Archaeplastida | 567 | 255 / 3 | 9 / 141 (see below) |
+| Chlorophyta | 299 | 2 / 3 | 2 / 2 |
+| Rhodophyta | 235 | 8 / 0 | 7 / 0 (the Cyanidiales) |
+| Haptista | 73 | 24 / 0 | 1 / 0 |
+| Haptophyta | 50 | 1 / 0 | 0 / 0 |
+| Cryptista | 37 | 1 / 0 | 1 / 0 |
+| Cryptophyta, Kathablepharidacea, Picozoa, Telonemia, Glaucophyta | | monophyletic | monophyletic |
+
+The best Archaeplastida clade also holds Haptista, Cryptista, Telonemia, Provora and the
+CRuMs, so the free groups gather in one "Archaeplastida + Haptista + Cryptista"
+assemblage rather than inside Amorphea or TSAR. Within it, Rhodelphidia is sister to the
+red algae, as expected, and Provora is sister to Telonemia. Two Chlorophyta are
+misplaced: *Bulbochaete* (`EF616484.1.1801_U`, branch 1.65) on its own branch next to
+TSAR, and a Nephroselmidaceae (`GU825178.1.1416_U`) next to Rhizaria.
+
+*Forced references.* 177 of 179 sit next to members of their own division (44 of 48 in
+the first tree). The six under 800 bp all sit within their own division, on terminal
+branches of 0.00–0.15. The 90 forced references under 1,200 bp have median terminal
+branches of 0.058, close to the tree median. The two exceptions:
+
+- Malawimonadidae (`PP680531.1.3998_U`) is now sister to Metamonada (with the
+  Cyanidiales), supported 90.8 / 44. Some phylogenomic analyses place malawimonads
+  near Metamonada, so this is plausible but weakly supported.
+- The short Ancyromonadida reference (`HM103458.1.1000_U`, 1,000 bp) sits alone at
+  the base of Stramenopiles + Rhizaria with 0 / 48 support. The other 7 Ancyromonadida
+  group with Mantamonadidea. It is misplaced and is a candidate for removal.
+
+10 forced references are among the long branches (1 in the first tree), most of them
+short sequences at 0.33–0.90. The longest are a forced short Foraminifera,
+*Turborotalita* (`AY453127.1.1196_U`, 1.74), and the Kickxellomycotina reference
+(`KF848917.1.3736_U`, 1.30), which the Fungi constraint now keeps in place.
+
+*Foraminifera.* They are monophyletic, with median terminal branches the same as the
+rest of the tree (0.051 against 0.052; 0.050 for the 43 forced). The extra bases they
+lost to trimming did not lengthen terminal branches. Their stem branch is long, however
+(1.00 substitutions per site, 100 / 100), which can attract ASVs that are poorly
+aligned or long-branched.
+
+*Long branches.* The longest are still fast-evolving lineages: *Reticularia*
+(`JX481311.1.1276_G`, 4.60), *Creneis* (3.25), a Trebouxiophyceae (`EF526893.1.1778_U`,
+1.93), *Neozygites* (1.83) and *Turborotalita* (1.74).
+
+**Decisions (2026-11-08) after the second tree.**
+
+- *Rhodophyta added to the constraint.* The Cyanidiales inside Metamonada were judged
+  long-branch attraction, and red algal monophyly, Cyanidiophyceae included, has strong
+  phylogenomic support. `make-constraint.awk` now enforces Rhodophyta (235 references)
+  as one more group among the free references. Nothing else about Archaeplastida is
+  enforced.
+- *`HM103458.1.1000_U` removed from `force-references.tsv`* (178 forced). It was the only
+  reference for Ancyromonadida_XXXX (Planomonadidae_XXXXX), and every PR2 sequence of
+  that lineage is shorter, so no replacement exists. `check-lost-lineages.sh` will now
+  report this one lineage, by design. Ancyromonadida stays represented by its other 7
+  references, and ASVs from the lost lineage will place near them.
+
+With both changes, the constraint covers 3,648 of 4,245 references and leaves 597 free.
+Steps 02 → 03 → `check-alignment.slurm` → 04 must be rerun, and the second tree's
+outputs moved to `04-tree/run2-constrained/` first.
+
+- *Step 04 becomes several independent searches.* A single search did not reach the
+  best tree. In both earlier trees the bootstrap consensus scored a higher
+  log-likelihood than the ML tree (by 152 and 183 units), and the best tree was found
+  late (iteration 999 of 1,001 in the first tree, 752 in the second). For placing
+  difficult deep-sea ASVs, the topology matters more than bootstrap values, which
+  EPA-ng does not use. `04-reference-tree.slurm` is now a Slurm array:
+
+  | task | search |
+  |---|---|
+  | 1–5 | constrained, seeds 20261102–20261106 |
+  | 6 | unconstrained, seed 20261107, for the AU test |
+
+  ```
+  iqtree2 [-g constraint.tree] -m GTR+F+R10 -nstop 500 -T 24 --seed <TREE_SEED + task>
+  ```
+
+  The model is fixed (BIC chose GTR+F+R10 in both earlier trees), so every search is
+  scored under the same model. There are no UFBoot or SH-aLRT runs during the searches.
+  Since IQ-TREE's default stop rule (100 iterations without improvement) would have
+  ended both earlier searches too soon, `-nstop 500` is used instead. Each task asks for
+  40 GB, since IQ-TREE needed about 3 GB.
+
+  `04b-compare-trees.slurm` then:
+  1. picks the constrained search with the highest log-likelihood and copies it to
+     `04-tree/reference.treefile`, the tree step 05 places on;
+  2. reports RF distances among the 5 constrained searches, to show how stable the
+     topology is;
+  3. runs an AU test of all 6 trees (`-z`, `-zb 10000 -au`), which measures what the
+     constraint costs;
+  4. computes SH-aLRT on the chosen tree without the constraint (`-te`, `-alrt 1000`),
+     written to `reference-support.treefile`. These are the supports to report.
 
 ## 7. ASV placement (not yet run)
 
@@ -333,14 +501,27 @@ None of these affected a final output.
 
 ## Open items
 
-- Check Foraminifera in the finished tree, given the extra bases they lost to trimming
-  under FFT-NS-i.
-- Rerun 02 → `check-lost-lineages.sh` → 03 → `check-alignment.slurm` → 04 with the
-  179 forced references and the backbone constraint.
-- In the rerun tree, see where the free groups (Archaeplastida, Haptista, Cryptista,
-  Metamonada, orphan lineages) land, and compare its log-likelihood with the first
-  tree's (−1,581,984.45) to show what the constraint costs.
-- Decide whether to rerun UFBoot with more iterations (`-nm`) or report SH-aLRT alongside it.
+- Done 2026-11-08: reran 02 → `check-lost-lineages.sh` → 03 → `check-alignment.slurm`
+  → 04 with 179 forced references and the constraint, and checked Foraminifera and the
+  free groups (step 6).
+- Done 2026-11-08: Rhodophyta constrained, `HM103458.1.1000_U` dropped, and step 04
+  changed to 5 constrained searches plus 1 unconstrained, followed by
+  `04b-compare-trees.slurm` (step 6, decisions).
+- Done 2026-11-08/09: second tree moved to `04-tree/run2-constrained/` (with a copy of
+  its alignment), 02 rerun (job 20437164: 4,245 references; constraint 3,648, free 597),
+  `check-lost-lineages.sh` reports only Ancyromonadida_XXXX, as expected.
+- In progress 2026-11-09: 03 (job 20452011) → `check-alignment.slurm` (job 20452012).
+  Next: review the alignment check, then 04 (array) → 04b.
+- Once 04b finishes, rerun the tree review on the chosen tree: Cyanidiales placed with
+  the red algae, Malawimonadidae, forced references, Foraminifera stem. Also record the
+  RF spread and the AU result, which says whether the data reject the constrained trees.
+- After placement, check whether ASVs pile up on the long Foraminifera stem (1.00) or on
+  the misplaced *Bulbochaete* and Nephroselmidaceae branches.
+- Support: report the unconstrained SH-aLRT from 04b. UFBoot is no longer run; it did not
+  converge in either earlier tree. Supports on the enforced groups from a constrained run
+  are not measurements and must not be reported.
+- Later, in step 05: place the ASVs on the two best constrained trees and compare
+  their assignments, to test how robust the placements are.
 - Check whether the longest branches (for example `JX481311.1.1276_G`, `EF616484.1.1801_U`)
   are real fast evolution or misalignment or chimeras.
 
@@ -349,8 +530,12 @@ None of these affected a final output.
 - Placement can only attach an ASV to a lineage in the tree. Lineages absent from PR2
   will appear as placements near their closest reference, and ASVs on long
   pendant branches or with high uncertainty could be novel, chimeric or non-target.
-- Forced short references carry less signal, and their positions need checking in the
-  finished tree.
+- Forced short references carry less signal. In the second tree, 178 of 179 forced
+  references sat in a reasonable position; the exception, `HM103458.1.1000_U`, was
+  dropped.
+- The deep backbone (Amorphea, Opisthokonta, Rhizaria, Alveolata, Stramenopiles,
+  Discoba, Rhodophyta) is enforced, not inferred from 18S. Several enforced stems have
+  length near zero.
 - ASV coverage comes from a sample of 300 ASVs, not the full set. Step 7 reports the
   full count.
 - References use PR2 5.1.1, while the ASV taxonomy in `annotation-pipeline/` was assigned
