@@ -234,6 +234,35 @@ were under 1,200 bp to begin with.
 The increase in references under 1,000 bases comes from the short forced references.
 ASV coverage is unchanged, so the tree (step 04) went ahead on this alignment.
 
+**Third alignment, for the multi-seed trees (step 02 job 20437164, step 03 job 20452011,
+checked in job 20452012).** Same as the rerun except `HM103458.1.1000_U` was dropped
+(178 forced references, 4,245 in total). FFT-NS-i took 15.5 h and peaked at 77 GB of memory.
+
+| measure | rerun (4,246, job 20421398) | third (4,245, job 20452012) |
+|---|---|---|
+| Columns before trimming | 65,417 | 64,510 |
+| Columns after trimming, gaps | 2,243, 27.4% | 2,206, 26.5% |
+| Reference bases kept, median | 98.0% | 98.1% |
+| Reference bases kept, 5th percentile | 64.4% | 64.2% |
+| Reference bases kept, minimum | 36.4% | 24.1% |
+| References with under 50% kept | 42 | 46 |
+| References with under 1,000 bases kept | 113 (62 Foraminifera) | 123 (62 Foraminifera) |
+| ASV bases kept, median | 99.0% | 98.7% |
+| ASV bases kept, 5th percentile | 89.1% | 88.2% |
+| ASV bases kept, minimum | 71.4% | 71.7% |
+| Sampled ASVs under 150 bases kept | 0 | 0 |
+
+Forced references changed little: all 178 are present, with a mean change of −4.6 bases
+from the rerun. The largest losses were in long Foraminifera (`FR821694.1.3331_U` −62,
+`HE965431.1.4863_U` −58, `DQ440527.1.3473_U` −50), all of which keep over 1,500 bases.
+`KC440730.1.637_U` is still the only one under 500 (438 bases).
+
+The new minimum is *Oocystis lacustris* `KJ522681.1.2893_U` (Chlorophyta, not forced),
+which dropped from 1,080 bases kept (37%) to 697 (24%), even though only one sequence
+was removed from the input. The cause is not known; the sequence is 2,893 bp, probably
+intron-containing. It should be checked for a long branch in the new trees. ASV coverage is unchanged, so step 04 went
+ahead on this alignment (array job 20466180, then 04b job 20466186 after it succeeds).
+
 ## 6. Reference tree
 
 For the first two trees, `04-reference-tree.slurm` ran IQ-TREE on `03-alignment/reference-trimmed.fasta` (replaced after the second tree; see decisions below):
@@ -510,8 +539,10 @@ None of these affected a final output.
 - Done 2026-11-08/09: second tree moved to `04-tree/run2-constrained/` (with a copy of
   its alignment), 02 rerun (job 20437164: 4,245 references; constraint 3,648, free 597),
   `check-lost-lineages.sh` reports only Ancyromonadida_XXXX, as expected.
-- In progress 2026-11-09: 03 (job 20452011) → `check-alignment.slurm` (job 20452012).
-  Next: review the alignment check, then 04 (array) → 04b.
+- Done 2026-11-10: 03 (job 20452011) → `check-alignment.slurm` (job 20452012) reviewed
+  (section 5, third alignment).
+- In progress 2026-11-10: 04 array job 20466180 (searches 1–5 constrained, 6
+  unconstrained), and after it succeeds, 04b job 20466186.
 - Once 04b finishes, rerun the tree review on the chosen tree: Cyanidiales placed with
   the red algae, Malawimonadidae, forced references, Foraminifera stem. Also record the
   RF spread and the AU result, which says whether the data reject the constrained trees.
